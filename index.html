@@ -1,0 +1,425 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Jeff Electric provides clear, homeowner-first residential electrical service across Southeast Houston."><title>Residential Electrician in Southeast Houston | Jeff Electric</title><link rel="icon" href="./favicon.png"><style>@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host { --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace; --spacing: 0.25rem; --default-font-family: var(--font-sans); --default-mono-font-family: var(--font-mono); }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button { box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid; }
+  html, :host { line-height: 1.5; text-size-adjust: 100%; tab-size: 4; font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"); font-feature-settings: var(--default-font-feature-settings, normal); font-variation-settings: var(--default-font-variation-settings, normal); -webkit-tap-highlight-color: transparent; }
+  hr { height: 0px; color: inherit; border-top-width: 1px; }
+  abbr:where([title]) { text-decoration: underline dotted; }
+  h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+  a { color: inherit; text-decoration: inherit; }
+  b, strong { font-weight: bolder; }
+  code, kbd, samp, pre { font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace); font-feature-settings: var(--default-mono-font-feature-settings, normal); font-variation-settings: var(--default-mono-font-variation-settings, normal); font-size: 1em; }
+  small { font-size: 80%; }
+  sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+  sub { bottom: -0.25em; }
+  sup { top: -0.5em; }
+  table { text-indent: 0px; border-color: inherit; border-collapse: collapse; }
+  progress { vertical-align: baseline; }
+  summary { display: list-item; }
+  ol, ul, menu { list-style: none; }
+  img, svg, video, canvas, audio, iframe, embed, object { display: block; vertical-align: middle; }
+  img, video { max-width: 100%; height: auto; }
+  button, input, select, optgroup, textarea, ::file-selector-button { font: inherit; letter-spacing: inherit; color: inherit; border-radius: 0px; background-color: transparent; opacity: 1; }
+  :where(select:is([multiple], [size])) optgroup { font-weight: bolder; }
+  :where(select:is([multiple], [size])) optgroup option { padding-inline-start: 20px; }
+  ::file-selector-button { margin-inline-end: 4px; }
+  ::placeholder { opacity: 1; }
+  @supports (not (-webkit-appearance: -apple-pay-button)) or (contain-intrinsic-size: 1px) {
+  ::placeholder {
+  color: currentcolor;
+  @supports (color: color-mix(in lab, red, red)) {
+  color: color-mix(currentcolor, transparent);
+}
+}
+}
+  textarea { resize: vertical; }
+  ::-webkit-search-decoration { appearance: none; }
+  ::-webkit-date-and-time-value { min-height: 1lh; text-align: inherit; }
+  ::-webkit-datetime-edit { display: inline-flex; }
+  ::-webkit-datetime-edit-fields-wrapper { padding: 0px; }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field { padding-block: 0px; }
+  ::-webkit-calendar-picker-indicator { line-height: 1; }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button { appearance: button; }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
+  [hidden]:where(:not([hidden="until-found"])) { display: none !important; }
+}
+@layer utilities {
+  .visible { visibility: visible; }
+  .relative { position: relative; }
+  .start { inset-inline-start: var(--spacing); }
+  .table { display: table; }
+  .antialiased { -webkit-font-smoothing: antialiased; }
+}
+:root { --ink: #000000; --charcoal: #1a1a1a; --gold: #f2b21a; --gold-dark: #a87300; --cream: #f5f5f5; --white: #fff; --muted: #a7a7a7; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0px; background: var(--cream); color: var(--ink); font-family: var(--font-geist-sans),Arial,Helvetica,sans-serif; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+.site-header { position: sticky; top: 0px; z-index: 50; height: 82px; padding: 0px clamp(22px, 5vw, 78px); display: flex; align-items: center; gap: 38px; background: rgba(7, 8, 7, 0.96); color: white; border-bottom: 1px solid rgb(41, 43, 37); backdrop-filter: blur(12px); }
+.brand { display: flex; align-items: center; gap: 10px; min-width: max-content; }
+.brand-icon { width: 43px; height: 43px; object-fit: contain; }
+.brand-wordmark { width: 144px; height: auto; object-fit: contain; }
+.bolt { color: var(--gold); font-size: 29px; font-weight: 900; line-height: 1; }
+.bolt-small { font-size: 18px; }
+.nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+.nav a { color: rgb(199, 200, 194); font-size: 13px; font-weight: 700; }
+.nav a:hover { color: var(--gold); }
+.header-actions { display: flex; align-items: center; gap: 18px; }
+.phone { font-size: 14px; font-weight: 800; }
+.phone span { display: block; color: rgb(142, 144, 136); font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; }
+.button { min-height: 44px; padding: 0px 20px; display: inline-flex; justify-content: center; align-items: center; gap: 12px; border: 1px solid transparent; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.09em; cursor: pointer; transition: 0.2s; }
+.button-gold { background: var(--gold); color: rgb(8, 9, 8); box-shadow: rgb(89, 65, 0) 5px 5px 0px; clip-path: polygon(0px 0px, 94% 0px, 100% 24%, 100% 100%, 0px 100%); }
+.button-gold:hover { transform: translate(3px, 3px); box-shadow: rgb(89, 65, 0) 2px 2px 0px; }
+.button-outline { border-color: rgb(85, 87, 79); color: white; background: transparent; }
+.button-outline:hover { border-color: var(--gold); color: var(--gold); }
+.button-large { min-height: 57px; padding: 0px 28px; }
+.menu-button { display: none; background: none; color: white; border: 0px; font-size: 24px; }
+.hero { min-height: 670px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: clamp(30px, 7vw, 110px); padding: 85px clamp(24px, 8vw, 124px) 90px; background: rgb(5, 5, 5); color: white; }
+.hero::before { content: ""; position: absolute; width: 58%; height: 140%; right: -17%; top: -25%; opacity: 0.32; background: repeating-linear-gradient(138deg, transparent 0px, transparent 46px, rgb(242, 178, 26) 47px, rgb(242, 178, 26) 48px, transparent 49px, transparent 92px); transform: skewX(-9deg); }
+.hero-content, .hero-card, .hero-photo { position: relative; z-index: 1; }
+.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--gold); font-size: 10px; font-weight: 900; letter-spacing: 0.22em; }
+.eyebrow span { width: 28px; height: 2px; background: var(--gold); }
+.eyebrow.dark { color: rgb(133, 108, 32); }
+.hero h1, .section h2, .safety h2, .contact h2 { margin: 22px 0px; font-size: clamp(50px, 6vw, 86px); line-height: 0.95; letter-spacing: -0.055em; font-weight: 900; }
+h1 em, h2 em { color: var(--gold); font-family: inherit; font-style: normal; font-weight: 900; }
+.hero-copy { max-width: 680px; color: rgb(192, 194, 186); font-size: 17px; line-height: 1.75; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+.coverage { margin-top: 27px; color: rgb(159, 161, 152); font-size: 12px; }
+.coverage span { color: rgb(103, 189, 104); margin-right: 7px; }
+.hero-card { min-height: 360px; padding: 48px 42px 35px; background: rgb(17, 17, 17); border: 1px solid rgb(73, 73, 73); box-shadow: rgb(242, 178, 26) 18px 18px 0px; clip-path: polygon(0px 0px, 90% 0px, 100% 10%, 100% 100%, 0px 100%); }
+.hero-card::before { content: ""; position: absolute; left: 0px; top: 0px; width: 110px; height: 3px; background: var(--gold); pointer-events: none; }
+.hero-card-mark { width: 92px; height: 76px; object-fit: contain; object-position: left center; margin-bottom: 20px; }
+.promise-label { color: var(--gold); font-size: 9px; font-weight: 900; letter-spacing: 0.18em; }
+.hero-card blockquote { margin: 14px 0px 0px; font-size: 24px; line-height: 1.35; font-weight: 800; color: rgb(255, 255, 255); }
+.signature { display: flex; gap: 13px; align-items: center; margin-top: 32px; }
+.signature > span { width: 37px; height: 37px; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: rgb(17, 17, 17); font-weight: 900; }
+.signature p, .signature small { margin: 0px; display: block; }
+.signature small { color: rgb(133, 135, 125); margin-top: 4px; }
+.circuit-lines i { position: absolute; background: rgb(74, 65, 32); }
+.circuit-lines i:nth-child(1) { width: 90px; height: 1px; right: 0px; top: 80px; }
+.circuit-lines i:nth-child(2) { width: 1px; height: 75px; right: 70px; top: 40px; }
+.circuit-lines i:nth-child(3) { width: 55px; height: 1px; right: 40px; bottom: 45px; }
+.hero-photo { margin: 0px; align-self: stretch; min-height: 470px; overflow: hidden; border: 1px solid rgb(75, 75, 75); box-shadow: 18px 18px 0 var(--gold); clip-path: polygon(0px 0px, 92% 0px, 100% 8%, 100% 100%, 0px 100%); }
+.hero-photo::after { content: ""; position: absolute; inset: 0px; background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.88)); pointer-events: none; }
+.hero-slides { position: absolute; inset: 0px; }
+.hero-photo img { position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; opacity: 0; transform: scale(1.045); transition: opacity 0.9s, transform 6.4s; }
+.hero-photo img.active { opacity: 1; transform: scale(1); }
+.hero-photo img:nth-child(2) { object-position: center 38%; }
+.hero-photo img:nth-child(3) { object-position: center center; }
+.hero-photo img:nth-child(4) { object-position: center center; }
+.hero-photo img:nth-child(5) { object-position: center center; }
+.hero-photo figcaption { position: absolute; z-index: 2; left: 28px; right: 28px; bottom: 72px; transition: opacity 0.3s, transform 0.3s; }
+.hero-photo figcaption span, .hero-photo figcaption strong { display: block; }
+.hero-photo figcaption span { color: var(--gold); font-size: 9px; font-weight: 900; letter-spacing: 0.18em; }
+.hero-photo figcaption strong { margin-top: 7px; font-size: 19px; }
+.slide-controls { position: absolute; z-index: 3; left: 26px; right: 26px; bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
+.slide-controls > button { width: 34px; height: 34px; border: 1px solid rgba(255, 255, 255, 0.333); background: rgba(8, 8, 8, 0.72); color: white; cursor: pointer; transition: 0.2s; }
+.slide-controls > button:hover, .slide-controls > button:focus-visible { border-color: var(--gold); color: var(--gold); outline: none; }
+.slide-dots { display: flex; gap: 8px; }
+.slide-dots button { width: 28px; height: 4px; padding: 0px; border: 0px; background: rgba(255, 255, 255, 0.333); cursor: pointer; transition: 0.25s; }
+.slide-dots button.active { width: 45px; background: var(--gold); }
+.slide-progress { position: absolute; z-index: 3; left: 0px; right: 0px; bottom: 0px; height: 3px; background: rgba(255, 255, 255, 0.094); }
+.slide-progress span { display: block; height: 100%; background: var(--gold); animation: 6s linear 0s 1 normal both running slide-progress; }
+.hero-photo:hover .slide-progress span, .hero-photo:focus-within .slide-progress span { animation-play-state: paused; }
+@keyframes slide-progress { 
+  0% { width: 0px; }
+  100% { width: 100%; }
+}
+.trust-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: rgb(21, 21, 21); color: white; padding: 26px clamp(24px, 8vw, 124px); border-top: 3px solid var(--gold); }
+.trust-strip div { position: relative; padding: 0px 30px; border-right: 1px solid rgb(59, 59, 59); }
+.trust-strip div:first-child { padding-left: 0px; }
+.trust-strip div:last-child { border: 0px; }
+.trust-strip b { position: absolute; right: 18px; top: -4px; color: rgb(78, 78, 78); font-size: 26px; }
+.trust-strip strong, .trust-strip span { display: block; }
+.trust-strip strong { color: var(--gold); font-size: 11px; letter-spacing: 0.15em; }
+.trust-strip span { font-size: 10px; margin-top: 7px; color: rgb(166, 166, 166); }
+.section { padding: 100px clamp(24px, 8vw, 124px); }
+.reassurance { display: grid; grid-template-columns: 0.7fr 1.25fr 1fr; gap: 5vw; align-items: center; padding: 64px clamp(24px, 8vw, 124px); background: rgb(238, 234, 224); border-bottom: 1px solid rgb(209, 202, 187); }
+.reassurance h2 { margin: 0px; font-size: clamp(35px, 4vw, 55px); line-height: 1; letter-spacing: -0.05em; }
+.reassurance h2 em { color: rgb(155, 119, 32); }
+.reassurance > p:last-child { color: rgb(93, 96, 89); font-size: 14px; line-height: 1.75; }
+.section-heading { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 55px; }
+.section-heading h2, .areas h2 { font-size: clamp(42px, 5vw, 66px); }
+.section-heading > p { max-width: 420px; color: rgb(95, 98, 92); line-height: 1.7; }
+.section h2 em, .areas h2 em { color: rgb(155, 119, 32); }
+.service-paths { border-top: 1px solid rgb(190, 190, 190); }
+.service-path { min-height: 210px; display: grid; grid-template-columns: 120px 1.15fr 1fr 200px; align-items: stretch; border-bottom: 1px solid rgb(190, 190, 190); background: white; transition: 0.2s; }
+.service-path:hover { background: rgb(14, 14, 14); color: white; box-shadow: inset 5px 0 0 var(--gold); }
+.service-path:hover .path-main p, .service-path:hover li { color: rgb(170, 170, 170); }
+.service-path:hover .path-rail { background: rgb(23, 23, 23); }
+.path-rail { padding: 30px 24px; display: flex; flex-direction: column; justify-content: space-between; background: rgb(236, 236, 236); border-right: 1px solid rgb(200, 200, 200); }
+.path-rail span { color: rgb(155, 155, 155); font: 11px var(--font-geist-mono); }
+.path-rail b { color: rgb(154, 106, 0); font-size: 10px; letter-spacing: 0.2em; writing-mode: vertical-rl; transform: rotate(180deg); }
+.path-main { padding: 38px 42px; align-self: center; }
+.path-main h3 { margin: 0px 0px 14px; font-size: clamp(24px, 2.4vw, 36px); line-height: 1.05; letter-spacing: -0.04em; }
+.path-main p { max-width: 520px; margin: 0px; color: rgb(104, 104, 104); font-size: 13px; line-height: 1.65; }
+.service-path ul { margin: 0px; padding: 38px 28px; list-style: none; align-self: center; border-left: 1px solid rgb(211, 211, 211); }
+.service-path li { padding: 7px 0px; color: rgb(85, 85, 85); font-size: 12px; }
+.service-path li span { color: var(--gold-dark); margin-right: 10px; }
+.service-path > a { min-height: 100%; padding: 30px; display: flex; align-items: center; justify-content: space-between; border-left: 1px solid rgb(211, 211, 211); color: rgb(125, 87, 0); font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
+.service-path > a span { font-size: 20px; color: var(--gold-dark); }
+.service-path:hover > a { background: var(--gold); color: rgb(17, 17, 17); }
+.service-path:hover > a span { color: rgb(17, 17, 17); }
+.service-assist { display: grid; grid-template-columns: 120px 1fr auto; align-items: center; gap: 30px; padding: 25px 30px; background: rgb(233, 233, 233); border-bottom: 3px solid var(--gold); }
+.service-assist > span { color: rgb(141, 101, 0); font-size: 9px; font-weight: 900; letter-spacing: 0.17em; }
+.service-assist p { margin: 0px; color: rgb(88, 88, 88); font-size: 12px; }
+.service-assist a { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
+.compact-services { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgb(201, 201, 201); border-left: 1px solid rgb(201, 201, 201); }
+.compact-services article { min-height: 205px; display: grid; grid-template-columns: 46px 1fr 38px; gap: 20px; padding: 30px; background: white; border-right: 1px solid rgb(201, 201, 201); border-bottom: 1px solid rgb(201, 201, 201); transition: 0.2s; }
+.compact-services article:hover { background: rgb(17, 17, 17); color: white; box-shadow: inset 4px 0 0 var(--gold); }
+.compact-services article > span { color: rgb(153, 153, 153); font: 10px var(--font-geist-mono); }
+.service-silhouette { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 18px; background: var(--gold); color: rgb(9, 9, 9); clip-path: polygon(0px 0px, 82% 0px, 100% 18%, 100% 100%, 18% 100%, 0px 82%); }
+.service-silhouette svg { width: 28px; height: 28px; stroke-width: 2.6; fill: none; }
+.compact-services article:hover .service-silhouette { background: white; color: rgb(17, 17, 17); }
+.compact-services h3 { margin: 0px 0px 9px; font-size: 21px; letter-spacing: -0.03em; }
+.compact-services p { margin: 0px; max-width: 500px; color: rgb(102, 102, 102); font-size: 12px; line-height: 1.6; }
+.compact-services article:hover p { color: rgb(170, 170, 170); }
+.compact-services a { align-self: center; color: rgb(154, 106, 0); font-size: 23px; font-weight: 900; }
+.power-check { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 7vw; padding: 100px clamp(24px, 8vw, 124px); background: rgb(8, 8, 8); color: white; border-top: 1px solid rgb(48, 48, 48); }
+.power-check-intro { position: sticky; top: 120px; align-self: start; }
+.power-check h2, .process h2 { margin: 20px 0px; font-size: clamp(44px, 5vw, 68px); line-height: 0.96; letter-spacing: -0.055em; }
+.power-check-intro > p:not(.eyebrow) { max-width: 500px; color: rgb(168, 168, 168); line-height: 1.7; }
+.check-disclaimer { margin-top: 32px; padding: 17px 18px; border-left: 3px solid var(--gold); background: rgb(23, 23, 23); color: rgb(210, 210, 210); font-size: 11px; line-height: 1.5; }
+.check-tool { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid rgb(54, 54, 54); min-height: 540px; }
+.check-options { background: rgb(17, 17, 17); }
+.check-options button { width: 100%; min-height: 67px; display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: center; padding: 0px 22px; border-width: 0px 0px 1px; border-style: none none solid; border-color: currentcolor currentcolor rgb(48, 48, 48); border-image: none; background: transparent; color: rgb(184, 184, 184); text-align: left; font-size: 12px; font-weight: 750; cursor: pointer; transition: 0.15s; }
+.check-options button span { color: rgb(85, 85, 85); font-family: var(--font-geist-mono); font-size: 10px; }
+.check-options button b { color: rgb(85, 85, 85); }
+.check-options button:hover, .check-options button.active { background: rgb(26, 26, 26); color: rgb(255, 255, 255); }
+.check-options button.active { box-shadow: inset 4px 0 0 var(--gold); }
+.check-options button.active span, .check-options button.active b { color: var(--gold); }
+.check-result { position: relative; overflow: hidden; padding: 48px 38px; background: rgb(245, 245, 245); color: rgb(17, 17, 17); display: flex; flex-direction: column; justify-content: center; }
+.check-result::after { content: ""; position: absolute; width: 150px; height: 150px; right: -80px; top: -80px; border: 26px solid rgb(230, 230, 230); transform: rotate(45deg); }
+.check-result > p:first-child { margin: 0px 0px 18px; font-size: 9px; font-weight: 900; letter-spacing: 0.18em; color: rgb(116, 116, 116); }
+.check-result h3 { margin: 25px 0px 12px; font-size: 29px; line-height: 1.05; letter-spacing: -0.04em; }
+.check-result > p:not(:first-child) { color: rgb(85, 85, 85); font-size: 13px; line-height: 1.65; }
+.result-signal { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; }
+.result-signal span { width: 10px; height: 10px; background: rgb(224, 156, 0); }
+.result-button { margin-top: 22px; align-self: flex-start; }
+.safety { display: grid; grid-template-columns: auto 1fr 1fr auto; gap: 35px; align-items: center; padding: 50px clamp(24px, 8vw, 124px); background: rgb(17, 19, 15); color: white; border-top: 1px solid rgb(91, 75, 30); }
+.safety-icon { width: 64px; height: 64px; border: 2px solid var(--gold); display: grid; place-items: center; font-size: 31px; font-weight: 900; color: var(--gold); clip-path: polygon(50% 0px, 100% 24%, 100% 76%, 50% 100%, 0px 76%, 0px 24%); }
+.safety h2 { font-size: 27px; letter-spacing: -0.03em; margin: 10px 0px 0px; line-height: 1.1; }
+.safety > p { color: rgb(168, 170, 162); line-height: 1.6; font-size: 13px; max-width: 390px; }
+.areas { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 9vw; }
+.areas-copy > p:not(.eyebrow) { max-width: 570px; color: rgb(96, 99, 92); line-height: 1.75; }
+.area-tags { display: flex; flex-wrap: wrap; gap: 9px; margin: 27px 0px; }
+.area-tags span { background: white; border: 1px solid rgb(214, 209, 197); padding: 10px 13px; font-size: 11px; font-weight: 800; }
+.text-link { font-size: 12px; font-weight: 900; color: rgb(141, 106, 20); }
+.map-card { position: relative; overflow: hidden; height: 470px; background: rgb(17, 21, 16); border: 10px solid white; box-shadow: rgba(39, 35, 21, 0.133) 0px 20px 50px; isolation: isolate; }
+.map-grid { position: absolute; inset: 0px; z-index: -3; opacity: 0.23; background-image: linear-gradient(rgb(111, 116, 95) 1px, transparent 1px), linear-gradient(90deg, rgb(111, 116, 95) 1px, transparent 1px); background-size: 42px 42px; transform: rotate(-8deg) scale(1.18); }
+.coverage-zone { position: absolute; left: 13%; top: 10%; width: 77%; height: 72%; z-index: -2; border: 1px solid rgba(242, 178, 26, 0.533); background: rgba(242, 178, 26, 0.075); border-radius: 48% 43% 42% 52%; box-shadow: rgba(242, 178, 26, 0.094) 0px 0px 60px inset; transform: rotate(-8deg); }
+.map-route { position: absolute; z-index: -1; display: block; height: 3px; background: rgb(115, 121, 104); box-shadow: rgb(17, 21, 16) 0px 0px 0px 1px; transform-origin: left center; }
+.route-225 { left: 6%; top: 27%; width: 82%; transform: rotate(3deg); }
+.route-45 { left: 24%; top: 3%; width: 96%; transform: rotate(58deg); background: rgb(208, 197, 139); }
+.route-beltway { left: -5%; top: 50%; width: 112%; transform: rotate(-15deg); }
+.route-bay { left: 32%; top: 73%; width: 65%; transform: rotate(-4deg); }
+.route-label { position: absolute; padding: 3px 5px; background: rgb(37, 42, 32); color: rgb(187, 185, 148); font: 7px var(--font-geist-mono); letter-spacing: 0.08em; }
+.label-225 { right: 8%; top: 24%; }
+.label-45 { left: 64%; top: 45%; }
+.label-beltway { left: 5%; top: 55%; }
+.label-bay { right: 4%; top: 68%; }
+.place { position: absolute; display: flex; align-items: center; gap: 6px; color: rgb(227, 230, 220); font-size: 8px; font-weight: 900; letter-spacing: 0.09em; text-shadow: rgb(0, 0, 0) 0px 2px 4px; }
+.place i { width: 7px; height: 7px; border: 2px solid var(--gold); background: rgb(17, 21, 16); border-radius: 50%; }
+.place-houston { left: 11%; top: 17%; }
+.place-pasadena { right: 13%; top: 18%; }
+.place-pearland { left: 16%; top: 56%; }
+.place-friendswood { left: 42%; bottom: 18%; }
+.place-clearlake { right: 10%; top: 56%; }
+.place-webster { right: 16%; bottom: 14%; }
+.map-pin { position: absolute; left: 45%; top: 35%; width: 52px; height: 52px; background: var(--gold); display: grid; place-items: center; transform: rotate(45deg); box-shadow: rgba(242, 178, 26, 0.125) 0px 0px 0px 13px; }
+.map-pin .bolt { color: rgb(17, 17, 17); transform: rotate(-45deg); }
+.map-label { position: absolute; left: calc(45% + 40px); top: 33%; padding: 11px 14px; background: white; box-shadow: rgba(0, 0, 0, 0.533) 6px 6px 0px; }
+.map-label strong, .map-label span { display: block; }
+.map-label strong { font-size: 11px; }
+.map-label span { font-size: 8px; color: rgb(119, 119, 119); margin-top: 3px; }
+.map-legend { position: absolute; left: 18px; right: 18px; bottom: 15px; display: flex; align-items: end; justify-content: space-between; padding: 12px 14px; background: rgba(8, 10, 8, 0.85); border-left: 3px solid var(--gold); }
+.map-legend span, .map-legend strong { display: block; }
+.map-legend span { color: rgb(140, 144, 133); font-size: 7px; letter-spacing: 0.16em; }
+.map-legend span i { display: inline-block; width: 8px; height: 8px; margin-right: 6px; background: rgba(242, 178, 26, 0.133); border: 1px solid var(--gold); }
+.map-legend strong { color: white; font-size: 10px; letter-spacing: 0.12em; }
+.process { padding: 100px clamp(24px, 8vw, 124px); background: rgb(11, 11, 11); color: white; border-top: 1px solid rgb(51, 51, 51); border-bottom: 3px solid var(--gold); }
+.process-top { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 7vw; align-items: end; margin-bottom: 54px; }
+.process h2 { margin: 20px 0px 0px; font-size: clamp(46px, 5.4vw, 74px); line-height: 0.96; letter-spacing: -0.055em; }
+.process-promise { padding: 24px 0px 4px 24px; border-left: 3px solid var(--gold); }
+.process-promise strong { color: var(--gold); font-size: 10px; letter-spacing: 0.16em; }
+.process-promise p { color: rgb(170, 170, 170); font-size: 13px; line-height: 1.7; }
+.process ol { position: relative; margin: 0px; padding: 0px; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgb(56, 56, 56); border-left: 1px solid rgb(56, 56, 56); counter-reset: journey 0; }
+.process li { position: relative; min-height: 215px; padding: 31px 28px; display: flex; gap: 18px; border-right: 1px solid rgb(56, 56, 56); border-bottom: 1px solid rgb(56, 56, 56); background: rgb(17, 17, 17); transition: 0.2s; }
+.process li::after { content: "→"; position: absolute; right: -11px; top: 50%; z-index: 2; width: 22px; height: 22px; display: grid; place-items: center; background: var(--gold); color: rgb(17, 17, 17); font-size: 12px; font-weight: 900; }
+.process li:last-child::after { display: none; }
+.process li:hover { background: rgb(24, 24, 24); box-shadow: inset 0 4px 0 var(--gold); }
+.process li > span { color: rgb(85, 85, 85); font: 11px var(--font-geist-mono); }
+.process li b { display: block; color: var(--gold); font-size: 8px; letter-spacing: 0.16em; margin-bottom: 16px; }
+.process li strong { display: block; font-size: 17px; line-height: 1.25; }
+.process li p { margin: 11px 0px 0px; color: rgb(143, 143, 143); font-size: 12px; line-height: 1.6; }
+.process-cta { margin-top: 34px; display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
+.process-cta p { margin-right: auto; font-size: 22px; font-weight: 850; letter-spacing: -0.03em; }
+.real-work { display: grid; grid-template-columns: 0.68fr 1.32fr; gap: 5vw; padding: 100px clamp(24px, 8vw, 124px); background: rgb(16, 17, 15); color: white; border-bottom: 3px solid var(--gold); }
+.real-work-heading { align-self: center; }
+.real-work-heading h2 { margin: 20px 0px; font-size: clamp(42px, 5vw, 68px); line-height: 0.96; letter-spacing: -0.055em; }
+.real-work-heading h2 em { color: var(--gold); font-style: normal; }
+.real-work-heading > p:last-child { max-width: 460px; color: rgb(170, 170, 170); line-height: 1.7; }
+.work-gallery { display: grid; grid-template-columns: 1.05fr 0.95fr 0.95fr; grid-template-rows: 220px 220px 210px; gap: 14px; }
+.work-gallery figure { position: relative; overflow: hidden; margin: 0px; background: rgb(34, 34, 34); border: 1px solid rgb(59, 59, 59); }
+.work-gallery .work-tall { grid-row: 1 / 3; }
+.work-gallery figure:nth-child(2) { grid-column: 2 / 4; }
+.work-gallery .work-wide { grid-column: 1 / 3; }
+.work-gallery img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.work-gallery .work-tall img { object-position: center center; }
+.work-gallery figure::after { content: ""; position: absolute; inset: 45% 0px 0px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.88)); }
+.work-gallery figcaption { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 16px; font-size: 12px; font-weight: 800; }
+.work-gallery figcaption span { display: block; margin-bottom: 5px; color: var(--gold); font-size: 8px; letter-spacing: 0.16em; }
+.contact { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 8vw; padding: 100px clamp(24px, 8vw, 124px); background: rgb(9, 10, 8); color: white; }
+.contact h2 { font-size: clamp(42px, 5vw, 65px); }
+.contact-copy > p:not(.eyebrow):not(.privacy) { color: rgb(168, 170, 162); line-height: 1.7; max-width: 520px; }
+.contact-phone { display: block; margin-top: 35px; }
+.contact-phone small, .contact-phone strong { display: block; }
+.contact-phone small { color: rgb(127, 129, 122); text-transform: uppercase; font-size: 9px; letter-spacing: 0.15em; }
+.contact-phone strong { color: var(--gold); font-size: 24px; margin-top: 7px; }
+.privacy { margin-top: 35px; color: rgb(113, 115, 109); font-size: 10px; }
+.reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.process ol.reveal li, .compact-services.reveal article { opacity: 0; transform: translateY(18px); }
+.process ol.reveal.is-visible li, .compact-services.reveal.is-visible article { opacity: 1; transform: none; transition: opacity 0.5s, transform 0.5s, background 0.2s, box-shadow 0.2s; }
+.process ol.reveal.is-visible li:nth-child(2), .compact-services.reveal.is-visible article:nth-child(2) { transition-delay: 0.08s; }
+.process ol.reveal.is-visible li:nth-child(3), .compact-services.reveal.is-visible article:nth-child(3) { transition-delay: 0.16s; }
+.process ol.reveal.is-visible li:nth-child(4), .compact-services.reveal.is-visible article:nth-child(4) { transition-delay: 0.24s; }
+.compact-services.reveal.is-visible article:nth-child(5) { transition-delay: 0.32s; }
+.compact-services.reveal.is-visible article:nth-child(6) { transition-delay: 0.4s; }
+.map-card.reveal.is-visible .coverage-zone { animation: 1.6s ease-out 0.35s 1 normal none running coverage-pulse; }
+.map-card.reveal.is-visible .map-pin { animation: 0.7s cubic-bezier(0.2, 0.9, 0.2, 1.2) 0.3s 1 normal both running pin-arrive; }
+@keyframes coverage-pulse { 
+  0% { box-shadow: rgba(242, 178, 26, 0.267) 0px 0px 0px 0px, rgba(242, 178, 26, 0.094) 0px 0px 60px inset; }
+  70% { box-shadow: rgba(242, 178, 26, 0) 0px 0px 0px 32px, rgba(242, 178, 26, 0.157) 0px 0px 60px inset; }
+  100% { box-shadow: rgba(242, 178, 26, 0) 0px 0px 0px 0px, rgba(242, 178, 26, 0.094) 0px 0px 60px inset; }
+}
+@keyframes pin-arrive { 
+  0% { opacity: 0; transform: rotate(45deg) scale(0.45); }
+  100% { opacity: 1; transform: rotate(45deg) scale(1); }
+}
+form { padding: 38px; background: rgb(21, 23, 19); border: 1px solid rgb(52, 54, 47); box-shadow: rgb(0, 0, 0) 12px 12px 0px; }
+label { display: block; color: rgb(184, 186, 179); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 800; margin-bottom: 18px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+input, select, textarea { width: 100%; margin-top: 8px; padding: 14px; border: 1px solid rgb(60, 62, 55); border-radius: 0px; background: rgb(12, 13, 11); color: white; outline: none; }
+input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: rgba(243, 200, 69, 0.133) 0px 0px 0px 2px; }
+textarea { resize: vertical; }
+form .button { width: 100%; border: 0px; }
+.success { min-height: 420px; padding: 55px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background: rgb(21, 23, 19); border: 1px solid rgb(63, 66, 47); }
+.success > span { width: 60px; height: 60px; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: rgb(17, 17, 17); font-size: 30px; }
+.success h3 { font-size: 28px; }
+.success p { color: rgb(170, 170, 170); line-height: 1.6; }
+.success a { color: var(--gold); }
+.success button { background: none; border: 0px; padding: 0px; color: var(--gold); text-decoration: underline; cursor: pointer; }
+footer { padding: 48px clamp(24px, 8vw, 124px) 30px; display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 30px; background: rgb(5, 6, 5); color: white; border-top: 1px solid rgb(41, 43, 37); }
+.footer-brand { align-self: start; }
+.footer-brand img { width: 190px; height: auto; object-fit: contain; }
+footer div strong, footer div span, footer div a { display: block; font-size: 11px; }
+footer div strong { color: rgb(119, 122, 114); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+footer div span, footer div a { margin-bottom: 7px; color: rgb(209, 210, 205); }
+footer > p { grid-column: 1 / -1; margin: 25px 0px 0px; padding-top: 22px; border-top: 1px solid rgb(32, 34, 30); color: rgb(96, 98, 92); font-size: 10px; }
+.mobile-bar { display: none; }
+@media (max-width: 1050px) {
+  .nav { display: none; position: absolute; top: 82px; left: 0px; right: 0px; padding: 25px; background: rgb(11, 12, 10); flex-direction: column; }
+  .nav.open { display: flex; }
+  .menu-button { display: block; margin-left: auto; }
+  .header-actions .phone { display: none; }
+  .hero { grid-template-columns: 1fr; padding-top: 65px; }
+  .hero-photo { min-height: 520px; }
+  .reassurance { grid-template-columns: 1fr 1fr; }
+  .reassurance > .eyebrow { grid-column: 1 / -1; }
+  .power-check { grid-template-columns: 1fr; }
+  .power-check-intro { position: static; }
+  .areas { gap: 5vw; }
+  .process-top { grid-template-columns: 1fr; }
+  .process ol { grid-template-columns: 1fr 1fr; }
+  .process li:nth-child(2n)::after { display: none; }
+  .real-work { grid-template-columns: 1fr; }
+  .contact { gap: 5vw; }
+}
+@media (max-width: 720px) {
+  body { padding-bottom: 58px; }
+  .site-header { height: 68px; padding: 0px 18px; }
+  .brand-icon { width: 36px; height: 36px; }
+  .brand-wordmark { width: 118px; }
+  .header-actions { display: none; }
+  .nav { top: 68px; }
+  .hero { min-height: auto; padding: 60px 22px 68px; }
+  .hero::before { width: 100%; right: -62%; opacity: 0.2; }
+  .hero h1 { font-size: 45px; }
+  .hero-copy { font-size: 15px; }
+  .hero-actions { display: grid; }
+  .hero-actions .button { width: 100%; }
+  .hero-photo { min-height: 360px; box-shadow: 10px 10px 0 var(--gold); }
+  .trust-strip { grid-template-columns: 1fr 1fr; padding: 18px 22px; }
+  .trust-strip div { padding: 14px 10px; border-right: 0px; border-bottom: 1px solid rgb(59, 59, 59); }
+  .trust-strip div:nth-child(2n+1) { border-right: 1px solid rgb(59, 59, 59); }
+  .trust-strip div:nth-last-child(-n+2) { border-bottom: 0px; }
+  .trust-strip b { display: none; }
+  .reassurance { grid-template-columns: 1fr; padding: 55px 22px; gap: 12px; }
+  .reassurance > .eyebrow { grid-column: auto; }
+  .section { padding: 70px 22px; }
+  .section-heading { display: block; }
+  .compact-services { grid-template-columns: 1fr; }
+  .compact-services article { min-height: 180px; padding: 24px 20px; }
+  .service-assist { grid-template-columns: 1fr; gap: 10px; padding: 24px 22px; }
+  .process { padding: 70px 22px; }
+  .process-top { margin-bottom: 36px; }
+  .process h2 { font-size: 44px; }
+  .process ol { grid-template-columns: 1fr; }
+  .process li { min-height: 170px; }
+  .process li::after { display: none !important; }
+  .process-cta { align-items: stretch; flex-direction: column; }
+  .process-cta p { margin: 0px 0px 8px; }
+  .power-check { padding: 70px 22px; }
+  .check-tool { grid-template-columns: 1fr; }
+  .check-result { min-height: 390px; }
+  .real-work { padding: 70px 22px; }
+  .work-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 360px 190px 190px 190px; }
+  .work-gallery .work-tall { grid-area: auto / 1 / auto / -1; }
+  .work-gallery figure:nth-child(2) { grid-column: 1 / -1; }
+  .work-gallery .work-wide { grid-column: 1 / -1; }
+  .areas { grid-template-columns: 1fr; }
+  .map-card { height: 320px; margin-top: 15px; }
+  .contact { grid-template-columns: 1fr; padding: 70px 22px; }
+  .form-row { grid-template-columns: 1fr; }
+  form { padding: 25px 20px; }
+  footer { grid-template-columns: 1fr 1fr; padding: 45px 22px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .mobile-bar { position: fixed; z-index: 60; bottom: 0px; left: 0px; right: 0px; height: 58px; display: grid; grid-template-columns: 1fr 1fr; background: rgb(17, 17, 17); color: white; border-top: 1px solid rgb(78, 74, 50); }
+  .mobile-bar a { display: grid; place-items: center; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; }
+  .mobile-bar a:last-child { background: var(--gold); color: rgb(17, 17, 17); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: auto ease 0s 1 normal none running none !important; }
+  .reveal, .process ol.reveal li, .compact-services.reveal article { opacity: 1 !important; transform: none !important; }
+}
+@font-face { font-family: Geist; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-8ac0455e797f/geist-ff2310f5.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: Geist; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-8ac0455e797f/geist-875ccdd4.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+@font-face { font-family: Geist; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-8ac0455e797f/geist-52306abf.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: Geist; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-8ac0455e797f/geist-001175b1.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Geist; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-8ac0455e797f/geist-98bbbccb.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.__font_geist_147clib { font-family: Geist, sans-serif; }
+.__variable_geist_147clib { --font-geist-sans: 'Geist', sans-serif; }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-mono-00e989178794/geist-mono-f6b33328.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-mono-00e989178794/geist-mono-44e03052.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-mono-00e989178794/geist-mono-0638449e.woff2") format("woff2"); unicode-range: U+2000-2001, U+2004-2008, U+200A, U+23B8-23BD, U+2500-259F; }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-mono-00e989178794/geist-mono-971fb274.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-mono-00e989178794/geist-mono-44745446.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/workspace/sites/jeff-electric-bejeweled/.vinext/fonts/geist-mono-00e989178794/geist-mono-013b2f2f.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.__font_geist_mono_0jkt5mp { font-family: "Geist Mono", sans-serif; }
+.__variable_geist_mono_0jkt5mp { --font-geist-mono: 'Geist Mono', sans-serif; }</style></head><body><main><header class="site-header"><a class="brand" href="#top" aria-label="Jeff Electric home"><img class="brand-icon" src="./brand/jeff-electric-mark.png" alt=""><img class="brand-wordmark" src="./brand/jeff-electric-wordmark.png" alt="Jeff Electric — Wiring Tomorrow, Today"></a><button class="menu-button" aria-label="Toggle menu" aria-expanded="false">☰</button><nav class="nav" aria-label="Main navigation"><a href="#help">Common Problems</a><a href="#process">What to Expect</a><a href="#services">Services</a><a href="#areas">Service Areas</a><a href="#contact">Contact</a></nav><div class="header-actions"><a class="phone" href="tel:+18323199207"><span>Call now</span>(832) 319-9207</a><a class="button button-gold" href="#contact">Request a Quote</a></div></header><section class="hero" id="top"><div class="hero-content"><p class="eyebrow"><span></span> LOCAL RESIDENTIAL ELECTRICIANS · SOUTHEAST HOUSTON</p><h1>Something wrong with your<br><em>home’s electrical?</em></h1><p class="hero-copy">You don’t have to diagnose it yourself. Tell Jeff Electric what you’re noticing, and we’ll help you understand the next step—clearly and without pressure.</p><div class="hero-actions"><a class="button button-gold button-large" href="tel:+18323199207">☎ Call (832) 319-9207</a><a class="button button-outline button-large" href="#contact">Request a Quote <span>→</span></a></div><p class="coverage"><span>●</span> Residential electrical service across Southeast Houston</p></div><figure class="hero-photo" aria-roledescription="carousel" aria-label="Real Jeff Electric work"><div class="hero-slides" aria-live="polite"><img class="" src="./work/jeff-team.jpg" alt="" aria-hidden="true"><img class="" src="./work/crew-trenching.png" alt="" aria-hidden="true"><img class="active" src="./work/generator-install.png" alt="Residential Generac generator and electrical service equipment" aria-hidden="false"><img class="" src="./work/panel-install.jpg" alt="" aria-hidden="true"><img class="" src="./work/pool-lighting-blue.jpg" alt="" aria-hidden="true"></div><figcaption><span>BACKUP POWER</span><strong>Generator connection projects</strong></figcaption><div class="slide-controls"><button aria-label="Previous project photo">←</button><div class="slide-dots" role="group" aria-label="Choose project photo"><button class="" aria-label="Show photo 1: Your local Jeff Electric team"></button><button class="" aria-label="Show photo 2: Professional work at your home"></button><button class="active" aria-label="Show photo 3: Generator connection projects" aria-current="true"></button><button class="" aria-label="Show photo 4: Panel and electrical service work"></button><button class="" aria-label="Show photo 5: Pool and landscape lighting"></button></div><button aria-label="Next project photo">→</button></div><div class="slide-progress"><span></span></div></figure></section><section class="trust-strip" id="why-us"><div><b>01</b><strong>NO DIAGNOSIS NEEDED</strong><span>Tell us what you notice</span></div><div><b>02</b><strong>CLEAR EXPLANATIONS</strong><span>Understand your options</span></div><div><b>03</b><strong>RESPECT FOR YOUR HOME</strong><span>A straightforward experience</span></div><div><b>04</b><strong>YOU STAY IN CONTROL</strong><span>Choose how to proceed</span></div></section><section class="reassurance reveal is-visible" aria-label="What homeowners can expect"><p class="eyebrow dark"><span></span> START WHERE YOU ARE</p><h2>You bring the concern.<br><em>We’ll bring the clarity.</em></h2><p>Home electrical problems can feel uncertain. Our job is to make the conversation easy: listen first, explain clearly and let you decide what happens next.</p></section><section class="power-check reveal" id="help"><div class="power-check-intro"><p class="eyebrow"><span></span> WHAT ARE YOU DEALING WITH?</p><h2>Start with what<br>you notice.</h2><p>Choose the closest match. This does not diagnose the problem—it simply helps you start a useful conversation with our team.</p><div class="check-disclaimer">Nothing quite fits? That’s normal. Call us and describe it in your own words.</div></div><div class="check-tool"><div class="check-options" role="list" aria-label="Electrical symptoms"><button class="active" aria-pressed="true"><span>01</span>Breaker keeps tripping<b>→</b></button><button class="" aria-pressed="false"><span>02</span>Outlet or switch stopped working<b>→</b></button><button class="" aria-pressed="false"><span>03</span>Lights flicker or dim<b>→</b></button><button class="" aria-pressed="false"><span>04</span>Part of the home lost power<b>→</b></button><button class="" aria-pressed="false"><span>05</span>I may need a panel upgrade<b>→</b></button><button class="" aria-pressed="false"><span>06</span>I want an EV charger<b>→</b></button><button class="" aria-pressed="false"><span>07</span>I want surge protection<b>→</b></button><button class="" aria-pressed="false"><span>08</span>I’m not sure what the problem is<b>→</b></button></div><div class="check-result" role="status" aria-live="polite"><p>YOUR NEXT STEP</p><div class="result-signal"><span></span>CALL JEFF ELECTRIC</div><h3>Start with a conversation</h3><p>Tell us when it happens and what you notice. We’ll ask a few focused questions and help you understand the next step.</p><a class="button button-gold result-button" href="tel:+18323199207">Call Jeff Electric</a></div></div></section><section class="process" id="process"><div class="process-top reveal"><div><p class="eyebrow"><span></span> WHAT HAPPENS WHEN YOU CONTACT US?</p><h2>Four clear steps.<br><em>No guessing.</em></h2></div><div class="process-promise"><strong>YOU ALWAYS KNOW WHAT COMES NEXT.</strong><p>A homeowner-first experience built around calm communication, clear expectations and respect for your decisions.</p></div></div><ol class="reveal"><li><span>01</span><div><b>TELL US</b><strong>Share what’s happening</strong><p>Call or send a short request. No technical explanation required—just tell us what you notice.</p></div></li><li><span>02</span><div><b>CLARIFY</b><strong>We discuss the next step</strong><p>We ask useful questions and explain whether a service visit fits your concern.</p></div></li><li><span>03</span><div><b>EXPLAIN</b><strong>Understand the recommendation</strong><p>Your technician evaluates the issue and walks you through the findings in plain language.</p></div></li><li><span>04</span><div><b>YOU DECIDE</b><strong>Choose how to proceed</strong><p>You understand the options before work moves forward. Questions are welcome.</p></div></li></ol><div class="process-cta"><p>Ready for step one?</p><a class="button button-gold" href="tel:+18323199207">Call (832) 319-9207</a><a class="button button-outline" href="#contact">Tell Us What’s Happening</a></div></section><section class="section services" id="services"><div class="section-heading reveal"><div><p class="eyebrow dark"><span></span> HOW WE HELP</p><h2>Home electrical work,<br><em>explained simply.</em></h2></div><p>You do not need to pick the perfect service. These are common ways we help Southeast Houston homeowners.</p></div><div class="compact-services reveal"><article><span>01</span><div><b class="service-silhouette"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></b><h3>Troubleshooting &amp; Repairs</h3><p>Flickering lights, dead outlets, tripping breakers or partial power? We find the cause and explain the safest next step.</p></div><a href="#contact" aria-label="Ask about Troubleshooting &amp; Repairs">→</a></article><article><span>02</span><div><b class="service-silhouette"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circuit-board" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M11 9h4a2 2 0 0 0 2-2V3"></path><circle cx="9" cy="9" r="2"></circle><path d="M7 21v-4a2 2 0 0 1 2-2h4"></path><circle cx="15" cy="15" r="2"></circle></svg></b><h3>Panel Repair &amp; Replacement</h3><p>We evaluate overloaded, outdated or damaged panels and recommend repair or replacement based on your home’s actual needs.</p></div><a href="#contact" aria-label="Ask about Panel Repair &amp; Replacement">→</a></article><article><span>03</span><div><b class="service-silhouette"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg></b><h3>Outlets, Switches &amp; Lighting</h3><p>Repair damaged devices, add convenient outlets, improve lighting and correct unsafe electrical connections.</p></div><a href="#contact" aria-label="Ask about Outlets, Switches &amp; Lighting">→</a></article><article><span>04</span><div><b class="service-silhouette"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-battery-charging" aria-hidden="true"><path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"></path><path d="M6 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1"></path><path d="m11 7-3 5h4l-3 5"></path><line x1="22" x2="22" y1="11" y2="13"></line></svg></b><h3>EV-Charger Installation</h3><p>Professional home-charger installation with a panel and circuit evaluation for safe, dependable charging.</p></div><a href="#contact" aria-label="Ask about EV-Charger Installation">→</a></article><article><span>05</span><div><b class="service-silhouette"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></b><h3>Whole-Home Surge Protection</h3><p>Help protect appliances and sensitive electronics from voltage spikes with properly installed surge protection.</p></div><a href="#contact" aria-label="Ask about Whole-Home Surge Protection">→</a></article><article><span>06</span><div><b class="service-silhouette"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-power" aria-hidden="true"><path d="M12 2v10"></path><path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path></svg></b><h3>Generator Connections</h3><p>Prepare your home for backup power with safe generator connections and electrical-system evaluations.</p></div><a href="#contact" aria-label="Ask about Generator Connections">→</a></article></div><div class="service-assist"><span>NOT SURE?</span><p>Describe what’s happening in your own words. We’ll help identify the right starting point.</p><a href="tel:+18323199207">Call Jeff Electric →</a></div></section><section class="real-work" aria-labelledby="real-work-title"><div class="real-work-heading reveal"><p class="eyebrow"><span></span> REAL JEFF ELECTRIC WORK</p><h2 id="real-work-title">The people and projects<br><em>behind the promise.</em></h2><p>No stock-photo crew. These are real Jeff Electric technicians working on real homes.</p></div><div class="work-gallery reveal"><figure class="work-tall"><img src="./work/crew-trenching.png" alt="Jeff Electric crew installing residential electrical conduit beside a home"><figcaption><span>ON-SITE</span>Residential electrical work</figcaption></figure><figure><img src="./work/generator-install.png" alt="Residential Generac generator and electrical service equipment"><figcaption><span>BACKUP POWER</span>Generator connection project</figcaption></figure><figure><img src="./work/panel-install.jpg" alt="Residential electrical panel and meter equipment"><figcaption><span>SERVICE EQUIPMENT</span>Panel and service work</figcaption></figure><figure><img src="./work/pool-technician.jpg" alt="Jeff Electric technician working near a residential pool"><figcaption><span>POOL ELECTRICAL</span>On-site residential work</figcaption></figure><figure class="work-wide"><img src="./work/pool-lighting-green.jpg" alt="Residential swimming pool illuminated with green underwater lighting at night"><figcaption><span>OUTDOOR LIGHTING</span>Pool and landscape lighting</figcaption></figure><figure><img src="./work/pool-lighting-blue.jpg" alt="Residential swimming pool illuminated with blue underwater lighting at night"><figcaption><span>FINISHED PROJECT</span>Lighting after dark</figcaption></figure></div></section><section class="section areas" id="areas"><div class="areas-copy reveal"><p class="eyebrow dark"><span></span> PROUDLY SERVING OUR NEIGHBORS</p><h2>Residential electrical service<br><em>across Southeast Houston.</em></h2><p>Southeast Houston is our service umbrella. Jeff Electric helps homeowners throughout the area with clear communication and professional electrical service.</p><div class="area-tags"><span>⌖ <!-- -->Pasadena</span><span>⌖ <!-- -->Pearland</span><span>⌖ <!-- -->Friendswood</span><span>⌖ <!-- -->Webster</span><span>⌖ <!-- -->Clear Lake</span><span>⌖ <!-- -->Southeast Houston</span></div><a class="text-link" href="#contact">Not sure if we serve your area? Ask us →</a></div><div class="map-card reveal" aria-label="Southeast Houston service area map showing Pasadena, Pearland, Friendswood, Webster and Clear Lake"><div class="map-grid"></div><div class="coverage-zone"></div><i class="map-route route-225"></i><i class="map-route route-45"></i><i class="map-route route-beltway"></i><i class="map-route route-bay"></i><span class="route-label label-225">SH 225</span><span class="route-label label-45">I-45</span><span class="route-label label-beltway">BELTWAY 8</span><span class="route-label label-bay">BAY AREA BLVD</span><span class="place place-houston"><i></i>SOUTHEAST HOUSTON</span><span class="place place-pasadena"><i></i>PASADENA</span><span class="place place-pearland"><i></i>PEARLAND</span><span class="place place-friendswood"><i></i>FRIENDSWOOD</span><span class="place place-clearlake"><i></i>CLEAR LAKE</span><span class="place place-webster"><i></i>WEBSTER</span><div class="map-pin"><span class="bolt bolt-small" aria-hidden="true">ϟ</span></div><div class="map-label"><strong>JEFF ELECTRIC</strong><span>Residential service coverage</span></div><div class="map-legend"><span><i></i>CORE SERVICE UMBRELLA</span><strong>SOUTHEAST HOUSTON</strong></div></div></section><section class="contact" id="contact"><div class="contact-copy reveal"><p class="eyebrow"><span></span> START THE CONVERSATION</p><h2>Tell us what’s<br><em>happening.</em></h2><p>You do not need the right terminology. Share what you notice, what you want to add or what you’re unsure about. We’ll contact you to discuss the next step.</p><a class="contact-phone" href="tel:+18323199207"><small>Prefer to talk now?</small><strong>☎ (832) 319-9207</strong></a><p class="privacy">Your information is used only to respond to your service request.</p></div><form class="reveal"><div class="form-row"><label>Full name<input required="" autocomplete="name" placeholder="Your name" name="name"></label><label>Phone number<input required="" type="tel" autocomplete="tel" placeholder="(000) 000-0000" name="phone"></label></div><div class="form-row"><label>ZIP code<input required="" inputmode="numeric" autocomplete="postal-code" placeholder="77502" name="zip"></label><label>Preferred contact<select name="contact"><option>Phone call</option><option>Text message</option><option>Email</option></select></label></div><label>Type of electrical problem<select required="" name="service"><option value="" disabled="" selected="">Select a service</option><option>Troubleshooting &amp; Repairs</option><option>Panel Repair &amp; Replacement</option><option>Outlets, Switches &amp; Lighting</option><option>EV-Charger Installation</option><option>Whole-Home Surge Protection</option><option>Generator Connections</option><option>Something else</option></select></label><label>What are you experiencing?<textarea required="" name="message" rows="4" placeholder="Tell us what you noticed, when it started, and anything else that may help."></textarea></label><button class="button button-gold button-large" type="submit">Send Service Request <span>→</span></button></form></section><footer><a class="brand footer-brand" href="#top" aria-label="Jeff Electric home"><img src="./brand/jeff-electric-logo.png" alt="Jeff Electric — Wiring Tomorrow, Today"></a><div><strong>Service Area</strong><span>Southeast Houston</span></div><div><strong>Call Jeff Electric</strong><a href="tel:+18323199207">(832) 319-9207</a></div><div><strong>Quick Links</strong><a href="#services">Services</a><a href="#contact">Request a Quote</a></div><p>© 2026 Jeff Electric. All rights reserved.</p></footer><div class="mobile-bar"><a href="tel:+18323199207">☎ Call Now</a><a href="#contact">Request Quote</a></div></main><script>const symptomData=[["Start with a conversation","Tell us when it happens and what you notice. We’ll ask a few focused questions and help you understand the next step."],["We can help you sort it out","You do not need to diagnose it. Let us know what stopped working and we’ll guide the conversation from there."],["Tell us what you’re noticing","Share where and when it happens. Our team will listen, clarify the concern and discuss the right service next step."],["Let’s clarify what is affected","Describe which rooms or areas are affected. We’ll gather the useful details and explain what to expect next."],["Let’s talk about your home’s needs","Tell us what is prompting the upgrade. We’ll discuss your goals and what a professional evaluation would involve."],["Plan dependable home charging","Tell us about your vehicle and charging goals. We’ll explain the information needed to plan the installation."],["Protect what powers your home","We can discuss whole-home surge protection and how it may fit your electrical system and household priorities."],["That’s completely okay","Describe what you see, hear or experience in your own words. You do not need the technical answer before you call."]];const slideData=[["REAL PEOPLE. REAL WORK.","Your local Jeff Electric team"],["RESIDENTIAL SERVICE","Professional work at your home"],["BACKUP POWER","Generator connection projects"],["SERVICE EQUIPMENT","Panel and electrical service work"],["OUTDOOR LIGHTING","Pool and landscape lighting"]];
+const menu=document.querySelector('.menu-button'),nav=document.querySelector('.nav');if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')))}
+const slides=[...document.querySelectorAll('.hero-slides img')],dots=[...document.querySelectorAll('.slide-dots button')],caption=document.querySelector('.hero-photo figcaption');let current=0,timer;slides.forEach(s=>s.dataset.alt=s.alt);
+function showSlide(n){current=(n+slides.length)%slides.length;slides.forEach((s,i)=>{s.classList.toggle('active',i===current);s.setAttribute('aria-hidden',String(i!==current));s.alt=i===current?s.dataset.alt:''});dots.forEach((d,i)=>{d.classList.toggle('active',i===current);if(i===current)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});if(caption)caption.innerHTML='<span>'+slideData[current][0]+'</span><strong>'+slideData[current][1]+'</strong>';const p=document.querySelector('.slide-progress');if(p){const clone=p.cloneNode(true);p.replaceWith(clone)}}
+dots.forEach((d,i)=>d.addEventListener('click',()=>showSlide(i)));const controls=document.querySelectorAll('.slide-controls>button');if(controls[0])controls[0].addEventListener('click',()=>showSlide(current-1));if(controls[1])controls[1].addEventListener('click',()=>showSlide(current+1));
+function start(){timer=setInterval(()=>showSlide(current+1),6000)}const hero=document.querySelector('.hero-photo');if(hero){hero.addEventListener('mouseenter',()=>clearInterval(timer));hero.addEventListener('mouseleave',()=>{clearInterval(timer);start()})}start();
+const buttons=[...document.querySelectorAll('.check-options button')],result=document.querySelector('.check-result');buttons.forEach((b,i)=>b.addEventListener('click',()=>{buttons.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false')});b.classList.add('active');b.setAttribute('aria-pressed','true');const h=result.querySelector('h3'),p=result.querySelectorAll('p')[1];if(h)h.textContent=symptomData[i][0];if(p)p.textContent=symptomData[i][1]}));
+const targets=document.querySelectorAll('.reassurance,.power-check,.process-top,.process ol,.section-heading,.compact-services,.real-work-heading,.work-gallery,.areas-copy,.map-card,.contact-copy,.contact form');targets.forEach(el=>{el.classList.remove('is-visible');el.classList.add('reveal')});if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -6%'});targets.forEach(el=>observer.observe(el))}else targets.forEach(el=>el.classList.add('is-visible'));
+const form=document.querySelector('.contact form');if(form)form.addEventListener('submit',e=>{e.preventDefault();form.outerHTML='<div class="success" role="status"><span>✓</span><h3>Thanks—we received your request.</h3><p>Please call Jeff Electric at <a href="tel:+18323199207">(832) 319-9207</a> so our team can personally help with your next step.</p></div>'});
+</script></body></html>
