@@ -69,9 +69,24 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  function submitQuote(event: FormEvent<HTMLFormElement>) {
+  async function submitQuote(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(true);
+    const form = event.currentTarget;
+    try {
+      const res = await fetch("https://formspree.io/jeff@jeffelectric.online", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+      } else {
+        window.alert("Sorry, something went wrong. Please call Jeff Electric at (346) 398-4485.");
+      }
+    } catch {
+      window.alert("Sorry, something went wrong. Please call Jeff Electric at (346) 398-4485.");
+    }
   }
 
   return (
@@ -90,7 +105,7 @@ export default function Home() {
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
         <div className="header-actions">
-          <a className="phone" href="tel:+18323199207"><span>Call now</span>(832) 319-9207</a>
+          <a className="phone" href="tel:+13463984485"><span>Call now</span>(346) 398-4485</a>
           <a className="button button-gold" href="#contact">Request a Quote</a>
         </div>
       </header>
@@ -101,7 +116,7 @@ export default function Home() {
           <h1>Something wrong with your<br /><em>home’s electrical?</em></h1>
           <p className="hero-copy">You don’t have to diagnose it yourself. Tell Jeff Electric what you’re noticing, and we’ll help you understand the next step—clearly and without pressure.</p>
           <div className="hero-actions">
-            <a className="button button-gold button-large" href="tel:+18323199207">☎ Call (832) 319-9207</a>
+            <a className="button button-gold button-large" href="tel:+13463984485">☎ Call (346) 398-4485</a>
             <a className="button button-outline button-large" href="#contact">Request a Quote <span>→</span></a>
           </div>
           <p className="coverage"><span>●</span> Residential electrical service across Southeast Houston</p>
@@ -152,7 +167,7 @@ export default function Home() {
             <div className="result-signal"><span />CALL JEFF ELECTRIC</div>
             <h3>{symptoms[selectedSymptom].title}</h3>
             <p>{symptoms[selectedSymptom].text}</p>
-            <a className="button button-gold result-button" href="tel:+18323199207">Call Jeff Electric</a>
+            <a className="button button-gold result-button" href="tel:+13463984485">Call Jeff Electric</a>
           </div>
         </div>
       </section>
@@ -168,7 +183,7 @@ export default function Home() {
           <li><span>03</span><div><b>EXPLAIN</b><strong>Understand the recommendation</strong><p>Your technician evaluates the issue and walks you through the findings in plain language.</p></div></li>
           <li><span>04</span><div><b>YOU DECIDE</b><strong>Choose how to proceed</strong><p>You understand the options before work moves forward. Questions are welcome.</p></div></li>
         </ol>
-        <div className="process-cta"><p>Ready for step one?</p><a className="button button-gold" href="tel:+18323199207">Call (832) 319-9207</a><a className="button button-outline" href="#contact">Tell Us What’s Happening</a></div>
+        <div className="process-cta"><p>Ready for step one?</p><a className="button button-gold" href="tel:+13463984485">Call (346) 398-4485</a><a className="button button-outline" href="#contact">Tell Us What’s Happening</a></div>
       </section>
 
       <section className="section services" id="services">
@@ -184,7 +199,7 @@ export default function Home() {
             </article>;
           })}
         </div>
-        <div className="service-assist"><span>NOT SURE?</span><p>Describe what’s happening in your own words. We’ll help identify the right starting point.</p><a href="tel:+18323199207">Call Jeff Electric →</a></div>
+        <div className="service-assist"><span>NOT SURE?</span><p>Describe what’s happening in your own words. We’ll help identify the right starting point.</p><a href="tel:+13463984485">Call Jeff Electric →</a></div>
       </section>
 
       <section className="real-work" aria-labelledby="real-work-title">
@@ -229,13 +244,14 @@ export default function Home() {
           <p className="eyebrow"><span /> START THE CONVERSATION</p>
           <h2>Tell us what’s<br /><em>happening.</em></h2>
           <p>You do not need the right terminology. Share what you notice, what you want to add or what you’re unsure about. We’ll contact you to discuss the next step.</p>
-          <a className="contact-phone" href="tel:+18323199207"><small>Prefer to talk now?</small><strong>☎ (832) 319-9207</strong></a>
+          <a className="contact-phone" href="tel:+13463984485"><small>Prefer to talk now?</small><strong>☎ (346) 398-4485</strong></a>
           <p className="privacy">Your information is used only to respond to your service request.</p>
         </div>
         {sent ? (
-          <div className="success" role="status"><span>✓</span><h3>Thanks—we received your request.</h3><p>Prefer to talk with us? Call Jeff Electric at <a href="tel:+18323199207">(832) 319-9207</a>.</p><button onClick={() => setSent(false)}>Send another request</button></div>
+          <div className="success" role="status"><span>✓</span><h3>Thanks—we received your request.</h3><p>Prefer to talk with us? Call Jeff Electric at <a href="tel:+13463984485">(346) 398-4485</a>.</p><button onClick={() => setSent(false)}>Send another request</button></div>
         ) : (
-          <form onSubmit={submitQuote}>
+          <form onSubmit={submitQuote} method="POST" action="https://formspree.io/jeff@jeffelectric.online">
+            <input type="hidden" name="_subject" value="New service request from jeffelectric.online" />
             <div className="form-row"><label>Full name<input required name="name" autoComplete="name" placeholder="Your name" /></label><label>Phone number<input required name="phone" type="tel" autoComplete="tel" placeholder="(000) 000-0000" /></label></div>
             <div className="form-row"><label>ZIP code<input required name="zip" inputMode="numeric" autoComplete="postal-code" placeholder="77502" /></label><label>Preferred contact<select name="contact"><option>Phone call</option><option>Text message</option><option>Email</option></select></label></div>
             <label>Type of electrical problem<select required name="service" defaultValue=""><option value="" disabled>Select a service</option>{services.map(service => <option key={service.title}>{service.title}</option>)}<option>Something else</option></select></label>
@@ -248,12 +264,12 @@ export default function Home() {
       <footer>
         <a className="brand footer-brand" href="#top" aria-label="Jeff Electric home"><img src="/brand/jeff-electric-logo.png" alt="Jeff Electric — Wiring Tomorrow, Today" /></a>
         <div><strong>Service Area</strong><span>Southeast Houston</span></div>
-        <div><strong>Call Jeff Electric</strong><a href="tel:+18323199207">(832) 319-9207</a></div>
+        <div><strong>Call Jeff Electric</strong><a href="tel:+13463984485">(346) 398-4485</a></div>
         <div><strong>Quick Links</strong><a href="#services">Services</a><a href="#contact">Request a Quote</a></div>
         <p>© 2026 Jeff Electric. All rights reserved.</p>
       </footer>
 
-      <div className="mobile-bar"><a href="tel:+18323199207">☎ Call Now</a><a href="#contact">Request Quote</a></div>
+      <div className="mobile-bar"><a href="tel:+13463984485">☎ Call Now</a><a href="#contact">Request Quote</a></div>
     </main>
   );
 }
