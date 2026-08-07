@@ -84,8 +84,13 @@ export default function Home() {
         });
       }
       if (!w.Forminit) throw new Error("Forminit SDK did not load");
+      const formData = new FormData(form);
+      const phoneValue = String(formData.get("fi-phone-phoneNumber") || "");
+      const digits = phoneValue.replace(/\D/g, "");
+      if (digits.length === 10) formData.set("fi-phone-phoneNumber", `+1${digits}`);
+      else if (digits.length === 11 && digits.startsWith("1")) formData.set("fi-phone-phoneNumber", `+${digits}`);
       const forminit = new w.Forminit();
-      const result = await forminit.submit("pojgp0vhkve", new FormData(form));
+      const result = await forminit.submit("pojgp0vhkve", formData);
       if (result?.error) throw new Error(result.error.message || "Submission failed");
       setSent(true);
       form.reset();
