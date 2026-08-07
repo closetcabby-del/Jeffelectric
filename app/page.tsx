@@ -73,18 +73,24 @@ export default function Home() {
     event.preventDefault();
     const form = event.currentTarget;
     try {
-      const res = await fetch("https://forminit.com/f/pojgp0vhkve", {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        setSent(true);
-        form.reset();
-      } else {
-        window.alert("Sorry, something went wrong. Please call Jeff Electric at (346) 398-4485.");
+      const w = window as typeof window & { Forminit?: new () => { submit: (formId: string, data: FormData) => Promise<{ error?: { message?: string } }> } };
+      if (!w.Forminit) {
+        await new Promise<void>((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = "https://forminit.com/sdk/v1/forminit.js";
+          script.onload = () => resolve();
+          script.onerror = () => reject(new Error("Forminit SDK did not load"));
+          document.body.appendChild(script);
+        });
       }
-    } catch {
+      if (!w.Forminit) throw new Error("Forminit SDK did not load");
+      const forminit = new w.Forminit();
+      const result = await forminit.submit("pojgp0vhkve", new FormData(form));
+      if (result?.error) throw new Error(result.error.message || "Submission failed");
+      setSent(true);
+      form.reset();
+    } catch (error) {
+      console.error("Form submission failed:", error);
       window.alert("Sorry, something went wrong. Please call Jeff Electric at (346) 398-4485.");
     }
   }
@@ -252,11 +258,11 @@ export default function Home() {
         ) : (
           <form onSubmit={submitQuote} method="POST" action="https://forminit.com/f/pojgp0vhkve">
             <input type="hidden" name="_subject" value="New service request from jeffelectric.online" />
-            <div className="form-row"><label>Full name<input required name="name" autoComplete="name" placeholder="Your name" /></label><label>Phone number<input required name="phone" type="tel" autoComplete="tel" placeholder="(000) 000-0000" /></label></div>
-            <div className="form-row"><label>ZIP code<input required name="zip" inputMode="numeric" autoComplete="postal-code" placeholder="77502" /></label><label>Preferred contact<select name="contact"><option>Phone call</option><option>Text message</option><option>Email</option></select></label></div>
-            <label>Type of electrical problem<select required name="service" defaultValue=""><option value="" disabled>Select a service</option>{services.map(service => <option key={service.title}>{service.title}</option>)}<option>Something else</option></select></label>
-            <label>What are you experiencing?<textarea required name="message" rows={4} placeholder="Tell us what you noticed, when it started, and anything else that may help." /></label>
-            <label>Photo of the issue (optional)<input type="file" name="photo" accept="image/*" /></label>
+            <div className="form-row"><label>Full name<input required name="fi-sender-firstName" autoComplete="name" placeholder="Your name" /></label><label>Phone number<input required name="fi-phone-phoneNumber" type="tel" autoComplete="tel" placeholder="(000) 000-0000" /></label></div>
+            <div className="form-row"><label>ZIP code<input required name="fi-text-zipCode" inputMode="numeric" autoComplete="postal-code" placeholder="77502" /></label><label>Preferred contact<select name="fi-select-preferredContact"><option>Phone call</option><option>Text message</option><option>Email</option></select></label></div>
+            <label>Type of electrical problem<select required name="fi-select-serviceType" defaultValue=""><option value="" disabled>Select a service</option>{services.map(service => <option key={service.title}>{service.title}</option>)}<option>Something else</option></select></label>
+            <label>What are you experiencing?<textarea required name="fi-text-message" rows={4} placeholder="Tell us what you noticed, when it started, and anything else that may help." /></label>
+            <label>Photo of the issue (optional)<input type="file" name="fi-file-photo" accept="image/*" /></label>
             <button className="button button-gold button-large" type="submit">Send Service Request <span>→</span></button>
           </form>
         )}
