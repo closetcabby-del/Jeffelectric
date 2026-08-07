@@ -73,7 +73,7 @@ export default function Home() {
     event.preventDefault();
     const form = event.currentTarget;
     try {
-      const res = await fetch("https://formspree.io/jeff@jeffelectric.online", {
+      const res = await fetch("https://formspree.io/f/maewnpqy", {
         method: "POST",
         body: new FormData(form),
         headers: { Accept: "application/json" },
@@ -250,7 +250,7 @@ export default function Home() {
         {sent ? (
           <div className="success" role="status"><span>✓</span><h3>Thanks—we received your request.</h3><p>Prefer to talk with us? Call Jeff Electric at <a href="tel:+13463984485">(346) 398-4485</a>.</p><button onClick={() => setSent(false)}>Send another request</button></div>
         ) : (
-          <form onSubmit={submitQuote} method="POST" action="https://formspree.io/jeff@jeffelectric.online">
+          <form onSubmit={submitQuote} method="POST" action="https://formspree.io/f/maewnpqy">
             <input type="hidden" name="_subject" value="New service request from jeffelectric.online" />
             <div className="form-row"><label>Full name<input required name="name" autoComplete="name" placeholder="Your name" /></label><label>Phone number<input required name="phone" type="tel" autoComplete="tel" placeholder="(000) 000-0000" /></label></div>
             <div className="form-row"><label>ZIP code<input required name="zip" inputMode="numeric" autoComplete="postal-code" placeholder="77502" /></label><label>Preferred contact<select name="contact"><option>Phone call</option><option>Text message</option><option>Email</option></select></label></div>
