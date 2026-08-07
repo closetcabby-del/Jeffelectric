@@ -25,3 +25,8 @@ img{content-visibility:auto}.button,.menu-button,.check-options button,.slide-co
 .place i{animation:none;box-shadow:0 0 0 4px #f2b21a14,0 0 8px #f2b21a40}.map-energy-signal{display:none}
 .map-city-panel{pointer-events:none}.place-pasadena{top:30%}
 @media(max-width:720px){.map-card{height:360px;margin:0 0 112px;overflow:visible}.map-city-panel{left:0;right:0;top:auto;bottom:-102px;width:100%;min-height:88px;background:#10120f;border:1px solid #393d34;border-left:4px solid var(--gold);box-shadow:none;backdrop-filter:none}.place-houston{left:4%;top:17%}.place-pasadena{right:5%;top:23%}.place-pearland{left:8%;top:58%}.place-friendswood{left:39%;bottom:17%}.place-clearlake{right:2%;top:55%}.place-webster{right:13%;bottom:12%}}
+
+/* Mobile horizontal overflow fix */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
+@media(max-width:720px){main{width:100%;max-width:100%;overflow-x:clip}.map-card{max-width:100%}.map-card:before{right:0;max-width:100%}}
