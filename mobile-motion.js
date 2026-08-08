@@ -47,15 +47,20 @@ html,body{background:#000!important}
 }
 `;document.head.appendChild(style)})();
 (()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const style=document.createElement('style');style.id='jeff-entry-lightning-style';style.textContent=`
-.jeff-entry-lightning{position:fixed;inset:0;z-index:2147483647;pointer-events:none;overflow:hidden;opacity:1;animation:jeffLightningExit .95s ease-out forwards;background:transparent}
-.jeff-entry-lightning:before{content:"";position:absolute;inset:0;background:#fff;opacity:0;animation:jeffScreenFlash .72s ease-out forwards}
-.jeff-entry-bolt{position:absolute;left:50%;top:50%;width:min(42vw,300px);height:125vh;transform:translate(-50%,-50%) rotate(17deg) scale(.7);transform-origin:center;filter:drop-shadow(0 0 12px #fff) drop-shadow(0 0 26px #f2b21a) drop-shadow(0 0 55px rgba(242,178,26,.9));opacity:0;animation:jeffBoltStrike .76s cubic-bezier(.2,.8,.2,1) forwards}
-.jeff-entry-bolt:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff9d8 0 12%,#fff 12% 28%,#ffd25a 28% 48%,#fff 48% 65%,#f2b21a 65% 100%);clip-path:polygon(58% 0,18% 39%,43% 39%,8% 70%,42% 70%,25% 100%,83% 55%,57% 55%,94% 25%,63% 25%);}
-.jeff-entry-branch{position:absolute;left:50%;top:48%;width:44vw;max-width:360px;height:5px;background:linear-gradient(90deg,transparent,#fff 20%,#f2b21a 70%,transparent);transform-origin:left center;filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #f2b21a);opacity:0}
-.jeff-entry-branch.b1{transform:rotate(-24deg);animation:jeffBranch .55s .12s ease-out forwards}.jeff-entry-branch.b2{transform:rotate(32deg);animation:jeffBranch .5s .2s ease-out forwards}
-@keyframes jeffScreenFlash{0%{opacity:0}8%{opacity:.9}17%{opacity:.08}26%{opacity:.5}42%{opacity:.05}100%{opacity:0}}
-@keyframes jeffBoltStrike{0%{opacity:0;transform:translate(-50%,-55%) rotate(17deg) scale(.55)}8%{opacity:1}20%{transform:translate(-50%,-50%) rotate(17deg) scale(1.05)}48%{opacity:1}100%{opacity:0;transform:translate(-50%,-48%) rotate(17deg) scale(1.02)}}
-@keyframes jeffBranch{0%{opacity:0;transform:scaleX(.1) rotate(var(--branch-rotate,0deg))}20%{opacity:1}100%{opacity:0}}
-@keyframes jeffLightningExit{0%,78%{opacity:1}100%{opacity:0}}
-@media(max-width:720px){.jeff-entry-bolt{width:58vw;height:115vh}.jeff-entry-branch{width:58vw}}
-`;document.head.appendChild(style);const layer=document.createElement('div');layer.className='jeff-entry-lightning';layer.setAttribute('aria-hidden','true');layer.innerHTML='<span class="jeff-entry-bolt"></span><span class="jeff-entry-branch b1"></span><span class="jeff-entry-branch b2"></span>';document.body.appendChild(layer);setTimeout(()=>{layer.remove();style.remove()},1050)})();
+.jeff-entry-lightning{position:fixed;inset:0;z-index:2147483647;pointer-events:none;overflow:hidden;background:transparent;animation:jeffSurgeExit .68s linear forwards}
+.jeff-entry-lightning:before{content:"";position:absolute;inset:0;background:#fff;opacity:0;animation:jeffFlash .48s linear forwards}
+.jeff-entry-lightning:after{content:"";position:absolute;inset:-12%;background:radial-gradient(circle at 50% 44%,rgba(255,245,190,.38),rgba(242,178,26,.16) 28%,transparent 62%);opacity:0;animation:jeffAfterglow .66s ease-out forwards}
+.jeff-strike{position:absolute;inset:-8% -6%;width:112%;height:116%;filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 13px rgba(255,236,160,.95)) drop-shadow(0 0 28px rgba(242,178,26,.92));opacity:0;animation:jeffStrike .52s steps(2,end) forwards}
+.jeff-strike svg{width:100%;height:100%;overflow:visible}
+.jeff-strike .core{fill:none;stroke:#fff;stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.jeff-strike .gold{fill:none;stroke:#f2b21a;stroke-width:11;stroke-linecap:round;stroke-linejoin:round;opacity:.48;vector-effect:non-scaling-stroke}
+.jeff-strike .branch{fill:none;stroke:#fff7d8;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:0}
+.jeff-strike .b1{animation:jeffBranchFlash .26s .06s linear forwards}.jeff-strike .b2{animation:jeffBranchFlash .22s .12s linear forwards}.jeff-strike .b3{animation:jeffBranchFlash .18s .18s linear forwards}.jeff-strike .b4{animation:jeffBranchFlash .16s .23s linear forwards}
+.brand.jeff-entry-powered .brand-icon{animation:jeffEntryLogoPower .46s cubic-bezier(.2,.8,.2,1)!important}
+@keyframes jeffFlash{0%{opacity:0}4%{opacity:.96}9%{opacity:.06}15%{opacity:.56}21%{opacity:.02}31%{opacity:.24}43%,100%{opacity:0}}
+@keyframes jeffAfterglow{0%,20%{opacity:0}29%{opacity:.78}47%{opacity:.28}100%{opacity:0}}
+@keyframes jeffStrike{0%{opacity:0;transform:scale(.985)}5%{opacity:1}13%{opacity:.22}18%{opacity:1}29%{opacity:.7;transform:scale(1.01)}43%{opacity:.12}58%,100%{opacity:0;transform:scale(1.015)}}
+@keyframes jeffBranchFlash{0%{opacity:0;stroke-dasharray:0 1000}18%{opacity:1;stroke-dasharray:1000 0}55%{opacity:.9}100%{opacity:0}}
+@keyframes jeffSurgeExit{0%,80%{opacity:1}100%{opacity:0}}
+@keyframes jeffEntryLogoPower{0%{filter:brightness(.45) drop-shadow(0 0 0 transparent);transform:scale(.9)}38%{filter:brightness(1.9) drop-shadow(0 0 22px #fff) drop-shadow(0 0 38px #f2b21a);transform:scale(1.12)}68%{filter:brightness(1.18) drop-shadow(0 0 14px #f2b21a);transform:scale(.98)}100%{filter:none;transform:none}}
+`;document.head.appendChild(style);const layer=document.createElement('div');layer.className='jeff-entry-lightning';layer.setAttribute('aria-hidden','true');layer.innerHTML=`<div class="jeff-strike"><svg viewBox="0 0 1000 1200" preserveAspectRatio="none" aria-hidden="true"><path class="gold" d="M646 -30 L548 143 L593 223 L472 348 L520 430 L391 572 L442 654 L317 806 L366 884 L250 1048 L298 1235"/><path class="core" d="M646 -30 L548 143 L593 223 L472 348 L520 430 L391 572 L442 654 L317 806 L366 884 L250 1048 L298 1235"/><path class="branch b1" d="M527 371 L690 278 L647 392 L810 341"/><path class="branch b2" d="M438 657 L257 545 L306 694 L135 626"/><path class="branch b3" d="M358 840 L520 756 L484 889 L646 828"/><path class="branch b4" d="M571 187 L733 98 L702 224 L856 171"/></svg></div>`;document.body.appendChild(layer);setTimeout(()=>{document.querySelector('.brand')?.classList.add('jeff-entry-powered')},300);setTimeout(()=>{document.querySelector('.brand')?.classList.remove('jeff-entry-powered');layer.remove();style.remove()},760)})();
