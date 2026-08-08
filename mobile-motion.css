@@ -21,5 +21,5 @@ img{content-visibility:auto}.button,.menu-button,.check-options button,.slide-co
 html,body{width:100%;max-width:100%;overflow-x:clip}@supports not (overflow:clip){html,body{overflow-x:hidden}}@media(max-width:720px){main{width:100%;max-width:100%;overflow-x:clip}.map-card{max-width:100%}.map-card:before{right:0;max-width:100%}}
 
 /* Larger Jeff Electric header branding for readability */
-@media(min-width:721px){.brand-icon{width:50px;height:50px}.brand-wordmark{width:172px}}
-@media(max-width:720px){.site-header{height:76px;padding:0 16px}.brand{gap:9px}.brand-icon{width:46px;height:46px}.brand-wordmark{width:154px}.nav{top:76px}.menu-button{font-size:27px}}
+@media(min-width:721px){.brand-icon{width:52px;height:52px}.brand-wordmark{width:185px}}
+@media(max-width:720px){.site-header{height:80px;padding:0 16px}.brand{gap:10px}.brand-icon{width:52px;height:52px}.brand-wordmark{width:185px}.nav{top:80px}.menu-button{font-size:28px}}
