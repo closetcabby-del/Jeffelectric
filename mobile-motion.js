@@ -46,3 +46,16 @@ html,body{background:#000!important}
 .site-header+.hero{border-top:0!important}
 }
 `;document.head.appendChild(style)})();
+(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const style=document.createElement('style');style.id='jeff-entry-lightning-style';style.textContent=`
+.jeff-entry-lightning{position:fixed;inset:0;z-index:2147483647;pointer-events:none;overflow:hidden;opacity:1;animation:jeffLightningExit .95s ease-out forwards;background:transparent}
+.jeff-entry-lightning:before{content:"";position:absolute;inset:0;background:#fff;opacity:0;animation:jeffScreenFlash .72s ease-out forwards}
+.jeff-entry-bolt{position:absolute;left:50%;top:50%;width:min(42vw,300px);height:125vh;transform:translate(-50%,-50%) rotate(17deg) scale(.7);transform-origin:center;filter:drop-shadow(0 0 12px #fff) drop-shadow(0 0 26px #f2b21a) drop-shadow(0 0 55px rgba(242,178,26,.9));opacity:0;animation:jeffBoltStrike .76s cubic-bezier(.2,.8,.2,1) forwards}
+.jeff-entry-bolt:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff9d8 0 12%,#fff 12% 28%,#ffd25a 28% 48%,#fff 48% 65%,#f2b21a 65% 100%);clip-path:polygon(58% 0,18% 39%,43% 39%,8% 70%,42% 70%,25% 100%,83% 55%,57% 55%,94% 25%,63% 25%);}
+.jeff-entry-branch{position:absolute;left:50%;top:48%;width:44vw;max-width:360px;height:5px;background:linear-gradient(90deg,transparent,#fff 20%,#f2b21a 70%,transparent);transform-origin:left center;filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #f2b21a);opacity:0}
+.jeff-entry-branch.b1{transform:rotate(-24deg);animation:jeffBranch .55s .12s ease-out forwards}.jeff-entry-branch.b2{transform:rotate(32deg);animation:jeffBranch .5s .2s ease-out forwards}
+@keyframes jeffScreenFlash{0%{opacity:0}8%{opacity:.9}17%{opacity:.08}26%{opacity:.5}42%{opacity:.05}100%{opacity:0}}
+@keyframes jeffBoltStrike{0%{opacity:0;transform:translate(-50%,-55%) rotate(17deg) scale(.55)}8%{opacity:1}20%{transform:translate(-50%,-50%) rotate(17deg) scale(1.05)}48%{opacity:1}100%{opacity:0;transform:translate(-50%,-48%) rotate(17deg) scale(1.02)}}
+@keyframes jeffBranch{0%{opacity:0;transform:scaleX(.1) rotate(var(--branch-rotate,0deg))}20%{opacity:1}100%{opacity:0}}
+@keyframes jeffLightningExit{0%,78%{opacity:1}100%{opacity:0}}
+@media(max-width:720px){.jeff-entry-bolt{width:58vw;height:115vh}.jeff-entry-branch{width:58vw}}
+`;document.head.appendChild(style);const layer=document.createElement('div');layer.className='jeff-entry-lightning';layer.setAttribute('aria-hidden','true');layer.innerHTML='<span class="jeff-entry-bolt"></span><span class="jeff-entry-branch b1"></span><span class="jeff-entry-branch b2"></span>';document.body.appendChild(layer);setTimeout(()=>{layer.remove();style.remove()},1050)})();
