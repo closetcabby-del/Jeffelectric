@@ -32,3 +32,17 @@ if(matchMedia('(max-width:720px)').matches){const hero=document.querySelector('.
 @media(max-width:720px){.jeff-logo-pin{width:56px!important;height:56px!important}.jeff-logo-pin img{width:40px!important;height:40px!important}}
 @media(prefers-reduced-motion:reduce){.jeff-logo-pin:before,.jeff-logo-pin:after{animation:none!important}}
 `;document.head.appendChild(style)})();
+(()=>{const old=document.getElementById('jeff-polished-black-header');if(old)old.remove();const style=document.createElement('style');style.id='jeff-polished-black-header';style.textContent=`
+@media(max-width:720px){
+html,body{background:#000!important}
+.site-header{background:#000!important;background-image:none!important;border-bottom:1px solid rgba(255,255,255,.07)!important;box-shadow:none!important;isolation:isolate!important}
+.site-header:before,.site-header:after{content:none!important;display:none!important}
+.brand{background:transparent!important;box-shadow:none!important;filter:none!important}
+.brand:before,.brand:after{content:none!important;display:none!important}
+.brand-icon,.brand-wordmark{background:transparent!important}
+.nav{background:#050505!important;border-bottom:1px solid rgba(255,255,255,.07)!important;box-shadow:0 18px 30px rgba(0,0,0,.38)!important}
+.hero{background:#000!important;background-image:none!important;border-top:0!important;box-shadow:none!important}
+.hero:before,.hero:after{content:none!important;display:none!important}
+.site-header+.hero{border-top:0!important}
+}
+`;document.head.appendChild(style)})();
