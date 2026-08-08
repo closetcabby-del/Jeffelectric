@@ -23,3 +23,30 @@ html,body{width:100%;max-width:100%;overflow-x:clip}@supports not (overflow:clip
 /* Larger Jeff Electric header branding for readability */
 @media(min-width:721px){.brand-icon{width:52px;height:52px}.brand-wordmark{width:185px}}
 @media(max-width:720px){.site-header{height:80px;padding:0 16px}.brand{gap:10px}.brand-icon{width:52px;height:52px}.brand-wordmark{width:185px}.nav{top:80px}.menu-button{font-size:28px}}
+
+/* Service-area map polish */
+.map-card{background:
+  radial-gradient(circle at 28% 24%,#232b22 0 4%,transparent 4.5%),
+  radial-gradient(circle at 67% 62%,#172019 0 5%,transparent 5.5%),
+  linear-gradient(145deg,#171d17 0%,#0e120e 54%,#090b09 100%);border-color:#f8f5ed;box-shadow:0 22px 55px #17120a24,0 0 0 1px #00000010 inset}
+.map-grid{opacity:.1;background-size:56px 56px;transform:rotate(-5deg) scale(1.1)}
+.map-card:before{right:-10%;bottom:-31%;width:58%;height:62%;background:linear-gradient(145deg,#12313a,#0a1c22);border-top:1px solid #66818a66;box-shadow:-20px -22px 65px #06101577;opacity:.95}
+.map-card:after{z-index:-2;opacity:.55;background:
+  linear-gradient(27deg,transparent 0 43%,#303a3066 43.3% 43.8%,transparent 44.1% 100%),
+  linear-gradient(152deg,transparent 0 57%,#303a3066 57.3% 57.8%,transparent 58.1% 100%),
+  linear-gradient(90deg,transparent 0 64%,#222b2266 64.2% 64.5%,transparent 64.7% 100%);background-size:100% 100%}
+.coverage-zone{left:9%;top:12%;width:78%;height:67%;border:0;border-radius:0;clip-path:polygon(5% 18%,31% 4%,60% 8%,86% 24%,97% 50%,82% 78%,55% 96%,25% 89%,4% 66%,0 39%);background:linear-gradient(135deg,#f2b21a2b,#f2b21a10 58%,transparent 84%);box-shadow:none;outline:1px solid #f2b21a66;transform:none}
+.map-route{z-index:0!important;height:2px!important;opacity:.72!important;background:#8a9182!important;box-shadow:0 0 0 1px #0c0f0c,0 0 8px #0006!important}
+.route-45{height:4px!important;background:#d3c581!important}.route-225{height:3px!important;background:#9ca493!important}.route-beltway{background:#777f72!important}.route-bay{background:#6c817d!important}
+.route-label{z-index:2;padding:4px 7px;border:1px solid #565f5066;border-radius:999px;background:#0d110de8;color:#d7d2b5;font-size:7px;box-shadow:0 3px 8px #0006}
+.place{z-index:4;min-height:30px;padding:5px 7px;border-radius:999px;background:#0b0e0bd9;border:1px solid #ffffff12;color:#f3f0e8;font-size:8px;letter-spacing:.07em;box-shadow:0 6px 14px #0005;backdrop-filter:blur(4px)}
+.place i{width:9px;height:9px;flex:0 0 9px;border:2px solid #f2b21a;background:#0a0d0a;box-shadow:0 0 0 4px #f2b21a1f,0 0 10px #f2b21a55!important}
+.place:hover,.place:focus,.place.active{background:#17170f;color:#ffd66b;border-color:#f2b21a88;transform:translateY(-2px) scale(1.02)}
+.place-houston{left:8%;top:17%}.place-pasadena{right:10%;top:28%}.place-pearland{left:15%;top:56%}.place-friendswood{left:42%;bottom:18%}.place-clearlake{right:6%;top:55%}.place-webster{right:18%;bottom:12%}
+.map-pin{left:47%;top:36%;width:46px;height:46px;border-radius:14px;transform:rotate(45deg);box-shadow:0 0 0 9px #f2b21a16,0 8px 22px #0007}
+.map-label{left:calc(47% + 36px);top:34%;padding:10px 12px;border:1px solid #e9e1ca;background:#fffdf7;box-shadow:5px 6px 0 #0006}
+.map-label strong{font-size:10px}.map-label span{font-size:7px}
+.map-legend{left:16px;right:16px;bottom:14px;padding:11px 13px;border:1px solid #ffffff12;border-left:3px solid #f2b21a;background:#080b08e8;backdrop-filter:blur(7px);box-shadow:0 10px 28px #0006}
+.map-city-panel{right:16px;top:16px;width:min(238px,52%);padding:14px 15px;border:1px solid #f2b21a66;border-left:3px solid #f2b21a;background:#090c09e8;box-shadow:0 14px 34px #0007;backdrop-filter:blur(8px)}
+.map-city-panel small{font-size:7px}.map-city-panel strong{font-size:12px}.map-city-panel span{font-size:8px;line-height:1.45}
+@media(max-width:720px){.map-card{height:390px;margin:0 0 105px;border-width:5px}.coverage-zone{left:8%;top:14%;width:82%;height:63%}.map-city-panel{left:0;right:0;bottom:-94px;top:auto;width:100%;min-height:84px;padding:13px 14px}.map-legend{left:8px;right:8px;bottom:8px;padding:9px 10px}.map-legend strong{font-size:9px}.map-legend span{font-size:6px}.route-label{font-size:6px;padding:3px 5px}.place{font-size:7px;padding:4px 6px;min-height:26px}.place i{width:8px;height:8px;flex-basis:8px}.place-houston{left:3%;top:18%}.place-pasadena{right:3%;top:27%}.place-pearland{left:5%;top:57%}.place-friendswood{left:36%;bottom:19%}.place-clearlake{right:1%;top:55%}.place-webster{right:10%;bottom:12%}.map-pin{left:44%;top:38%;width:40px;height:40px}.map-label{display:none}}
