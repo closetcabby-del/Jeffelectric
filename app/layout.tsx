@@ -25,6 +25,17 @@ export const metadata: Metadata = {
   },
 };
 
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/jeffelectricllc/",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/share/1Eot7yVzxN/?mibextid=wwXIfr",
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,6 +47,54 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <nav
+          aria-label="Jeff Electric social media"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "14px",
+            padding: "22px 24px 80px",
+            background: "#050605",
+            color: "#ffffff",
+            borderTop: "1px solid #20221e",
+          }}
+        >
+          <strong
+            style={{
+              marginRight: "4px",
+              color: "#777a72",
+              fontSize: "10px",
+              textTransform: "uppercase",
+              letterSpacing: ".14em",
+            }}
+          >
+            Follow Jeff Electric
+          </strong>
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                minHeight: "38px",
+                padding: "0 16px",
+                border: "1px solid #4a4c45",
+                color: "#f2b21a",
+                fontSize: "11px",
+                fontWeight: 800,
+                textTransform: "uppercase",
+                letterSpacing: ".08em",
+              }}
+            >
+              {social.name} ↗
+            </a>
+          ))}
+        </nav>
       </body>
     </html>
   );
