@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
+    icon: "/brand/jeff-electric-mark.png",
+    shortcut: "/brand/jeff-electric-mark.png",
   },
 };
 
