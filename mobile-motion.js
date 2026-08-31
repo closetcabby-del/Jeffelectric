@@ -1,13 +1,90 @@
 (()=>{
-  const legacy=document.createElement('script');
-  legacy.src='./mobile-motion-legacy.js?v=3';
-  legacy.defer=true;
-  document.head.appendChild(legacy);
+  const FACEBOOK_REEL='https://www.facebook.com/share/r/1EqWQTCmQF/?mibextid=wwXIfr';
+  const FACEBOOK_EMBED='https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(FACEBOOK_REEL)+'&show_text=false&autoplay=true&width=500';
+
+  const injectVideoHero=()=>{
+    const currentHero=document.querySelector('section.hero');
+    if(!currentHero||currentHero.classList.contains('jeff-video-hero'))return;
+
+    const style=document.createElement('style');
+    style.id='jeff-video-hero-style';
+    style.textContent=`
+      .hero.jeff-video-hero{min-height:calc(100svh - 82px)!important;padding:44px clamp(24px,8vw,124px)!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(300px,430px)!important;align-items:center!important;gap:clamp(34px,6vw,88px)!important;background:#050505!important;color:#fff!important;overflow:hidden!important;position:relative!important}
+      .hero.jeff-video-hero:before{content:""!important;display:block!important;position:absolute!important;inset:0!important;background:radial-gradient(circle at 78% 32%,rgba(242,178,26,.12),transparent 30%),linear-gradient(115deg,rgba(242,178,26,.035),transparent 45%)!important;opacity:1!important;transform:none!important;width:auto!important;height:auto!important;right:auto!important;top:auto!important;pointer-events:none!important}
+      .jeff-video-copy,.jeff-video-stage{position:relative!important;z-index:2!important}
+      .jeff-video-kicker{margin:0 0 18px!important;color:#f2b21a!important;font-size:10px!important;font-weight:900!important;letter-spacing:.2em!important;text-transform:uppercase!important}
+      .jeff-video-copy h1{margin:0 0 22px!important;font-size:clamp(52px,6.4vw,92px)!important;line-height:.92!important;letter-spacing:-.055em!important;font-weight:900!important;color:#fff!important}
+      .jeff-video-copy h1 em{display:block!important;color:#f2b21a!important;font-style:normal!important}
+      .jeff-video-copy>p:not(.jeff-video-kicker){max-width:620px!important;margin:0 0 30px!important;color:#c0c2ba!important;font-size:17px!important;line-height:1.7!important}
+      .jeff-video-actions{display:flex!important;gap:14px!important;flex-wrap:wrap!important;align-items:center!important}
+      .jeff-video-facebook{display:inline-flex!important;align-items:center!important;min-height:44px!important;color:#b8bab4!important;font-size:11px!important;font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+      .jeff-video-facebook:hover,.jeff-video-facebook:focus-visible{color:#f2b21a!important;outline:none!important}
+      .jeff-video-stage{justify-self:center!important;width:min(100%,390px)!important;aspect-ratio:9/16!important;background:#000!important;border:1px solid #44483f!important;box-shadow:18px 18px 0 #f2b21a!important;overflow:hidden!important;isolation:isolate!important}
+      .jeff-video-stage iframe{width:100%!important;height:100%!important;border:0!important;display:block!important;background:#000!important}
+      .jeff-video-fallback{position:absolute!important;inset:0!important;z-index:-1!important;display:grid!important;place-items:center!important;padding:30px!important;text-align:center!important;background:linear-gradient(180deg,#111,#050505)!important;color:#fff!important}
+      .jeff-video-fallback img{width:92px!important;height:92px!important;object-fit:contain!important;margin:0 auto 18px!important}
+      .jeff-video-fallback strong{display:block!important;font-size:20px!important;margin-bottom:8px!important}
+      .jeff-video-fallback span{display:block!important;color:#aaa!important;font-size:12px!important;line-height:1.5!important}
+      @media(max-width:900px){
+        .hero.jeff-video-hero{min-height:auto!important;padding:28px 22px 52px!important;grid-template-columns:1fr!important;gap:30px!important}
+        .jeff-video-copy{text-align:center!important}
+        .jeff-video-copy h1{font-size:clamp(44px,13vw,68px)!important}
+        .jeff-video-copy>p:not(.jeff-video-kicker){margin-left:auto!important;margin-right:auto!important;font-size:15px!important}
+        .jeff-video-actions{justify-content:center!important}
+        .jeff-video-stage{width:min(92vw,430px)!important;box-shadow:12px 12px 0 #f2b21a!important}
+      }
+      @media(max-width:720px){
+        .hero.jeff-video-hero{min-height:calc(100svh - 156px)!important;padding:0!important;display:block!important;background:#000!important}
+        .hero.jeff-video-hero:before{background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.9) 78%,#000 100%)!important;z-index:3!important;pointer-events:none!important}
+        .jeff-video-stage{width:100%!important;max-width:none!important;height:calc(100svh - 156px)!important;aspect-ratio:auto!important;border:0!important;box-shadow:none!important;margin:0!important}
+        .jeff-video-stage iframe{width:100%!important;height:100%!important}
+        .jeff-video-copy{position:absolute!important;z-index:5!important;left:18px!important;right:18px!important;bottom:24px!important;text-align:left!important;pointer-events:none!important}
+        .jeff-video-kicker{margin-bottom:8px!important;font-size:8px!important}
+        .jeff-video-copy h1{margin-bottom:14px!important;font-size:clamp(38px,11vw,54px)!important;line-height:.94!important;text-shadow:0 2px 20px rgba(0,0,0,.55)!important}
+        .jeff-video-copy>p:not(.jeff-video-kicker){display:none!important}
+        .jeff-video-actions{justify-content:flex-start!important;gap:10px!important;pointer-events:auto!important}
+        .jeff-video-actions .button{min-height:46px!important;padding:0 15px!important;font-size:10px!important}
+        .jeff-video-facebook{display:none!important}
+      }
+      @media(prefers-reduced-motion:reduce){.hero.jeff-video-hero{scroll-behavior:auto!important}}
+    `;
+    document.head.appendChild(style);
+
+    const hero=document.createElement('section');
+    hero.className='hero jeff-video-hero';
+    hero.id='top';
+    hero.setAttribute('aria-label','Jeff Electric featured video');
+    hero.innerHTML=`
+      <div class="jeff-video-copy">
+        <p class="jeff-video-kicker">Real Jeff Electric work · Southeast Houston</p>
+        <h1>Real work.<em>Real Jeff Electric.</em></h1>
+        <p>See the team in action, then tell us what is happening at your home. No electrical terminology required.</p>
+        <div class="jeff-video-actions">
+          <a class="button button-gold button-large" href="tel:+13463984485">☎ Call Now</a>
+          <a class="button button-outline button-large" href="#contact">Request a Quote</a>
+          <a class="jeff-video-facebook" href="${FACEBOOK_REEL}" target="_blank" rel="noopener noreferrer">Watch on Facebook ↗</a>
+        </div>
+      </div>
+      <div class="jeff-video-stage">
+        <div class="jeff-video-fallback" aria-hidden="true">
+          <div><img src="./public/brand/jeff-electric-mark.png" alt=""><strong>Jeff Electric</strong><span>Featured project video</span></div>
+        </div>
+        <iframe
+          src="${FACEBOOK_EMBED}"
+          title="Jeff Electric featured project video"
+          scrolling="no"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen="true"
+          loading="eager"></iframe>
+      </div>`;
+
+    currentHero.replaceWith(hero);
+  };
 
   const injectSocials=()=>{
     const footer=document.querySelector('footer');
     if(!footer||footer.querySelector('.jeff-socials'))return;
-
     const quickLinks=[...footer.querySelectorAll('div')].find(div=>div.querySelector('strong')?.textContent?.trim()==='Quick Links');
     if(!quickLinks)return;
 
@@ -39,6 +116,16 @@
     quickLinks.appendChild(social);
   };
 
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',injectSocials,{once:true});
-  else injectSocials();
+  const run=()=>{
+    injectVideoHero();
+    injectSocials();
+
+    const legacy=document.createElement('script');
+    legacy.src='./mobile-motion-legacy.js?v=4';
+    legacy.defer=true;
+    document.head.appendChild(legacy);
+  };
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
 })();
