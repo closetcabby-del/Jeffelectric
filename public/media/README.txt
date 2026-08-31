@@ -1,0 +1,1 @@
+Hero video asset will be stored at public/media/jeff-electric-hero.mp4. The homepage uses native muted autoplay with playsinline for mobile Safari.
