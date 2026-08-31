@@ -4,6 +4,11 @@
   legacy.defer=true;
   document.head.appendChild(legacy);
 
+  const instagramUrl='https://www.instagram.com/jeffelectricllc/';
+  const facebookUrl='https://www.facebook.com/share/1Eot7yVzxN/?mibextid=wwXIfr';
+  const instagramIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>';
+  const facebookIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.75l.41-3.2H13.5V8.76c0-.93.26-1.56 1.59-1.56H16.8V4.34c-.3-.04-1.31-.13-2.49-.13-2.46 0-4.14 1.5-4.14 4.26v2.33H7.4V14h2.77v8h3.33Z"/></svg>';
+
   const injectFeatureVideo=()=>{
     const hero=document.querySelector('section.hero');
     if(!hero||document.querySelector('.jeff-feature-video'))return;
@@ -16,7 +21,8 @@
       .jeff-feature-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(220px,320px) minmax(300px,450px);justify-content:center;align-items:center;gap:clamp(26px,5vw,68px)}
       .jeff-feature-copy{max-width:320px}
       .jeff-feature-copy h2{margin:0;color:#fff;font-size:clamp(42px,4.6vw,64px);line-height:.95;letter-spacing:-.045em;font-weight:900}
-      .jeff-feature-frame{position:relative;justify-self:center;width:min(100%,430px);padding:14px;background:linear-gradient(180deg,#151611 0%,#090a08 48%,#040504 100%);border:1px solid #5a5d52;border-radius:18px;box-shadow:0 0 0 1px rgba(242,178,26,.16),0 0 34px rgba(242,178,26,.10),0 22px 54px rgba(0,0,0,.52);overflow:hidden}
+      .jeff-feature-media{justify-self:center;width:min(100%,430px);display:flex;flex-direction:column;align-items:center;gap:15px}
+      .jeff-feature-frame{position:relative;width:100%;padding:14px;background:linear-gradient(180deg,#151611 0%,#090a08 48%,#040504 100%);border:1px solid #5a5d52;border-radius:18px;box-shadow:0 0 0 1px rgba(242,178,26,.16),0 0 34px rgba(242,178,26,.10),0 22px 54px rgba(0,0,0,.52);overflow:hidden}
       .jeff-feature-frame:before{content:"";position:absolute;inset:0;border-radius:18px;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(242,178,26,.20);z-index:2}
       .jeff-feature-player{display:block;width:100%;height:auto;aspect-ratio:512/910;object-fit:contain;background:#000;border-radius:12px}
       .jeff-feature-play{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border:1px solid rgba(255,255,255,.72);border-radius:50%;background:rgba(5,5,5,.74);color:#f2b21a;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 42px rgba(0,0,0,.48);backdrop-filter:blur(8px);transition:transform .2s ease,background .2s ease,border-color .2s ease,opacity .2s ease}
@@ -26,9 +32,14 @@
       .jeff-feature-replay{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);display:none;min-height:52px;padding:0 22px;border:1px solid #f2b21a;background:#0a0b09e8;color:#fff;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
       .jeff-feature-video.has-ended .jeff-feature-replay{display:inline-flex;align-items:center;justify-content:center}
       .jeff-feature-video.has-ended .jeff-feature-play{display:none}
-      @media(max-width:900px){.jeff-feature-video{padding:26px 20px 50px}.jeff-feature-inner{grid-template-columns:1fr;gap:14px}.jeff-feature-copy{max-width:none;margin:0 auto;text-align:center}.jeff-feature-copy h2{font-size:clamp(34px,9vw,46px)}.jeff-feature-frame{width:min(88vw,430px);padding:12px;border-radius:16px;box-shadow:0 0 0 1px rgba(242,178,26,.16),0 0 26px rgba(242,178,26,.10),0 18px 42px rgba(0,0,0,.48)}.jeff-feature-frame:before{border-radius:16px}.jeff-feature-player{border-radius:10px}}
-      @media(max-width:720px){.jeff-feature-video{padding:14px 16px 78px}.jeff-feature-inner{gap:10px}.jeff-feature-copy h2{font-size:clamp(32px,9vw,40px)}.jeff-feature-frame{width:min(92vw,400px);padding:10px;border-radius:14px;box-shadow:0 0 0 1px rgba(242,178,26,.18),0 0 22px rgba(242,178,26,.10),0 14px 32px rgba(0,0,0,.48)}.jeff-feature-frame:before{border-radius:14px}.jeff-feature-player{border-radius:9px}.jeff-feature-play{width:82px;height:82px}.jeff-feature-video.is-playing~.mobile-bar{transform:translateY(100%);transition:transform .2s ease}}
-      @media(prefers-reduced-motion:reduce){.jeff-feature-play{transition:none}}
+      .jeff-feature-socials{display:flex;align-items:center;justify-content:center;gap:10px;min-height:46px}
+      .jeff-feature-socials span{margin-right:3px;color:#9c9f96;font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+      .jeff-feature-socials a{width:44px;height:44px;display:grid;place-items:center;border:1px solid #4a4d45;border-radius:50%;background:#0d0e0c;color:#f2b21a;transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease}
+      .jeff-feature-socials a:hover,.jeff-feature-socials a:focus-visible{transform:translateY(-2px);background:#f2b21a;border-color:#f2b21a;color:#080908;outline:none}
+      .jeff-feature-socials svg{width:19px;height:19px;display:block;fill:currentColor}
+      @media(max-width:900px){.jeff-feature-video{padding:26px 20px 50px}.jeff-feature-inner{grid-template-columns:1fr;gap:14px}.jeff-feature-copy{max-width:none;margin:0 auto;text-align:center}.jeff-feature-copy h2{font-size:clamp(34px,9vw,46px)}.jeff-feature-media{width:min(88vw,430px);gap:14px}.jeff-feature-frame{padding:12px;border-radius:16px;box-shadow:0 0 0 1px rgba(242,178,26,.16),0 0 26px rgba(242,178,26,.10),0 18px 42px rgba(0,0,0,.48)}.jeff-feature-frame:before{border-radius:16px}.jeff-feature-player{border-radius:10px}}
+      @media(max-width:720px){.jeff-feature-video{padding:14px 16px 78px}.jeff-feature-inner{gap:10px}.jeff-feature-copy h2{font-size:clamp(32px,9vw,40px)}.jeff-feature-media{width:min(92vw,400px);gap:12px}.jeff-feature-frame{padding:10px;border-radius:14px;box-shadow:0 0 0 1px rgba(242,178,26,.18),0 0 22px rgba(242,178,26,.10),0 14px 32px rgba(0,0,0,.48)}.jeff-feature-frame:before{border-radius:14px}.jeff-feature-player{border-radius:9px}.jeff-feature-play{width:82px;height:82px}.jeff-feature-socials{gap:9px}.jeff-feature-socials a{width:42px;height:42px}.jeff-feature-video.is-playing~.mobile-bar{transform:translateY(100%);transition:transform .2s ease}}
+      @media(prefers-reduced-motion:reduce){.jeff-feature-play,.jeff-feature-socials a{transition:none}}
     `;
     document.head.appendChild(style);
 
@@ -40,12 +51,19 @@
         <div class="jeff-feature-copy">
           <h2 id="jeff-feature-title">Meet Jeff</h2>
         </div>
-        <div class="jeff-feature-frame">
-          <video class="jeff-feature-player" src="./public/media/jeff-electric-feature-full.mp4?v=1" playsinline webkit-playsinline preload="metadata" aria-label="Full Jeff Electric featured video with sound"></video>
-          <button class="jeff-feature-play" type="button" aria-label="Play Jeff Electric featured video with sound">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <button class="jeff-feature-replay" type="button" aria-label="Replay Jeff Electric featured video">↻ Watch again</button>
+        <div class="jeff-feature-media">
+          <div class="jeff-feature-frame">
+            <video class="jeff-feature-player" src="./public/media/jeff-electric-feature-full.mp4?v=1" playsinline webkit-playsinline preload="metadata" aria-label="Full Jeff Electric featured video with sound"></video>
+            <button class="jeff-feature-play" type="button" aria-label="Play Jeff Electric featured video with sound">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button class="jeff-feature-replay" type="button" aria-label="Replay Jeff Electric featured video">↻ Watch again</button>
+          </div>
+          <div class="jeff-feature-socials" aria-label="Follow Jeff Electric on social media">
+            <span>Follow Jeff</span>
+            <a href="${instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Jeff Electric on Instagram" title="Instagram">${instagramIcon}</a>
+            <a href="${facebookUrl}" target="_blank" rel="noopener noreferrer" aria-label="Jeff Electric on Facebook" title="Facebook">${facebookIcon}</a>
+          </div>
         </div>
       </div>`;
     hero.before(section);
@@ -96,7 +114,7 @@
 
     const social=document.createElement('div');
     social.className='jeff-socials';
-    social.innerHTML=`<strong>Follow Us</strong><div class="jeff-social-row"><a href="https://www.instagram.com/jeffelectricllc/" target="_blank" rel="noopener noreferrer" aria-label="Jeff Electric on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></a><a href="https://www.facebook.com/share/1Eot7yVzxN/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Jeff Electric on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.75l.41-3.2H13.5V8.76c0-.93.26-1.56 1.59-1.56H16.8V4.34c-.3-.04-1.31-.13-2.49-.13-2.46 0-4.14 1.5-4.14 4.26v2.33H7.4V14h2.77v8h3.33Z"/></svg></a></div>`;
+    social.innerHTML=`<strong>Follow Us</strong><div class="jeff-social-row"><a href="${instagramUrl}" target="_blank" rel="noopener noreferrer" aria-label="Jeff Electric on Instagram" title="Instagram">${instagramIcon}</a><a href="${facebookUrl}" target="_blank" rel="noopener noreferrer" aria-label="Jeff Electric on Facebook" title="Facebook">${facebookIcon}</a></div>`;
     quickLinks.appendChild(social);
   };
 
