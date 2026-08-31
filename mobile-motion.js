@@ -11,16 +11,11 @@
     const style=document.createElement('style');
     style.id='jeff-feature-video-style';
     style.textContent=`
-      .jeff-feature-video{position:relative;padding:clamp(44px,5vw,68px) clamp(22px,7vw,110px);background:#070807;color:#fff;border-top:1px solid #272922;border-bottom:1px solid #272922;overflow:hidden}
+      .jeff-feature-video{position:relative;padding:clamp(34px,4vw,54px) clamp(22px,7vw,110px);background:#070807;color:#fff;border-top:1px solid #272922;border-bottom:1px solid #272922;overflow:hidden}
       .jeff-feature-video:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 70% 24%,rgba(242,178,26,.13),transparent 30%),linear-gradient(120deg,rgba(242,178,26,.035),transparent 48%)}
-      .jeff-feature-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(260px,400px) minmax(300px,430px);justify-content:center;align-items:center;gap:clamp(30px,6vw,82px)}
-      .jeff-feature-copy{max-width:400px}
-      .jeff-feature-kicker{margin:0 0 10px;color:#f2b21a;font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
-      .jeff-feature-copy h2{margin:0 0 10px;color:#fff;font-size:clamp(36px,4.3vw,56px);line-height:.96;letter-spacing:-.04em;font-weight:900}
-      .jeff-feature-copy h2 em{display:block;color:#f2b21a;font-style:normal}
-      .jeff-feature-copy>p:not(.jeff-feature-kicker){margin:0 0 12px;color:#c2c5bc;font-size:14px;line-height:1.45}
-      .jeff-feature-note{display:flex;align-items:center;gap:8px;color:#eef0e8!important;font-size:11px!important;font-weight:800!important;letter-spacing:.02em}
-      .jeff-feature-note:before{content:"▶";display:grid;place-items:center;width:26px;height:26px;flex:0 0 26px;border:1px solid #f2b21a;color:#f2b21a;border-radius:50%;font-size:8px}
+      .jeff-feature-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(220px,320px) minmax(300px,430px);justify-content:center;align-items:center;gap:clamp(26px,5vw,68px)}
+      .jeff-feature-copy{max-width:320px}
+      .jeff-feature-copy h2{margin:0;color:#fff;font-size:clamp(42px,4.6vw,64px);line-height:.95;letter-spacing:-.045em;font-weight:900}
       .jeff-feature-frame{position:relative;justify-self:center;width:min(100%,410px);aspect-ratio:512/910;background:#000;border:1px solid #45483f;box-shadow:18px 18px 0 #f2b21a;overflow:hidden}
       .jeff-feature-player{display:block;width:100%;height:100%;object-fit:contain;background:#000}
       .jeff-feature-play{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border:1px solid rgba(255,255,255,.72);border-radius:50%;background:rgba(5,5,5,.74);color:#f2b21a;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 42px rgba(0,0,0,.48);backdrop-filter:blur(8px);transition:transform .2s ease,background .2s ease,border-color .2s ease,opacity .2s ease}
@@ -30,8 +25,8 @@
       .jeff-feature-replay{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);display:none;min-height:52px;padding:0 22px;border:1px solid #f2b21a;background:#0a0b09e8;color:#fff;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
       .jeff-feature-video.has-ended .jeff-feature-replay{display:inline-flex;align-items:center;justify-content:center}
       .jeff-feature-video.has-ended .jeff-feature-play{display:none}
-      @media(max-width:900px){.jeff-feature-video{padding:34px 20px 54px}.jeff-feature-inner{grid-template-columns:1fr;gap:20px}.jeff-feature-copy{max-width:520px;margin:0 auto;text-align:center}.jeff-feature-copy h2{font-size:clamp(32px,8vw,44px)}.jeff-feature-copy>p:not(.jeff-feature-kicker){font-size:14px}.jeff-feature-note{justify-content:center}.jeff-feature-frame{width:min(88vw,420px);box-shadow:12px 12px 0 #f2b21a}}
-      @media(max-width:720px){.jeff-feature-video{padding:22px 16px 82px}.jeff-feature-inner{gap:16px}.jeff-feature-copy h2{font-size:clamp(30px,9vw,40px);margin-bottom:8px}.jeff-feature-copy>p:not(.jeff-feature-kicker){margin-bottom:8px;font-size:13px;line-height:1.35}.jeff-feature-kicker{font-size:7px;margin-bottom:7px}.jeff-feature-frame{width:min(92vw,390px);box-shadow:9px 9px 0 #f2b21a}.jeff-feature-play{width:82px;height:82px}.jeff-feature-video.is-playing~.mobile-bar{transform:translateY(100%);transition:transform .2s ease}}
+      @media(max-width:900px){.jeff-feature-video{padding:26px 20px 50px}.jeff-feature-inner{grid-template-columns:1fr;gap:14px}.jeff-feature-copy{max-width:none;margin:0 auto;text-align:center}.jeff-feature-copy h2{font-size:clamp(34px,9vw,46px)}.jeff-feature-frame{width:min(88vw,420px);box-shadow:12px 12px 0 #f2b21a}}
+      @media(max-width:720px){.jeff-feature-video{padding:14px 16px 78px}.jeff-feature-inner{gap:10px}.jeff-feature-copy h2{font-size:clamp(32px,9vw,40px)}.jeff-feature-frame{width:min(92vw,390px);box-shadow:9px 9px 0 #f2b21a}.jeff-feature-play{width:82px;height:82px}.jeff-feature-video.is-playing~.mobile-bar{transform:translateY(100%);transition:transform .2s ease}}
       @media(prefers-reduced-motion:reduce){.jeff-feature-play{transition:none}}
     `;
     document.head.appendChild(style);
@@ -42,10 +37,7 @@
     section.innerHTML=`
       <div class="jeff-feature-inner">
         <div class="jeff-feature-copy">
-          <p class="jeff-feature-kicker">Real Jeff Electric job</p>
-          <h2 id="jeff-feature-title">What does the work<em>really look like?</em></h2>
-          <p>50 seconds. See it for yourself.</p>
-          <p class="jeff-feature-note">Press play · Sound on</p>
+          <h2 id="jeff-feature-title">Meet Jeff</h2>
         </div>
         <div class="jeff-feature-frame">
           <video class="jeff-feature-player" src="./public/media/jeff-electric-feature-full.mp4?v=1" playsinline webkit-playsinline preload="metadata" aria-label="Full Jeff Electric featured video with sound"></video>
