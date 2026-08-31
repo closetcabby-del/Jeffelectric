@@ -48,7 +48,7 @@
           <p class="jeff-feature-note">50-second video · Sound on when you press play</p>
         </div>
         <div class="jeff-feature-frame">
-          <video class="jeff-feature-player" src="./public/media/jeff-electric-feature-full.mp4?v=1" controls playsinline webkit-playsinline preload="metadata" aria-label="Full Jeff Electric featured video with sound"></video>
+          <video class="jeff-feature-player" src="./public/media/jeff-electric-feature-full.mp4?v=1" playsinline webkit-playsinline preload="metadata" aria-label="Full Jeff Electric featured video with sound"></video>
           <button class="jeff-feature-play" type="button" aria-label="Play Jeff Electric featured video with sound">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
           </button>
@@ -64,6 +64,7 @@
 
     const startPlayback=async()=>{
       try{
+        video.controls=true;
         video.muted=false;
         await video.play();
       }catch(error){
@@ -78,6 +79,7 @@
       startPlayback();
     });
     video.addEventListener('play',()=>{
+      video.controls=true;
       section.classList.add('has-started','is-playing');
       section.classList.remove('has-ended');
     });
