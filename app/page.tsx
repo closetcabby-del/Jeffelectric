@@ -53,7 +53,7 @@ export default function Home() {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const elements = document.querySelectorAll(".reassurance, .power-check, .process-top, .process ol, .section-heading, .compact-services, .real-work-heading, .work-gallery, .areas-copy, .map-card, .contact-copy, .contact form");
+    const elements = document.querySelectorAll(".reassurance, .power-check, .process-top, .process ol, .section-heading, .compact-services, .real-work-heading, .work-gallery, .areas-copy, .map-card, .contact-copy, .contact form, .reviews-section, .financing-section");
     elements.forEach(element => element.classList.add("reveal"));
     if (reducedMotion || !("IntersectionObserver" in window)) {
       elements.forEach(element => element.classList.add("is-visible"));
@@ -112,12 +112,13 @@ export default function Home() {
           <a href="#help" onClick={() => setMenuOpen(false)}>Common Problems</a>
           <a href="#process" onClick={() => setMenuOpen(false)}>What to Expect</a>
           <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-          <a href="#areas" onClick={() => setMenuOpen(false)}>Service Areas</a>
+          <a href="#reviews" onClick={() => setMenuOpen(false)}>Reviews</a>
+          <a href="#financing" onClick={() => setMenuOpen(false)}>Financing</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
         </nav>
         <div className="header-actions">
           <a className="phone" href="tel:+13463984485"><span>Call now</span>(346) 398-4485</a>
-          <a className="button button-gold" href="#contact">Request a Quote</a>
+          <a className="button button-gold" href="#contact">Request an Estimate</a>
         </div>
       </header>
 
@@ -127,8 +128,8 @@ export default function Home() {
           <h1>Something wrong with your<br /><em>home’s electrical?</em></h1>
           <p className="hero-copy">You don’t have to diagnose it yourself. Tell Jeff Electric what you’re noticing, and we’ll help you understand the next step—clearly and without pressure.</p>
           <div className="hero-actions">
-            <a className="button button-gold button-large" href="tel:+13463984485">☎ Call (346) 398-4485</a>
-            <a className="button button-outline button-large" href="#contact">Request a Quote <span>→</span></a>
+            <a className="button button-gold button-large" href="tel:+13463984485">☎ Call Now</a>
+            <a className="button button-outline button-large" href="#contact">Request an Estimate <span>→</span></a>
           </div>
           <p className="coverage"><span>●</span> Residential electrical service across Southeast Houston</p>
         </div>
@@ -152,6 +153,14 @@ export default function Home() {
         <div><b>03</b><strong>RESPECT FOR YOUR HOME</strong><span>A straightforward experience</span></div>
         <div><b>04</b><strong>YOU STAY IN CONTROL</strong><span>Choose how to proceed</span></div>
       </section>
+
+      <section className="reviews-section" id="reviews" aria-labelledby="reviews-title">
+        <div className="reviews-grid">
+          <div className="review-score"><strong>5.0 ★</strong><span>13 Google reviews</span></div>
+          <div className="review-copy"><p className="eyebrow"><span /> CUSTOMER REVIEWS</p><h2 id="reviews-title">Trusted by local homeowners.</h2><p>Jeff Electric’s public Google profile is rated 5.0 stars across 13 reviews. We keep this section factual and do not publish customer quotes unless the exact review text is verified.</p></div>
+        </div>
+      </section>
+
       <section className="reassurance" aria-label="What homeowners can expect">
         <p className="eyebrow dark"><span /> START WHERE YOU ARE</p>
         <h2>You bring the concern.<br /><em>We’ll bring the clarity.</em></h2>
@@ -194,13 +203,13 @@ export default function Home() {
           <li><span>03</span><div><b>EXPLAIN</b><strong>Understand the recommendation</strong><p>Your technician evaluates the issue and walks you through the findings in plain language.</p></div></li>
           <li><span>04</span><div><b>YOU DECIDE</b><strong>Choose how to proceed</strong><p>You understand the options before work moves forward. Questions are welcome.</p></div></li>
         </ol>
-        <div className="process-cta"><p>Ready for step one?</p><a className="button button-gold" href="tel:+13463984485">Call (346) 398-4485</a><a className="button button-outline" href="#contact">Tell Us What’s Happening</a></div>
+        <div className="process-cta"><p>Ready for step one?</p><a className="button button-gold" href="tel:+13463984485">Call Now</a><a className="button button-outline" href="#contact">Request an Estimate</a></div>
       </section>
 
       <section className="section services" id="services">
         <div className="section-heading">
-          <div><p className="eyebrow dark"><span /> HOW WE HELP</p><h2>Home electrical work,<br /><em>explained simply.</em></h2></div>
-          <p>You do not need to pick the perfect service. These are common ways we help Southeast Houston homeowners.</p>
+          <div><p className="eyebrow dark"><span /> RESIDENTIAL SERVICES</p><h2>Home electrical work,<br /><em>organized clearly.</em></h2></div>
+          <p>Choose the service closest to your need. If you are unsure, describe the symptoms and Jeff Electric can help identify the right starting point.</p>
         </div>
         <div className="compact-services">
           {services.map((service, index) => {
@@ -211,6 +220,11 @@ export default function Home() {
           })}
         </div>
         <div className="service-assist"><span>NOT SURE?</span><p>Describe what’s happening in your own words. We’ll help identify the right starting point.</p><a href="tel:+13463984485">Call Jeff Electric →</a></div>
+      </section>
+
+      <section className="financing-section" id="financing" aria-labelledby="financing-title">
+        <p className="eyebrow dark"><span /> FINANCING</p>
+        <div className="financing-card"><div><h2 id="financing-title">Planning a larger electrical project?</h2><p>Ask Jeff Electric about available payment or financing options when you request an estimate. Specific provider terms, rates, approval requirements and eligibility will be shown here only after they are verified.</p></div><a className="button button-gold button-large" href="#contact">Ask About Options</a></div>
       </section>
 
       <section className="real-work" aria-labelledby="real-work-title">
@@ -250,25 +264,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="license-strip" aria-label="Licensing information"><div className="license-strip-inner"><strong>Texas licensing</strong><span className="license-pending">Master Electrician license number: pending verified source</span><span className="license-pending">Electrical Contractor license number: pending verified source</span></div></section>
+
       <section className="contact" id="contact">
         <div className="contact-copy">
-          <p className="eyebrow"><span /> START THE CONVERSATION</p>
+          <p className="eyebrow"><span /> REQUEST AN ESTIMATE</p>
           <h2>Tell us what’s<br /><em>happening.</em></h2>
           <p>You do not need the right terminology. Share what you notice, what you want to add or what you’re unsure about. We’ll contact you to discuss the next step.</p>
           <a className="contact-phone" href="tel:+13463984485"><small>Prefer to talk now?</small><strong>☎ (346) 398-4485</strong></a>
           <p className="privacy">Your information is used only to respond to your service request.</p>
         </div>
         {sent ? (
-          <div className="success" role="status"><span>✓</span><h3>Thanks—we received your request.</h3><p>Prefer to talk with us? Call Jeff Electric at <a href="tel:+13463984485">(346) 398-4485</a>.</p><button onClick={() => setSent(false)}>Send another request</button></div>
+          <div className="success" role="status" aria-live="polite"><span>✓</span><h3>Request received.</h3><p>Thanks. Jeff Electric received your estimate request and will use the contact information you provided to follow up. Prefer to talk now? Call <a href="tel:+13463984485">(346) 398-4485</a>.</p><button onClick={() => setSent(false)}>Send another request</button></div>
         ) : (
-          <form onSubmit={submitQuote} method="POST" action="https://forminit.com/f/pojgp0vhkve">
-            <input type="hidden" name="_subject" value="New service request from jeffelectric.online" />
+          <form onSubmit={submitQuote} method="POST" action="https://forminit.com/f/pojgp0vhkve" aria-label="Request an estimate form">
+            <input type="hidden" name="_subject" value="New estimate request from jeffelectric.online" />
             <div className="form-row"><label>Full name<input required name="fi-sender-firstName" autoComplete="name" placeholder="Your name" /></label><label>Phone number<input required name="fi-phone-phoneNumber" type="tel" autoComplete="tel" placeholder="(000) 000-0000" /></label></div>
             <div className="form-row"><label>ZIP code<input required name="fi-text-zipCode" inputMode="numeric" autoComplete="postal-code" placeholder="77502" /></label><label>Preferred contact<select name="fi-select-preferredContact"><option>Phone call</option><option>Text message</option><option>Email</option></select></label></div>
-            <label>Type of electrical problem<select required name="fi-select-serviceType" defaultValue=""><option value="" disabled>Select a service</option>{services.map(service => <option key={service.title}>{service.title}</option>)}<option>Something else</option></select></label>
-            <label>What are you experiencing?<textarea required name="fi-text-message" rows={4} placeholder="Tell us what you noticed, when it started, and anything else that may help." /></label>
+            <label>Residential service needed<select required name="fi-select-serviceType" defaultValue=""><option value="" disabled>Select a service</option>{services.map(service => <option key={service.title}>{service.title}</option>)}<option>Something else</option></select></label>
+            <label>What do you need help with?<textarea required name="fi-text-message" rows={4} placeholder="Tell us what you noticed, what you want installed, or what you would like us to evaluate." /></label>
             <label>Photo of the issue (optional)<input type="file" name="fi-file-photo" accept="image/*" /></label>
-            <button className="button button-gold button-large" type="submit">Send Service Request <span>→</span></button>
+            <button className="button button-gold button-large" type="submit">Request an Estimate <span>→</span></button>
           </form>
         )}
       </section>
@@ -277,11 +293,11 @@ export default function Home() {
         <a className="brand footer-brand" href="#top" aria-label="Jeff Electric home"><img src="/brand/jeff-electric-logo.png" alt="Jeff Electric — Wiring Tomorrow, Today" /></a>
         <div><strong>Service Area</strong><span>Southeast Houston</span></div>
         <div><strong>Call Jeff Electric</strong><a href="tel:+13463984485">(346) 398-4485</a></div>
-        <div><strong>Quick Links</strong><a href="#services">Services</a><a href="#contact">Request a Quote</a></div>
+        <div><strong>Quick Links</strong><a href="#services">Residential Services</a><a href="#contact">Request an Estimate</a></div>
         <p>© 2026 Jeff Electric. All rights reserved.</p>
       </footer>
 
-      <div className="mobile-bar"><a href="tel:+13463984485">☎ Call Now</a><a href="#contact">Request Quote</a></div>
+      <div className="mobile-bar"><a href="tel:+13463984485">☎ Call Now</a><a href="#contact">Request Estimate</a></div>
     </main>
   );
 }
