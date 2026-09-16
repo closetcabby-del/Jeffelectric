@@ -264,7 +264,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="license-strip" aria-label="Licensing information"><div className="license-strip-inner"><strong>Texas licensing</strong><span className="license-pending">Master Electrician license number: pending verified source</span><span className="license-pending">Electrical Contractor license number: pending verified source</span></div></section>
+      <section className="license-strip" aria-label="Licensing information"><div className="license-strip-inner"><strong>Texas Electrical Contractor License</strong><span>TECL 39762</span><span className="license-pending">Master Electrician license number: pending verified source</span></div></section>
 
       <section className="contact" id="contact">
         <div className="contact-copy">
@@ -294,7 +294,7 @@ export default function Home() {
         <div><strong>Service Area</strong><span>Southeast Houston</span></div>
         <div><strong>Call Jeff Electric</strong><a href="tel:+13463984485">(346) 398-4485</a></div>
         <div><strong>Quick Links</strong><a href="#services">Residential Services</a><a href="#contact">Request an Estimate</a></div>
-        <p>© 2026 Jeff Electric. All rights reserved.</p>
+        <p>© 2026 Jeff Electric. All rights reserved. TECL 39762.</p>
       </footer>
 
       <div className="mobile-bar"><a href="tel:+13463984485">☎ Call Now</a><a href="#contact">Request Estimate</a></div>
