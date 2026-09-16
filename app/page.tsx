@@ -157,7 +157,7 @@ export default function Home() {
       <section className="reviews-section" id="reviews" aria-labelledby="reviews-title">
         <div className="reviews-grid">
           <div className="review-score"><strong>5.0 ★</strong><span>13 Google reviews</span></div>
-          <div className="review-copy"><p className="eyebrow"><span /> CUSTOMER REVIEWS</p><h2 id="reviews-title">Trusted by local homeowners.</h2><p>Jeff Electric’s public Google profile is rated 5.0 stars across 13 reviews. We keep this section factual and do not publish customer quotes unless the exact review text is verified.</p></div>
+          <div className="review-copy"><p className="eyebrow"><span /> CUSTOMER REVIEWS</p><h2 id="reviews-title">Trusted by local homeowners.</h2><p>Jeff Electric’s public Google profile is rated 5.0 stars across 13 reviews.</p></div>
         </div>
       </section>
 
@@ -223,8 +223,8 @@ export default function Home() {
       </section>
 
       <section className="financing-section" id="financing" aria-labelledby="financing-title">
-        <p className="eyebrow dark"><span /> FINANCING</p>
-        <div className="financing-card"><div><h2 id="financing-title">Planning a larger electrical project?</h2><p>Ask Jeff Electric about available payment or financing options when you request an estimate. Specific provider terms, rates, approval requirements and eligibility will be shown here only after they are verified.</p></div><a className="button button-gold button-large" href="#contact">Ask About Options</a></div>
+        <p className="eyebrow dark"><span /> FINANCING AVAILABLE</p>
+        <div className="financing-card"><div><h2 id="financing-title">Another option to consider.</h2><p>Financing is available for customers who would like to consider it as an option for their electrical project.</p></div><a className="button button-gold button-large" href="#contact">Request an Estimate</a></div>
       </section>
 
       <section className="real-work" aria-labelledby="real-work-title">
@@ -264,7 +264,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="license-strip" aria-label="Licensing information"><div className="license-strip-inner"><strong>Texas Electrical Contractor License</strong><span>TECL 39762</span><span className="license-pending">Master Electrician license number: pending verified source</span></div></section>
+      <section className="license-strip" aria-label="Licensing information"><div className="license-strip-inner"><strong>Texas Electrical Contractor License</strong><span>TECL 39762</span></div></section>
 
       <section className="contact" id="contact">
         <div className="contact-copy">
