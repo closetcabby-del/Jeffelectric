@@ -7,6 +7,13 @@
 .review-score span{display:block;margin-top:10px;color:#c7c7c7;font-size:15px}
 .review-copy h2,.financing-section h2{margin:12px 0 18px;font-size:clamp(38px,5vw,64px);line-height:1;letter-spacing:-.05em}
 .review-copy p,.financing-section p{max-width:700px;line-height:1.75;color:#b8b8b8}
+.review-carousel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding:28px 2px 12px;margin-top:28px;overscroll-behavior-x:contain}
+.review-card{flex:0 0 min(440px,88vw);scroll-snap-align:start;background:#191919;border:1px solid #333;border-bottom:4px solid var(--gold);padding:28px;min-height:270px;display:flex;flex-direction:column}
+.review-stars{color:var(--gold);font-size:20px;letter-spacing:2px;margin-bottom:18px}
+.review-card blockquote{margin:0;color:#f1f1f1;font-size:17px;line-height:1.65;flex:1}
+.review-card footer{margin-top:22px;padding:0;background:transparent;border:0;display:block;color:#aaa;font-size:13px}
+.review-card footer strong{display:block;color:#fff;font-size:15px;margin-bottom:4px}
+.review-hint{margin:12px 0 0;color:#888;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 .financing-section{background:#eeeae0;color:#111}
 .financing-card{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;padding:34px;background:white;border:1px solid #d3ccbc;border-bottom:4px solid var(--gold)}
 .financing-card p{margin:0;color:#5f625c}
@@ -24,6 +31,7 @@
 @media(max-width:900px){
  .reviews-grid,.financing-card{grid-template-columns:1fr}
  .reviews-section,.financing-section{padding:56px 22px}
+ .review-carousel{margin-right:-22px;padding-right:22px}.review-card{flex-basis:min(390px,86vw)}
  .license-strip{padding:22px}
  .site-header{height:72px;padding:0 18px;gap:14px}.brand-wordmark{width:118px}.brand-icon{width:36px;height:36px}
  .hero{grid-template-columns:1fr;padding:58px 22px 66px;gap:36px}.hero h1{font-size:clamp(44px,13vw,66px)}.hero-copy{font-size:17px;line-height:1.65}
@@ -39,6 +47,6 @@
 @media(max-width:560px){
  body{font-size:16px}.hero{padding-top:42px}.hero h1{font-size:clamp(39px,12.5vw,55px)}.hero-copy{font-size:16px}.eyebrow{line-height:1.45}
  .trust-strip{grid-template-columns:1fr}.trust-strip div{padding:0 0 16px}.button{min-height:50px;padding:0 18px}
- .review-score{padding:26px}.review-score strong{font-size:54px}.license-strip-inner{align-items:flex-start;flex-direction:column;gap:10px}
+ .review-score{padding:26px}.review-score strong{font-size:54px}.review-card{padding:22px;min-height:250px}.review-card blockquote{font-size:16px}.license-strip-inner{align-items:flex-start;flex-direction:column;gap:10px}
  .contact form{padding:24px!important}.contact form input,.contact form select,.contact form textarea{width:100%}
 }
