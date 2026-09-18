@@ -1,4 +1,40 @@
 :root{--ease-electric:cubic-bezier(.22,.75,.18,1);--glow:0 0 18px #f2b21a73}
+/* Phase 1: keep the service message, verified proof and real team in view. */
+.header-actions .phone{white-space:nowrap}
+.hero .hero-content h1{font-size:clamp(42px,5.3vw,72px);line-height:1}
+.hero-proof{display:flex;flex-wrap:wrap;gap:20px 24px;list-style:none;margin:24px 0 0;padding:0}
+.hero-proof li{max-width:225px}
+.hero-proof li+li{padding-left:24px;border-left:1px solid #45443b}
+.hero-proof strong,.hero-proof li>span,.hero-proof a>span{display:block}
+.hero-proof strong{font-size:15px;line-height:1.4;color:#fff}
+.hero-proof strong span{color:var(--gold);font-size:12px;letter-spacing:.04em}
+.hero-proof li>span,.hero-proof a>span{margin-top:4px;color:#c0c2ba;font-size:12px;line-height:1.45}
+.hero-proof a:hover>span,.hero-proof a:focus-visible>span{color:var(--gold);text-decoration:underline}
+.hero-photo.hero-team-photo{align-self:center;min-height:0;width:100%;aspect-ratio:4/3}
+.hero-team-photo img{opacity:1;transform:none;content-visibility:visible}
+.hero-team-photo figcaption{bottom:24px}
+.compact-services h3 a{display:inline;color:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;text-decoration:underline;text-decoration-color:#9a6a0066;text-underline-offset:4px;text-decoration-thickness:1px}
+.compact-services article>a{display:grid;place-items:center;min-width:44px;min-height:44px}
+.compact-services article:hover h3 a{text-decoration-color:var(--gold)}
+.area-tags a{display:inline-flex;align-items:center;min-height:44px;padding:10px 13px;background:#fff;border:1px solid #d6d1c5;font-size:12px;font-weight:800}
+.area-tags a:hover{border-color:#9a6a00;color:#765100}
+.hero-proof a:focus-visible,.compact-services a:focus-visible,.area-tags a:focus-visible,main>footer a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+main>footer div>a{font-size:13px;line-height:1.5;padding:5px 0;margin-bottom:2px}
+main>footer div>a:hover{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:720px){
+  /* Follow DOM order; new sections must not jump ahead of the hero. */
+  body main{display:block}
+  .hero .hero-content h1{font-size:clamp(32px,9.8vw,40px);line-height:1.05}
+  .hero-proof{gap:16px;flex-wrap:nowrap}
+  .hero-proof li{flex:1;min-width:0}
+  .hero-proof li+li{padding-left:16px}
+  .hero-proof strong{font-size:14px}
+  .hero-proof strong span{font-size:10px}
+  .hero-photo.hero-team-photo figcaption{bottom:20px}
+  .hero-team-photo figcaption strong{font-size:18px}
+  main>footer div>a{min-height:44px;display:flex;align-items:center}
+  #mobile-quote,#reviews,#meet-jeff,#services,#areas,#financing{scroll-margin-top:100px}
+}
 img{content-visibility:auto}.button,.menu-button,.check-options button,.slide-controls button{touch-action:manipulation}
 .brand-icon{filter:drop-shadow(0 0 0 transparent)}.brand.power-on .brand-icon{animation:brand-charge .85s var(--ease-electric)}
 @keyframes brand-charge{0%{filter:drop-shadow(0 0 0 transparent);transform:scale(.88)}45%{filter:drop-shadow(0 0 18px var(--gold));transform:scale(1.08)}100%{filter:drop-shadow(0 0 0 transparent);transform:none}}

@@ -2283,7 +2283,7 @@
         --font-geist-mono: "Geist Mono", sans-serif;
       }
     </style>
-    <link rel="stylesheet" href="./mobile-motion.css?v=3" />
+    <link rel="stylesheet" href="./mobile-motion.css?v=4" />
   </head>
   <body>
     <main>
@@ -2304,9 +2304,9 @@
           ☰
         </button>
         <nav class="nav" aria-label="Main navigation">
-          <a href="#help">Common Problems</a
-          ><a href="#process">What to Expect</a><a href="#services">Services</a
-          ><a href="#reviews">Reviews</a><a href="#financing">Financing</a
+          <a href="#services">Services</a><a href="#reviews">Reviews</a
+          ><a href="#meet-jeff">Meet Jeff</a><a href="#financing">Financing</a
+          ><a href="#areas">Service Areas</a
           ><a href="#contact">Contact</a>
         </nav>
         <div class="header-actions">
@@ -2326,6 +2326,18 @@
             you’re noticing, and we’ll help you understand the next step—clearly
             and without pressure.
           </p>
+          <ul class="hero-proof" aria-label="Jeff Electric credentials">
+            <li>
+              <a href="#reviews">
+                <strong>5.0 <span aria-hidden="true">★★★★★</span></strong>
+                <span>13 Google reviews</span>
+              </a>
+            </li>
+            <li>
+              <strong>TECL 39762</strong>
+              <span>Texas Electrical Contractor License</span>
+            </li>
+          </ul>
           <div class="hero-actions">
             <a class="button button-gold button-large" href="tel:+13463984485"
               >☎ Call Now</a
@@ -2338,75 +2350,19 @@
             Houston
           </p>
         </div>
-        <figure
-          class="hero-photo"
-          aria-roledescription="carousel"
-          aria-label="Real Jeff Electric work"
-        >
-          <div class="hero-slides" aria-live="polite">
-            <img
-              class=""
-              src="./public/work/jeff-team.jpg"
-              alt=""
-              aria-hidden="true"
-            /><img
-              class=""
-              src="./public/work/crew-trenching.png"
-              alt=""
-              aria-hidden="true"
-            /><img
-              class="active"
-              src="./public/work/generator-install.png"
-              alt="Residential Generac generator and electrical service equipment"
-              aria-hidden="false"
-            /><img
-              class=""
-              src="./public/work/panel-install.jpg"
-              alt=""
-              aria-hidden="true"
-            /><img
-              class=""
-              src="./public/work/pool-lighting-blue.jpg"
-              alt=""
-              aria-hidden="true"
-            />
-          </div>
+        <figure class="hero-photo hero-team-photo">
+          <img
+            src="./public/work/jeff-team.jpg"
+            alt="Two Jeff Electric team members on a residential electrical project"
+            width="1824"
+            height="1368"
+            loading="eager"
+            fetchpriority="high"
+          />
           <figcaption>
-            <span>BACKUP POWER</span
-            ><strong>Generator connection projects</strong>
+            <span>REAL PEOPLE. REAL WORK.</span
+            ><strong>Your local Jeff Electric team</strong>
           </figcaption>
-          <div class="slide-controls">
-            <button aria-label="Previous project photo">←</button>
-            <div
-              class="slide-dots"
-              role="group"
-              aria-label="Choose project photo"
-            >
-              <button
-                class=""
-                aria-label="Show photo 1: Your local Jeff Electric team"
-              ></button
-              ><button
-                class=""
-                aria-label="Show photo 2: Professional work at your home"
-              ></button
-              ><button
-                class="active"
-                aria-label="Show photo 3: Generator connection projects"
-                aria-current="true"
-              ></button
-              ><button
-                class=""
-                aria-label="Show photo 4: Panel and electrical service work"
-              ></button
-              ><button
-                class=""
-                aria-label="Show photo 5: Pool and landscape lighting"
-              ></button>
-            </div>
-            <button aria-label="Next project photo">→</button>
-          </div>
-          <div class="slide-progress"><span></span></div>
         </figure>
       </section>
       <section class="trust-strip" id="why-us">
@@ -2605,15 +2561,15 @@
                     d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
                   ></path></svg
               ></b>
-              <h3>Troubleshooting &amp; Repairs</h3>
+              <h3><a href="./electrical-troubleshooting.html">Troubleshooting &amp; Repairs</a></h3>
               <p>
                 Flickering lights, dead outlets, tripping breakers or partial
                 power? We find the cause and explain the safest next step.
               </p>
             </div>
             <a
-              href="#contact"
-              aria-label="Ask about Troubleshooting &amp; Repairs"
+              href="./electrical-troubleshooting.html"
+              aria-label="Learn about Troubleshooting &amp; Repairs"
               >→</a
             >
           </article>
@@ -2640,15 +2596,15 @@
                   <path d="M7 21v-4a2 2 0 0 1 2-2h4"></path>
                   <circle cx="15" cy="15" r="2"></circle></svg
               ></b>
-              <h3>Panel Repair &amp; Replacement</h3>
+              <h3><a href="./electrical-panel-replacement.html">Panel Repair &amp; Replacement</a></h3>
               <p>
                 We evaluate overloaded, outdated or damaged panels and recommend
                 repair or replacement based on your home’s actual needs.
               </p>
             </div>
             <a
-              href="#contact"
-              aria-label="Ask about Panel Repair &amp; Replacement"
+              href="./electrical-panel-replacement.html"
+              aria-label="Learn about Panel Repair &amp; Replacement"
               >→</a
             >
           </article>
@@ -2709,13 +2665,13 @@
                   <path d="m11 7-3 5h4l-3 5"></path>
                   <line x1="22" x2="22" y1="11" y2="13"></line></svg
               ></b>
-              <h3>EV-Charger Installation</h3>
+              <h3><a href="./ev-charger-installation.html">EV-Charger Installation</a></h3>
               <p>
                 Professional home-charger installation with a panel and circuit
                 evaluation for safe, dependable charging.
               </p>
             </div>
-            <a href="#contact" aria-label="Ask about EV-Charger Installation"
+            <a href="./ev-charger-installation.html" aria-label="Learn about EV-Charger Installation"
               >→</a
             >
           </article>
@@ -2741,15 +2697,15 @@
                   ></path>
                   <path d="m9 12 2 2 4-4"></path></svg
               ></b>
-              <h3>Whole-Home Surge Protection</h3>
+              <h3><a href="./surge-protection.html">Whole-Home Surge Protection</a></h3>
               <p>
                 Help protect appliances and sensitive electronics from voltage
                 spikes with properly installed surge protection.
               </p>
             </div>
             <a
-              href="#contact"
-              aria-label="Ask about Whole-Home Surge Protection"
+              href="./surge-protection.html"
+              aria-label="Learn about Whole-Home Surge Protection"
               >→</a
             >
           </article>
@@ -2773,13 +2729,13 @@
                   <path d="M12 2v10"></path>
                   <path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path></svg
               ></b>
-              <h3>Generator Connections</h3>
+              <h3><a href="./generator-interlock-installation.html">Generator Connections</a></h3>
               <p>
                 Prepare your home for backup power with safe generator
                 connections and electrical-system evaluations.
               </p>
             </div>
-            <a href="#contact" aria-label="Ask about Generator Connections"
+            <a href="./generator-interlock-installation.html" aria-label="Learn about Generator Connections"
               >→</a
             >
           </article>
@@ -2881,25 +2837,12 @@
             professional electrical service.
           </p>
           <div class="area-tags">
-            <span
-              >⌖
-              <!-- -->Pasadena</span
-            ><span
-              >⌖
-              <!-- -->Pearland</span
-            ><span
-              >⌖
-              <!-- -->Friendswood</span
-            ><span
-              >⌖
-              <!-- -->Webster</span
-            ><span
-              >⌖
-              <!-- -->Clear Lake</span
-            ><span
-              >⌖
-              <!-- -->Southeast Houston</span
-            >
+            <a href="./electrician-pasadena-tx.html">Pasadena →</a>
+            <a href="./electrician-pearland-tx.html">Pearland →</a>
+            <a href="./electrician-friendswood-tx.html">Friendswood →</a>
+            <a href="./electrician-webster-clear-lake-tx.html">Webster →</a>
+            <a href="./electrician-webster-clear-lake-tx.html">Clear Lake →</a>
+            <span>Southeast Houston</span>
           </div>
           <a class="text-link" href="#contact"
             >Not sure if we serve your area? Ask us →</a
@@ -3037,14 +2980,27 @@
             src="./public/brand/jeff-electric-logo.png"
             alt="Jeff Electric — Wiring Tomorrow, Today"
         /></a>
-        <div><strong>Service Area</strong><span>Southeast Houston</span></div>
+        <div>
+          <strong>Service Areas</strong>
+          <span>Southeast Houston</span>
+          <a href="./electrician-pasadena-tx.html">Pasadena</a>
+          <a href="./electrician-pearland-tx.html">Pearland</a>
+          <a href="./electrician-friendswood-tx.html">Friendswood</a>
+          <a href="./electrician-webster-clear-lake-tx.html">Webster &amp; Clear Lake</a>
+        </div>
         <div>
           <strong>Call Jeff Electric</strong
           ><a href="tel:+13463984485">(346) 398-4485</a>
         </div>
         <div>
-          <strong>Quick Links</strong><a href="#services">Residential Services</a
-          ><a href="#contact">Request an Estimate</a>
+          <strong>Quick Links</strong>
+          <a href="./services.html">All Residential Services</a>
+          <a href="./electrical-troubleshooting.html">Troubleshooting &amp; Repairs</a>
+          <a href="./electrical-panel-replacement.html">Panel Repair &amp; Replacement</a>
+          <a href="./ev-charger-installation.html">EV-Charger Installation</a>
+          <a href="./surge-protection.html">Surge Protection</a>
+          <a href="./generator-interlock-installation.html">Generator Connections</a>
+          <a href="#contact">Request an Estimate</a>
         </div>
         <p>© 2026 Jeff Electric. All rights reserved. TECL 39762.</p>
       </footer>
@@ -3089,13 +3045,6 @@
           "Describe what you see, hear or experience in your own words. You do not need the technical answer before you call.",
         ],
       ];
-      const slideData = [
-        ["REAL PEOPLE. REAL WORK.", "Your local Jeff Electric team"],
-        ["RESIDENTIAL SERVICE", "Professional work at your home"],
-        ["BACKUP POWER", "Generator connection projects"],
-        ["SERVICE EQUIPMENT", "Panel and electrical service work"],
-        ["OUTDOOR LIGHTING", "Pool and landscape lighting"],
-      ];
       const menu = document.querySelector(".menu-button"),
         nav = document.querySelector(".nav");
       if (menu && nav) {
@@ -3106,58 +3055,12 @@
         nav
           .querySelectorAll("a")
           .forEach((a) =>
-            a.addEventListener("click", () => nav.classList.remove("open")),
+            a.addEventListener("click", () => {
+              nav.classList.remove("open");
+              menu.setAttribute("aria-expanded", "false");
+            }),
           );
       }
-      const slides = [...document.querySelectorAll(".hero-slides img")],
-        dots = [...document.querySelectorAll(".slide-dots button")],
-        caption = document.querySelector(".hero-photo figcaption");
-      let current = 0,
-        timer;
-      slides.forEach((s) => (s.dataset.alt = s.alt));
-      function showSlide(n) {
-        current = (n + slides.length) % slides.length;
-        slides.forEach((s, i) => {
-          s.classList.toggle("active", i === current);
-          s.setAttribute("aria-hidden", String(i !== current));
-          s.alt = i === current ? s.dataset.alt : "";
-        });
-        dots.forEach((d, i) => {
-          d.classList.toggle("active", i === current);
-          if (i === current) d.setAttribute("aria-current", "true");
-          else d.removeAttribute("aria-current");
-        });
-        if (caption)
-          caption.innerHTML =
-            "<span>" +
-            slideData[current][0] +
-            "</span><strong>" +
-            slideData[current][1] +
-            "</strong>";
-        const p = document.querySelector(".slide-progress");
-        if (p) {
-          const clone = p.cloneNode(true);
-          p.replaceWith(clone);
-        }
-      }
-      dots.forEach((d, i) => d.addEventListener("click", () => showSlide(i)));
-      const controls = document.querySelectorAll(".slide-controls>button");
-      if (controls[0])
-        controls[0].addEventListener("click", () => showSlide(current - 1));
-      if (controls[1])
-        controls[1].addEventListener("click", () => showSlide(current + 1));
-      function start() {
-        timer = setInterval(() => showSlide(current + 1), 6000);
-      }
-      const hero = document.querySelector(".hero-photo");
-      if (hero) {
-        hero.addEventListener("mouseenter", () => clearInterval(timer));
-        hero.addEventListener("mouseleave", () => {
-          clearInterval(timer);
-          start();
-        });
-      }
-      start();
       const buttons = [...document.querySelectorAll(".check-options button")],
         result = document.querySelector(".check-result");
       buttons.forEach((b, i) =>
@@ -3233,6 +3136,6 @@
           }
         });
     </script>
-    <script src="./mobile-motion.js?v=3" defer></script>
+    <script src="./mobile-motion.js?v=4" defer></script>
   </body>
 </html>

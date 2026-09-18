@@ -1,6 +1,6 @@
 (()=>{
   const legacy=document.createElement('script');
-  legacy.src='./mobile-motion-legacy.js?v=3';
+  legacy.src='./mobile-motion-legacy.js?v=4';
   legacy.defer=true;
   document.head.appendChild(legacy);
 
@@ -45,6 +45,7 @@
 
     const section=document.createElement('section');
     section.className='jeff-feature-video';
+    section.id='meet-jeff';
     section.setAttribute('aria-labelledby','jeff-feature-title');
     section.innerHTML=`
       <div class="jeff-feature-inner">
@@ -66,7 +67,8 @@
           </div>
         </div>
       </div>`;
-    hero.before(section);
+    // Keep the service message and customer proof ahead of the introduction.
+    (document.querySelector('#reviews')||hero).after(section);
 
     const video=section.querySelector('.jeff-feature-player');
     const play=section.querySelector('.jeff-feature-play');
@@ -102,7 +104,7 @@
   };
 
   const injectSocials=()=>{
-    const footer=document.querySelector('footer');
+    const footer=document.querySelector('main > footer');
     if(!footer||footer.querySelector('.jeff-socials'))return;
     const quickLinks=[...footer.querySelectorAll('div')].find(div=>div.querySelector('strong')?.textContent?.trim()==='Quick Links');
     if(!quickLinks)return;
