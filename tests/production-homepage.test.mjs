@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
+import { inflateSync } from 'node:zlib';
 
 const root = new URL('../', import.meta.url);
 const html = readFileSync(new URL('index.html', root), 'utf8');
@@ -80,6 +81,41 @@ test('all homepage JavaScript parses', () => {
   for (const [, script] of html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)) {
     if (!script.trim().startsWith('{')) new vm.Script(script);
   }
+});
+
+test('favicon files are valid, square and declared at stable root URLs', () => {
+  for (const name of ['favicon-48.png', 'favicon-192.png', 'favicon-512.png', 'apple-touch-icon.png', 'public/favicon.png']) {
+    const png = readFileSync(new URL(name, root));
+    assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `${name} is not a PNG`);
+    let offset = 8, width, height, bitDepth, colorType;
+    const idat = [];
+    while (offset < png.length) {
+      const length = png.readUInt32BE(offset);
+      const type = png.subarray(offset + 4, offset + 8).toString('ascii');
+      const data = png.subarray(offset + 8, offset + 8 + length);
+      if (type === 'IHDR') {
+        width = data.readUInt32BE(0);
+        height = data.readUInt32BE(4);
+        bitDepth = data[8];
+        colorType = data[9];
+      }
+      if (type === 'IDAT') idat.push(data);
+      offset += 12 + length;
+      if (type === 'IEND') break;
+    }
+    assert.equal(width, height, `${name} must be square`);
+    assert.equal(bitDepth, 8, `${name} must use 8-bit color`);
+    assert.equal(colorType, 2, `${name} must use RGB color`);
+    assert.equal(inflateSync(Buffer.concat(idat)).length, height * (1 + width * 3), `${name} has damaged image data`);
+  }
+
+  const ico = readFileSync(new URL('favicon.ico', root));
+  assert.equal(ico.readUInt16LE(0), 0);
+  assert.equal(ico.readUInt16LE(2), 1);
+  assert.ok(ico.readUInt16LE(4) >= 1, 'favicon.ico must contain at least one image');
+  assert.match(html, /rel="icon" type="image\/png" sizes="192x192" href="\/favicon-192\.png"/);
+  assert.match(html, /rel="shortcut icon" href="\/favicon\.ico"/);
+  assert.match(html, /rel="apple-touch-icon" sizes="180x180" href="\/apple-touch-icon\.png"/);
 });
 
 async function simulateSubmission({ phone, response = {}, sdkMissing = false, networkError = false }) {
