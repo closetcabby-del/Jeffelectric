@@ -17,6 +17,13 @@
       content="Jeff Electric provides clear, homeowner-first residential electrical service across Southeast Houston."
     />
     <title>Residential Electrician in Southeast Houston | Jeff Electric</title>
+    <link rel="canonical" href="https://jeffelectric.online/" />
+    <meta property="og:title" content="Residential Electrician in Southeast Houston | Jeff Electric" />
+    <meta property="og:description" content="Residential electrical service across Southeast Houston. Tell Jeff Electric what you need help with." />
+    <meta property="og:url" content="https://jeffelectric.online/" />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://jeffelectric.online/#organization","name":"Jeff Electric","url":"https://jeffelectric.online/","telephone":"+1-346-398-4485","areaServed":["Pasadena TX","Pearland TX","Friendswood TX","Webster TX","Clear Lake TX","Southeast Houston TX"]}</script>
+    <script src="/lead-tracking.js" defer></script>
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -2897,6 +2904,7 @@
             ><small>Prefer to talk now?</small
             ><strong>☎ (346) 398-4485</strong></a
           >
+          <p>Hours: 7 AM–7 PM daily.</p>
           <p class="privacy">
             Your information is used only to respond to your service request.
           </p>
@@ -2943,6 +2951,7 @@
               </select></label
             >
           </div>
+          <label>Email address (required for email replies)<input type="email" name="fi-sender-email" autocomplete="email" placeholder="you@example.com" /></label>
           <label
             >Residential service needed<select
               required=""
@@ -3104,10 +3113,18 @@
         targets.forEach((el) => observer.observe(el));
       } else targets.forEach((el) => el.classList.add("is-visible"));
       const form = document.querySelector(".contact form");
+      if (form) {
+        const preferred = form.querySelector('[name="fi-select-preferredContact"]');
+        const email = form.querySelector('[name="fi-sender-email"]');
+        const updateEmailRequirement = () => { email.required = preferred.value === 'Email'; };
+        preferred.addEventListener('change', updateEmailRequirement);
+        updateEmailRequirement();
+      }
       if (form)
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
           const btn = form.querySelector("button[type=submit]");
+          if (btn && btn.disabled) return;
           const data = new FormData(form);
           const phoneValue = String(data.get("fi-phone-phoneNumber") || "");
           const digits = phoneValue.replace(/\D/g, "");
@@ -3120,7 +3137,8 @@
             if (!window.Forminit) throw new Error("Forminit SDK did not load");
             const forminit = new Forminit();
             const result = await forminit.submit("pojgp0vhkve", data);
-            if (result && !result.error) {
+            if (result && result.data && result.data.hashId && !result.error) {
+              if (window.jeffTrackLead) window.jeffTrackLead();
               form.outerHTML =
                 '<div class="success" role="status" aria-live="polite"><span>✓</span><h3>Request received.</h3><p>Thanks. Jeff Electric received your estimate request and will follow up using the contact information you provided. Prefer to talk now? Call <a href="tel:+13463984485">(346) 398-4485</a>.</p></div>';
             } else {
