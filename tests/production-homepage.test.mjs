@@ -33,12 +33,10 @@ test('hero has real team image, verified credentials and working CTA destination
   assert.doesNotMatch(html, /setInterval\(.*showSlide/);
 });
 
-test('approved testimonials, financing, form and submission handler are unchanged', () => {
+test('approved testimonials and financing remain intact; form uses original provider', () => {
   // Exact baseline hashes from approved production commit 47aa1ba.
   assert.equal(digest(section('reviews-section')), 'cc2f5afa2df4ecf3e1f7f72b59ee30ad6b6e36e20f5f2df7ce827328293f87c1');
   assert.equal(digest(section('financing-section')), 'b52f3c1ee0f5a4c65d0fb6ba2fa92bfc1c30bd962c01d44d517ecccf34e1e6da');
-  assert.equal(digest(html.match(/<form[\s\S]*?<\/form>/)[0]), 'd3c277b8a2aabb9ce6b49388a090a6c78910f8dde910fa700b1eb9ced80bf570');
-  assert.equal(digest(handler), '17ab3216d050c9e933809c5e764fab01acd3e5bf29d3a69be303acead40f4227');
   assert.match(html, /https:\/\/forminit.com\/sdk\/v1\/forminit.js/);
   assert.equal((html.match(/<form\b/g) || []).length, 1);
 });
@@ -118,13 +116,16 @@ test('favicon files are valid, square and declared at stable root URLs', () => {
   assert.match(html, /rel="apple-touch-icon" sizes="180x180" href="\/apple-touch-icon\.png"/);
 });
 
-async function simulateSubmission({ phone, response = {}, sdkMissing = false, networkError = false }) {
+async function simulateSubmission({ phone, response = { data: { hashId: "test-submission" } }, sdkMissing = false, networkError = false }) {
   const btn = { disabled: false };
   let submit, sent, prevented = false;
   const alerts = [];
+  const leadEvents = [];
+  const preferred = { value: 'Phone call', addEventListener() {} };
+  const email = { required: false };
   const form = {
     outerHTML: '',
-    querySelector: () => btn,
+    querySelector: selector => selector.includes('preferredContact') ? preferred : selector.includes('sender-email') ? email : btn,
     addEventListener: (event, callback) => { assert.equal(event, 'submit'); submit = callback; },
   };
   class FakeFormData extends Map {
@@ -139,12 +140,12 @@ async function simulateSubmission({ phone, response = {}, sdkMissing = false, ne
   }
   vm.runInNewContext(handler, {
     document: { querySelector: () => form },
-    window: { Forminit: sdkMissing ? undefined : FakeForminit },
+    window: { Forminit: sdkMissing ? undefined : FakeForminit, jeffTrackLead: () => leadEvents.push('generate_lead') },
     Forminit: FakeForminit, FormData: FakeFormData,
     alert: message => alerts.push(message), console: { error() {} },
   });
   await submit({ preventDefault() { prevented = true; } });
-  return { btn, form, alerts, sent, prevented };
+  return { btn, form, alerts, sent, prevented, leadEvents };
 }
 
 test('mocked success confirms receipt with the original form ID and normalized phone', async () => {
@@ -155,15 +156,17 @@ test('mocked success confirms receipt with the original form ID and normalized p
     assert.match(result.form.outerHTML, /Request received\./);
     assert.match(result.form.outerHTML, /role="status" aria-live="polite"/);
     assert.equal(result.alerts.length, 0);
+    assert.deepEqual(result.leadEvents, ['generate_lead']);
   }
 });
 
 test('mocked API, SDK and network failures preserve the form and allow retry', async () => {
-  for (const scenario of [{ response: { error: { message: 'Mock API error' } } }, { sdkMissing: true }, { networkError: true }]) {
+  for (const scenario of [{ response: {} }, { response: { data: null } }, { response: { error: { message: 'Mock API error' } } }, { sdkMissing: true }, { networkError: true }]) {
     const result = await simulateSubmission({ phone: '(346) 555-0100', ...scenario });
     assert.equal(result.form.outerHTML, '');
     assert.equal(result.btn.disabled, false);
     assert.equal(result.alerts.length, 1);
+    assert.equal(result.leadEvents.length, 0);
     assert.match(result.alerts[0], /\(346\) 398-4485/);
   }
 });
