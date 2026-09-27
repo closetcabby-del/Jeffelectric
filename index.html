@@ -3138,7 +3138,14 @@
             const forminit = new Forminit();
             const result = await forminit.submit("pojgp0vhkve", data);
             if (result && result.data && result.data.hashId && !result.error) {
-              if (window.jeffTrackLead) window.jeffTrackLead();
+              // Record only confirmed submissions, even if the helper script is blocked.
+              try {
+                if (typeof window.gtag === "function") {
+                  window.gtag("event", "generate_lead", {
+                    page_path: location.pathname,
+                  });
+                }
+              } catch (_) { /* Tracking must not interrupt the enquiry. */ }
               form.outerHTML =
                 '<div class="success" role="status" aria-live="polite"><span>✓</span><h3>Request received.</h3><p>Thanks. Jeff Electric received your estimate request and will follow up using the contact information you provided. Prefer to talk now? Call <a href="tel:+13463984485">(346) 398-4485</a>.</p></div>';
             } else {
