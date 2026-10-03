@@ -3022,7 +3022,7 @@ gtag('config', 'AW-18475284552');
         ><a href="#contact">Request Estimate</a>
       </div>
     </main>
-    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script><script src="/intake-submit.js?v=1"></script>
     <script>
       const symptomData = [
         [
@@ -3135,9 +3135,8 @@ gtag('config', 'AW-18475284552');
             data.set("fi-phone-phoneNumber", "+" + digits);
           if (btn) btn.disabled = true;
           try {
-            if (!window.Forminit) throw new Error("Forminit SDK did not load");
-            const forminit = new Forminit();
-            const result = await forminit.submit("pojgp0vhkve", data);
+            if (!window.JeffElectricIntake) throw new Error("Intake service did not load");
+            const result = await window.JeffElectricIntake.submit(data, form);
             if (result && result.data && result.data.hashId && !result.error) {
               // Record only confirmed submissions, even if the helper script is blocked.
               try {
