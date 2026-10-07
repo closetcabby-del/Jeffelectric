@@ -156,8 +156,8 @@ export default function Home() {
 
       <section className="reviews-section" id="reviews" aria-labelledby="reviews-title">
         <div className="reviews-grid">
-          <div className="review-score"><strong>5.0 ★</strong><span>13 Google reviews</span></div>
-          <div className="review-copy"><p className="eyebrow"><span /> CUSTOMER REVIEWS</p><h2 id="reviews-title">Trusted by local homeowners.</h2><p>Jeff Electric’s public Google profile is rated 5.0 stars across 13 reviews.</p></div>
+          <div className="review-score"><strong>5.0 ★</strong><span>25 Google reviews</span></div>
+          <div className="review-copy"><p className="eyebrow"><span /> CUSTOMER REVIEWS</p><h2 id="reviews-title">Trusted by local homeowners.</h2><p>Jeff Electric’s public Google profile is rated 5.0 stars across 25 reviews.</p></div>
         </div>
       </section>
 
