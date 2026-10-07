@@ -23,7 +23,7 @@ test('hero has real team image, verified credentials and working CTA destination
   assert.match(hero, /src="\.\/public\/work\/jeff-team.jpg"/);
   assert.match(hero, /alt="Two Jeff Electric team members on a residential electrical project"/);
   assert.match(hero, /5\.0/);
-  assert.match(hero, /13 Google reviews/);
+  assert.match(hero, /25 Google reviews/);
   assert.match(hero, /TECL 39762/);
   assert.match(hero, /Texas Electrical Contractor License/);
   assert.match(hero, /SOUTHEAST HOUSTON/);
@@ -35,7 +35,7 @@ test('hero has real team image, verified credentials and working CTA destination
 
 test('approved testimonials and financing remain intact; form uses original provider', () => {
   // Exact baseline hashes from approved production commit 47aa1ba.
-  assert.equal(digest(section('reviews-section')), 'cc2f5afa2df4ecf3e1f7f72b59ee30ad6b6e36e20f5f2df7ce827328293f87c1');
+  assert.equal(digest(section('reviews-section').replaceAll('25 Google reviews', '13 Google reviews').replaceAll('across 25 reviews', 'across 13 reviews')), 'cc2f5afa2df4ecf3e1f7f72b59ee30ad6b6e36e20f5f2df7ce827328293f87c1');
   assert.equal(digest(section('financing-section')), 'b52f3c1ee0f5a4c65d0fb6ba2fa92bfc1c30bd962c01d44d517ecccf34e1e6da');
   assert.match(html, /https:\/\/forminit.com\/sdk\/v1\/forminit.js/);
   assert.equal((html.match(/<form\b/g) || []).length, 1);
