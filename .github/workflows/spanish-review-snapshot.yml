@@ -2,7 +2,7 @@ name: Spanish review snapshot (no deployment)
 on:
   push:
     branches: [feature/spanish-homepage-review]
-    paths: [.github/workflows/spanish-review-snapshot.yml]
+    paths: [.github/workflows/spanish-review-snapshot.yml, scripts/build-spanish-homepage.py]
 permissions:
   contents: read
 jobs:
@@ -13,11 +13,13 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - name: Export tracked source for isolated local testing
-        run: git archive --format=tar.gz --output=website-source.tar.gz HEAD
+      - name: Build static Spanish draft
+        run: python3 scripts/build-spanish-homepage.py
+      - name: Export draft for isolated local testing
+        run: git ls-files -z --cached --others --exclude-standard | tar --null -T - -czf ../website-source.tar.gz
       - uses: actions/upload-artifact@v4
         with:
           name: spanish-review-source
-          path: website-source.tar.gz
+          path: ../website-source.tar.gz
           retention-days: 1
           if-no-files-found: error
