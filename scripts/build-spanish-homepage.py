@@ -136,7 +136,7 @@ CSS = '''/* Visible language choice; no automatic redirects. Shared by both home
 .language-form-error{color:#ffce99;font-size:14px;line-height:1.5;margin:12px 0}
 .language-file-choice{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:13px;letter-spacing:normal;text-transform:none}
 .language-file-choice button{padding:10px 14px;background:#292929;color:#fff;border:1px solid #777;min-height:44px;cursor:pointer}
-.language-file-input{position:absolute!important;opacity:0!important;width:1px!important;height:1px!important;padding:0!important;clip-path:inset(50%)}
+html body main form input.language-file-input{display:none!important;position:absolute!important;opacity:0!important;width:1px!important;height:1px!important;padding:0!important;clip-path:inset(50%)}
 .language-file-choice button:focus-visible{outline:2px solid #f2b21a;outline-offset:3px}
 html body main .site-header{gap:14px;padding-inline:24px}
 html body main .site-header .brand{order:0}
@@ -203,7 +203,7 @@ JS = '''/* Language navigation and validation. Never persist form contents. */
     });
     form.addEventListener('invalid', (event) => {
       const field = event.target;
-      if (field === photo) { validatePhoto(); return; }
+      if (field === photo) { validatePhoto(); event.preventDefault(); status.scrollIntoView({block:'center'}); return; }
       if (field.validity.valueMissing) field.setCustomValidity(say('Please complete this field.', 'Complete este campo.'));
       else if (field.validity.typeMismatch && field.type === 'email') field.setCustomValidity(say('Please enter a valid email address.', 'Ingrese un correo electrónico válido.'));
     }, true);

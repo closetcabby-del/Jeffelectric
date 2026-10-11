@@ -140,7 +140,8 @@ async function simulateSubmission({ phone, response = { data: { hashId: "test-su
   }
   vm.runInNewContext(handler, {
     document: { querySelector: () => form },
-    window: { Forminit: sdkMissing ? undefined : FakeForminit, jeffTrackLead: () => leadEvents.push('generate_lead') },
+    window: { JeffElectricIntake: sdkMissing ? undefined : { submit: (data) => new FakeForminit().submit('pojgp0vhkve', data) }, gtag: (kind, name) => { if (kind === 'event') leadEvents.push(name); } },
+    location: { pathname: '/' },
     Forminit: FakeForminit, FormData: FakeFormData,
     alert: message => alerts.push(message), console: { error() {} },
   });

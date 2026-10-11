@@ -1,0 +1,42 @@
+/* Visible language choice; no automatic redirects. Shared by both homepages. */
+.language-switch{display:flex;align-items:center;gap:2px;flex:none;white-space:nowrap;font-size:12px;font-weight:700}
+.language-switch a{display:inline-flex;min-height:44px;min-width:65px;align-items:center;justify-content:center;padding:0 8px;color:#d4d4d4;border:1px solid transparent;border-radius:4px}
+.language-switch a[aria-current="page"]{color:#f2b21a;background:#222016;border-color:#6b541d}
+.language-switch a:hover,.language-switch a:focus-visible{color:#f2b21a;outline:2px solid #f2b21a;outline-offset:2px}
+.english-link-note{font-size:11px;font-weight:400;white-space:normal;letter-spacing:normal;text-transform:none}
+.language-note{font-size:13px;line-height:1.6;color:#bdbdbd;margin-top:12px}
+.language-form-error{color:#ffce99;font-size:14px;line-height:1.5;margin:12px 0}
+.language-file-choice{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:13px;letter-spacing:normal;text-transform:none}
+.language-file-choice button{padding:10px 14px;background:#292929;color:#fff;border:1px solid #777;min-height:44px;cursor:pointer}
+html body main form input.language-file-input{display:none!important;position:absolute!important;opacity:0!important;width:1px!important;height:1px!important;padding:0!important;clip-path:inset(50%)}
+.language-file-choice button:focus-visible{outline:2px solid #f2b21a;outline-offset:3px}
+html body main .site-header{gap:14px;padding-inline:24px}
+html body main .site-header .brand{order:0}
+html body main .site-header .nav{order:1;gap:18px}
+html body main .site-header .language-switch{order:2}
+html body main .site-header .header-actions{order:3;gap:12px}
+html body main .site-header .menu-button{order:4}
+html[lang="es"] .hero h1{font-size:clamp(42px,5vw,74px);line-height:1.04}
+html[lang="es"] .button{text-align:center;white-space:normal}
+html[lang="es"] .compact-services article>div{min-width:0}
+html[lang="es"] .compact-services h3{overflow-wrap:anywhere}
+@media(min-width:721px) and (max-width:1499px){
+ html body main .site-header .nav{display:none;position:absolute;top:82px;left:0;right:0;padding:24px;background:#080808;flex-direction:column;max-height:calc(100dvh - 82px);overflow-y:auto}
+ html body main .site-header .nav.open{display:flex}
+ html body main .site-header .menu-button{display:grid;place-items:center;min-width:44px;min-height:44px;margin-left:0}
+ html body main .site-header .language-switch{margin-left:auto}
+ html body main .site-header .header-actions .phone{display:none}
+}
+@media(max-width:720px){
+ html body main .site-header{display:grid!important;grid-template-columns:minmax(0,1fr) 44px!important;grid-template-rows:64px 44px!important;gap:0 12px!important;height:116px!important;min-height:116px!important;padding:4px 18px!important}
+ html body main .site-header .brand{grid-column:1;grid-row:1;max-width:100%!important}
+ html body main .site-header .menu-button{grid-column:2;grid-row:1}
+ html body main .site-header .language-switch{grid-column:1 / -1;grid-row:2;justify-content:flex-end;width:100%;border-top:1px solid #292929}
+ html body main .site-header .language-switch a{min-height:40px}
+ html body main .site-header .nav{top:116px!important;max-height:calc(100dvh - 116px)!important}
+ html body main section[id]{scroll-margin-top:132px!important}
+ html[lang="es"] .hero h1{font-size:clamp(38px,10vw,48px)!important}
+ html[lang="es"] .mobile-bar a{font-size:12px!important;text-align:center}
+ html[lang="es"] .compact-services article{grid-template-columns:24px minmax(0,1fr) 24px!important;gap:10px!important;padding-inline:16px!important}
+ html[lang="es"] .compact-services h3{font-size:22px!important}
+}
