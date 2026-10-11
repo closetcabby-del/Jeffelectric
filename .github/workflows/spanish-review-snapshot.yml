@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
       - name: Build static Spanish draft
         run: python3 scripts/build-spanish-homepage.py
       - name: Export draft for isolated local testing
-        run: git ls-files -z --cached --others --exclude-standard | tar --null -T - -czf ../website-source.tar.gz
-      - uses: actions/upload-artifact@v4
+        run: git ls-files -z --cached --others --exclude-standard | tar --null -T - -czf "$RUNNER_TEMP/website-source.tar.gz"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: spanish-review-source
-          path: ../website-source.tar.gz
+          path: ${{ runner.temp }}/website-source.tar.gz
           retention-days: 1
           if-no-files-found: error
