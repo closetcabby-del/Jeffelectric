@@ -1,25 +1,58 @@
-name: Spanish review snapshot (no deployment)
+name: Finalize Spanish review branch (no deployment)
 on:
   push:
     branches: [feature/spanish-homepage-review]
-    paths: [.github/workflows/spanish-review-snapshot.yml, scripts/build-spanish-homepage.py]
+    paths: [.github/workflows/spanish-review-snapshot.yml]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  snapshot:
+  finalize:
+    if: github.ref == 'refs/heads/feature/spanish-homepage-review'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          persist-credentials: false
-      - name: Build static Spanish draft
-        run: python3 scripts/build-spanish-homepage.py
-      - name: Export draft for isolated local testing
-        run: git ls-files -z --cached --others --exclude-standard | tar --null -T - -czf "$RUNNER_TEMP/website-source.tar.gz"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: spanish-review-source
-          path: ${{ runner.temp }}/website-source.tar.gz
-          retention-days: 1
-          if-no-files-found: error
+          ref: ${{ github.sha }}
+      - name: Apply locally verified corrections and generate static files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('scripts/build-spanish-homepage.py')
+          s=p.read_text()
+          s=s.replace('.language-file-input{position:absolute!important;', 'html body main form input.language-file-input{display:none!important;position:absolute!important;')
+          s=s.replace("if (field === photo) { validatePhoto(); return; }", "if (field === photo) { validatePhoto(); event.preventDefault(); status.scrollIntoView({block:'center'}); return; }")
+          assert hashlib.sha256(s.encode()).hexdigest() == '8c1f5b8f437624c631ee7d9d1f0f079e7dda39648615895d54fc1d76ab3f3aa6', 'Generator differs from locally tested source'
+          p.write_text(s)
+          p=Path('tests/production-homepage.test.mjs')
+          s=p.read_text().replace("window: { Forminit: sdkMissing ? undefined : FakeForminit, jeffTrackLead: () => leadEvents.push('generate_lead') },", "window: { JeffElectricIntake: sdkMissing ? undefined : { submit: (data) => new FakeForminit().submit('pojgp0vhkve', data) }, gtag: (kind, name) => { if (kind === 'event') leadEvents.push(name); } },\n    location: { pathname: '/' },")
+          p.write_text(s)
+          PY
+          python3 scripts/build-spanish-homepage.py
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          expected={'index.html':'76788a870b915f7db1606b218d61b2ec39b538fd4fa80afc64ef8e6fd01cfc9b','es/index.html':'b12621e0fbc0cc1a14cbc557ee1165de5e3bd0f5566e448a6cbd4a75a0953dac','language-switch.css':'2af20605ef93602f90d54864611c6bfb511dd20df48a730df2ff09e513011086','language-switch.js':'6558393beb71207d9058ddec9df2bdda0147c6aa5931e2df546f1514455552f8'}
+          for path,digest in expected.items():
+              assert hashlib.sha256(Path(path).read_bytes()).hexdigest()==digest, path+' differs from local review'
+          PY
+      - name: Verify before committing review files
+        run: |
+          node --test tests/production-homepage.test.mjs tests/public-seo.test.mjs tests/spanish-homepage.test.mjs
+          node --check language-switch.js
+          node --check es/mobile-motion.js
+          node --check es/mobile-motion-legacy.js
+          git diff --check
+      - name: Commit only the allowlisted draft files to the review branch
+        shell: bash
+        run: |
+          test "$GITHUB_REF" = refs/heads/feature/spanish-homepage-review
+          git add index.html es/index.html es/mobile-motion.js es/mobile-motion-legacy.js language-switch.css language-switch.js sitemap.xml scripts/build-spanish-homepage.py tests/production-homepage.test.mjs tests/public-seo.test.mjs
+          git diff --cached --check
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Add verified static Spanish homepage and protected language navigation'
+          git push origin HEAD:refs/heads/feature/spanish-homepage-review
