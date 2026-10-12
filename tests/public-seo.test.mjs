@@ -7,7 +7,7 @@ const read=file=>readFileSync(new URL(file,root),'utf8');
 const urls=[...read('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(x=>new URL(x[1]));
 test('every sitemap page has one canonical, parseable linked schema, one H1 and working local links',()=>{
  for(const url of urls){
-  const file=url.pathname==='/'?'index.html':url.pathname.slice(1), html=read(file);
+  const file=url.pathname.endsWith('/')?url.pathname.slice(1)+'index.html':url.pathname.slice(1), html=read(file);
   assert.equal((html.match(/rel="canonical"/g)||[]).length,1,file);
   assert.ok(html.includes(`rel="canonical" href="${url.href}"`),file);
   assert.equal((html.match(/<h1[ >]/g)||[]).length,1,file);

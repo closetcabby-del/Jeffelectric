@@ -1,0 +1,27 @@
+name: Spanish homepage checks (no deployment)
+on:
+  push:
+    branches: [feature/spanish-homepage-review]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Confirm generated Spanish files are up to date
+        run: |
+          python3 scripts/build-spanish-homepage.py
+          git diff --exit-code -- index.html es/ language-switch.css language-switch.js sitemap.xml tests/public-seo.test.mjs
+      - name: Run static and mocked regressions
+        run: |
+          node --test tests/production-homepage.test.mjs tests/public-seo.test.mjs tests/spanish-homepage.test.mjs
+          node --check language-switch.js
+          node --check es/mobile-motion.js
+          node --check es/mobile-motion-legacy.js
+          git diff --check
