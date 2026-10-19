@@ -1,0 +1,7 @@
+/* Keep the collapsed chat launcher above the homepage’s fixed mobile actions.
+   HCP sets height:100vh inline when open; leave its full-screen layout intact. */
+@media (max-width: 720px) {
+  body:has(.mobile-bar) #proChatIframeContainer:not([style*="height:100vh"]):not([style*="height: 100vh"]) {
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
