@@ -70,7 +70,7 @@ test('form route, phone, intake helper and lead tracker remain the same', () => 
     assert.match(html, /href="tel:\+13463984485"/);
     assert.match(html, /JeffElectricIntake.submit\(data, form\)/);
   }
-  assert.match(es, /7 a\. m\. a 7 p\. m\./);
+  assert.match(es, /8 a\. m\. a 7 p\. m\./);
   assert.match(read('intake-submit.js'), /\/intake\/website/);
 });
 
