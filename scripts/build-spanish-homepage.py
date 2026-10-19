@@ -11,13 +11,14 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 TEXT = {
+'Explore our electrical project photos →': 'Vea fotos de nuestros proyectos eléctricos →',
 'Residential Electrician in Southeast Houston | Jeff Electric': 'Electricista residencial en el sureste de Houston | Jeff Electric',
-'Jeff Electric provides clear, homeowner-first residential electrical service across Southeast Houston.': 'Jeff Electric ofrece servicios eléctricos residenciales en el sureste de Houston, con explicaciones claras y atención a las necesidades de su hogar.',
+'Residential electrical repairs, panel replacements, EV charger circuits and surge protection in Southeast Houston, Pasadena and nearby communities. Call Jeff Electric.': 'Reparaciones eléctricas residenciales, reemplazo de paneles, circuitos para cargadores de vehículos eléctricos y protección contra sobretensiones en el sureste de Houston y Pasadena. Llame a Jeff Electric.',
 'Residential electrical service across Southeast Houston. Tell Jeff Electric what you need help with.': 'Servicios eléctricos residenciales en el sureste de Houston. Cuéntenos en qué necesita ayuda.',
 'Services': 'Servicios', 'Reviews': 'Reseñas', 'Meet Jeff': 'Conozca a Jeff', 'Financing': 'Financiamiento', 'Service Areas': 'Áreas de servicio', 'Contact': 'Contacto',
 'Call now': 'Llame ahora', 'Call Now': 'Llame ahora', '☎ Call Now': '☎ Llame ahora', 'Request an Estimate': 'Solicitar cotización', 'Request Estimate': 'Solicitar cotización',
 'LOCAL RESIDENTIAL ELECTRICIANS · SOUTHEAST HOUSTON': 'ELECTRICISTAS RESIDENCIALES · SURESTE DE HOUSTON',
-'Something wrong with your': '¿Problemas con la', 'home’s electrical?': 'electricidad de su hogar?',
+'Residential electrician': 'Electricista residencial', 'in Southeast Houston.': 'en el sureste de Houston.',
 'You don’t have to diagnose it yourself. Tell Jeff Electric what you’re noticing, and we’ll help you understand the next step—clearly and without pressure.': 'No tiene que identificar la causa por su cuenta. Cuéntele a Jeff Electric lo que está notando y le ayudaremos a entender el siguiente paso, con claridad y sin presión.',
 '27 Google reviews': '27 reseñas en Google', 'Texas Electrical Contractor License': 'Licencia de contratista eléctrico de Texas',
 'Residential electrical service across Southeast Houston': 'Servicios eléctricos residenciales en el sureste de Houston',
