@@ -25,5 +25,5 @@ r = data.get('rating')
 if not isinstance(n, int) or isinstance(n, bool) or n < 0 or not isinstance(r, (int, float)) or not 1 <= r <= 5:
     sys.exit('Invalid Google review metrics')
 result = {'rating': round(r, 1), 'userRatingCount': n, 'source': 'google-places-api'}
-Path('google-reviews.json').write_text(json.dumps(result, indent=2) + '\\n', encoding='utf-8')
+Path('google-reviews.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
 print(f'Google reviews refreshed: {n} reviews, {r:.1f} stars')
