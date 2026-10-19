@@ -1,0 +1,30 @@
+name: Sync public Google review totals
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 13 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: google-reviews-sync
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update verified Google review metrics
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ vars.GOOGLE_PLACE_ID }}
+        run: python3 scripts/sync-google-reviews.py
+      - name: Commit updated snapshot only if changed
+        run: |
+          if ! git diff --quiet -- google-reviews.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add google-reviews.json
+            git commit -m "Update verified Google review totals"
+            git push
+          fi
