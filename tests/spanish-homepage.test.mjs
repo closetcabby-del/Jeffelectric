@@ -22,7 +22,7 @@ test('language homepages have reciprocal alternates and their own canonical URL'
 
 test('English headline and metadata stay English; Spanish is present in static HTML', () => {
   assert.match(en, /<title>Residential Electrician in Southeast Houston \| Jeff Electric<\/title>/);
-  assert.match(en, /Something wrong with your<br\s*\/><em>home/);
+  assert.match(en, /Residential electrician<br\s*\/><em>in Southeast Houston\./);
   assert.match(es, /Electricista residencial en el sureste de Houston/);
   assert.match(es, /Nombre completo/);
   assert.match(es, /Solicitud recibida\./);

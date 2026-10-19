@@ -73,7 +73,7 @@ test('every public static page with a phone has one call tracker and preserves G
     return e.isDirectory() ? walk(p + '/') : [p];
   });
   const pages = walk('').filter(p => p.endsWith('.html') && readFileSync(new URL(p, root), 'utf8').includes('tel:'));
-  assert.equal(pages.length, 18);
+  assert.equal(pages.length, 19);
   for (const page of pages) {
     const html = readFileSync(new URL(page, root), 'utf8');
     assert.equal((html.match(/src="\/website-call-tracking.js\?v=1"/g) || []).length, 1, page);
