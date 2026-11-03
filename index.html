@@ -2757,6 +2757,11 @@ gtag('config', 'AW-18475284552');
               >→</a
             >
           </article>
+          <article class="service-standby" style="grid-column:1 / -1">
+            <span>07</span>
+            <div><h3><a href="./standby-generator-installation.html">Standby Generator Installation</a></h3><p>Plan residential standby power with an electrical-system assessment, automatic transfer switch work and a defined installation scope.</p></div>
+            <a href="./standby-generator-installation.html" aria-label="Learn about Standby Generator Installation">→</a>
+          </article>
         </div>
         <div class="service-assist">
           <span>NOT SURE?</span>
@@ -2974,6 +2979,7 @@ gtag('config', 'AW-18475284552');
               <option>EV-Charger Installation</option>
               <option>Whole-Home Surge Protection</option>
               <option>Generator Connections</option>
+              <option>Standby Generator Installation</option>
               <option>Something else</option>
             </select></label
           ><label
@@ -3022,6 +3028,7 @@ gtag('config', 'AW-18475284552');
           <a href="./ev-charger-installation.html">EV-Charger Installation</a>
           <a href="./surge-protection.html">Surge Protection</a>
           <a href="./generator-interlock-installation.html">Generator Connections</a>
+          <a href="./standby-generator-installation.html">Standby Generator Installation</a>
           <a href="#contact">Request an Estimate</a>
         </div>
         <p>© 2026 Jeff Electric. All rights reserved. TECL 39762.</p>
@@ -3124,6 +3131,11 @@ gtag('config', 'AW-18475284552');
       } else targets.forEach((el) => el.classList.add("is-visible"));
       const form = document.querySelector(".contact form");
       if (form) {
+        // Prefill only the approved service value; all other fields stay under customer control.
+        const requestedService = new URLSearchParams(location.search).get('service');
+        if (requestedService === 'standby-generator') {
+          form.querySelector('[name="fi-select-serviceType"]').value = 'Standby Generator Installation';
+        }
         const preferred = form.querySelector('[name="fi-select-preferredContact"]');
         const email = form.querySelector('[name="fi-sender-email"]');
         const updateEmailRequirement = () => { email.required = preferred.value === 'Email'; };
@@ -3178,3 +3190,4 @@ gtag('config', 'AW-18475284552');
 <script id="housecall-pro-chat-bubble" src="https://chat.housecallpro.com/proChat.js" type="text/javascript" data-color="#F2B21A" data-organization="7a891804-381a-415b-8e0d-6263ee740454" defer></script>
 </body>
 </html>
+
