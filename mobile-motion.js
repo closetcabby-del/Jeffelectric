@@ -1,6 +1,6 @@
 (()=>{
   const legacy=document.createElement('script');
-  legacy.src='./mobile-motion-legacy.js?v=4';
+  legacy.src='./mobile-motion-legacy.js?v=5';
   legacy.defer=true;
   document.head.appendChild(legacy);
 

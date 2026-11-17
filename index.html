@@ -23,7 +23,7 @@ gtag('config', 'AW-18475284552');
     <link rel="alternate" hreflang="es" href="https://jeffelectric.online/es/" />
     <link rel="alternate" hreflang="x-default" href="https://jeffelectric.online/" />
     <link rel="stylesheet" href="/language-switch.css?v=1" />
-    <script src="/language-switch.js?v=1" defer></script>
+    <script src="/language-switch.js?v=2" defer></script>
     <meta property="og:title" content="Residential Electrician in Southeast Houston | Jeff Electric" />
     <meta property="og:description" content="Residential electrical service across Southeast Houston. Tell Jeff Electric what you need help with." />
     <meta property="og:url" content="https://jeffelectric.online/" />
@@ -1647,6 +1647,9 @@ gtag('config', 'AW-18475284552');
         line-height: 1.7;
         max-width: 520px;
       }
+      .enquiry-panel { min-width: 0; width: 100%; }
+      .enquiry-panel iframe { display: block; width: 100%; border: 0; background: #fff; }
+      .enquiry-link { display: inline-block; padding: 12px 0; color: #f2b21a; text-decoration: underline; }
       .contact-phone {
         display: block;
         margin-top: 35px;
@@ -2922,82 +2925,10 @@ gtag('config', 'AW-18475284552');
             Your information is used only to respond to your service request.
           </p>
         </div>
-        <form
-          class="reveal"
-          method="POST"
-          action="https://forminit.com/f/pojgp0vhkve"
-        >
-          <input
-            type="hidden"
-            name="_subject"
-            value="New estimate request from jeffelectric.online"
-          />
-          <div class="form-row">
-            <label
-              >Full name<input
-                required=""
-                autocomplete="name"
-                placeholder="Your name"
-                name="fi-sender-firstName" /></label
-            ><label
-              >Phone number<input
-                required=""
-                type="tel"
-                autocomplete="tel"
-                placeholder="(000) 000-0000"
-                name="fi-phone-phoneNumber"
-            /></label>
-          </div>
-          <div class="form-row">
-            <label
-              >ZIP code<input
-                required=""
-                inputmode="numeric"
-                autocomplete="postal-code"
-                placeholder="77502"
-                name="fi-text-zipCode" /></label
-            ><label
-              >Preferred contact<select name="fi-select-preferredContact">
-                <option>Phone call</option>
-                <option>Text message</option>
-                <option>Email</option>
-              </select></label
-            >
-          </div>
-          <input type="hidden" name="fi-text-pageLanguage" value="en" />
-          <label>Preferred language for follow-up (optional)<select name="fi-select-preferredLanguage"><option value="" selected>No preference</option><option value="English">English</option><option value="Spanish" lang="es">Español</option></select></label>
-          <label>Email address (required for email replies)<input type="email" name="fi-sender-email" autocomplete="email" placeholder="you@example.com" /></label>
-          <label
-            >Residential service needed<select
-              required=""
-              name="fi-select-serviceType"
-            >
-              <option value="" disabled="" selected="">Select a service</option>
-              <option>Troubleshooting &amp; Repairs</option>
-              <option>Panel Repair &amp; Replacement</option>
-              <option>Outlets, Switches &amp; Lighting</option>
-              <option>EV-Charger Installation</option>
-              <option>Whole-Home Surge Protection</option>
-              <option>Generator Connections</option>
-              <option>Standby Generator Installation</option>
-              <option>Something else</option>
-            </select></label
-          ><label
-            >What do you need help with?<textarea
-              required=""
-              name="fi-text-message"
-              rows="4"
-              placeholder="Tell us what you noticed, when it started, and anything else that may help."
-            ></textarea></label
-          ><label
-            >Photo of the issue (optional; JPG, PNG or WebP, up to 8 MB)<input
-              type="file"
-              name="fi-file-photo"
-              accept="image/jpeg,image/png,image/webp" /></label
-          ><button class="button button-gold button-large" type="submit">
-            Request an Estimate <span>→</span>
-          </button>
-        </form>
+        <div class="enquiry-panel">
+          <a class="enquiry-link" href="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab">Open the full-page enquiry form</a>
+          <iframe src="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab" title="Jeff Electric service enquiry" width="100%" height="1250" loading="lazy"></iframe>
+        </div>
       </section>
       <footer>
         <a
@@ -3038,7 +2969,6 @@ gtag('config', 'AW-18475284552');
         ><a href="#contact">Request Estimate</a>
       </div>
     </main>
-    <script src="https://forminit.com/sdk/v1/forminit.js"></script><script src="/intake-submit.js?v=1"></script>
     <script>
       const symptomData = [
         [
@@ -3129,63 +3059,8 @@ gtag('config', 'AW-18475284552');
         );
         targets.forEach((el) => observer.observe(el));
       } else targets.forEach((el) => el.classList.add("is-visible"));
-      const form = document.querySelector(".contact form");
-      if (form) {
-        // Prefill only the approved service value; all other fields stay under customer control.
-        const requestedService = new URLSearchParams(location.search).get('service');
-        if (requestedService === 'standby-generator') {
-          form.querySelector('[name="fi-select-serviceType"]').value = 'Standby Generator Installation';
-        }
-        const preferred = form.querySelector('[name="fi-select-preferredContact"]');
-        const email = form.querySelector('[name="fi-sender-email"]');
-        const updateEmailRequirement = () => { email.required = preferred.value === 'Email'; };
-        preferred.addEventListener('change', updateEmailRequirement);
-        updateEmailRequirement();
-      }
-      if (form)
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const btn = form.querySelector("button[type=submit]");
-          if (btn && btn.disabled) return;
-          const data = new FormData(form);
-          const phoneValue = String(data.get("fi-phone-phoneNumber") || "");
-          const digits = phoneValue.replace(/\D/g, "");
-          if (digits.length === 10)
-            data.set("fi-phone-phoneNumber", "+1" + digits);
-          else if (digits.length === 11 && digits.startsWith("1"))
-            data.set("fi-phone-phoneNumber", "+" + digits);
-          if (btn) btn.disabled = true;
-          try {
-            if (!window.JeffElectricIntake) throw new Error("Intake service did not load");
-            const result = await window.JeffElectricIntake.submit(data, form);
-            if (result && result.data && result.data.hashId && !result.error) {
-              // Record only confirmed submissions, even if the helper script is blocked.
-              try {
-                if (typeof window.gtag === "function") {
-                  window.gtag("event", "generate_lead", {
-                    page_path: location.pathname,
-                  });
-                }
-              } catch (_) { /* Tracking must not interrupt the enquiry. */ }
-              form.outerHTML =
-                '<div class="success" role="status" aria-live="polite"><span>✓</span><h3>Request received.</h3><p>Thanks. Jeff Electric received your estimate request and will follow up using the contact information you provided. Prefer to talk now? Call <a href="tel:+13463984485">(346) 398-4485</a>.</p></div>';
-            } else {
-              throw new Error(
-                result && result.error
-                  ? result.error.message
-                  : "Submission failed",
-              );
-            }
-          } catch (err) {
-            console.error("Form submission failed:", err);
-            if (btn) btn.disabled = false;
-            alert(
-              "Sorry, something went wrong sending your request. Please call Jeff Electric at (346) 398-4485.",
-            );
-          }
-        });
     </script>
-    <script src="./mobile-motion.js?v=4" defer></script>
+    <script src="./mobile-motion.js?v=5" defer></script>
 </body>
 </html>
 

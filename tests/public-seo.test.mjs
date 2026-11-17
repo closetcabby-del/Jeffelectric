@@ -39,11 +39,9 @@ test('tracking distinguishes clicks from leads, excludes form data and tolerates
  assert.equal(JSON.stringify(result.events).includes('email'),false);
  assert.doesNotThrow(()=>run({analyticsThrows:true}).context.window.jeffTrackLead());
 });
-test('campaign fields survive a page transition without copying unrelated URL data',()=>{
- const first=run({search:'?utm_source=google&utm_campaign=panels&email=private@example.com'});
- const next=run({stored:first.saved});
- assert.ok(next.inputs.some(x=>x.name==='fi-text-utm_campaign'&&x.value==='panels'));
- assert.ok(!JSON.stringify(next.inputs).includes('private@example.com'));
- assert.doesNotThrow(()=>run({storageBlocked:true}));
- assert.doesNotThrow(()=>run({stored:'invalid JSON'}));
+test('hosted enquiry navigation never transmits URL or campaign fields through the lead tracker',()=>{
+ const result=run({search:'?utm_source=google&email=private@example.com'});
+ assert.equal(result.saved,undefined);
+ assert.deepEqual(result.inputs,[]);
+ assert.deepEqual(result.events,[]);
 });

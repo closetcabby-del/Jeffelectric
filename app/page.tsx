@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BatteryCharging, CircuitBoard, Lightbulb, Power, ShieldCheck, Wrench } from "lucide-react";
 
 const services = [
@@ -39,7 +39,6 @@ function Bolt({ small = false }: { small?: boolean }) {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sent, setSent] = useState(false);
   const [selectedSymptom, setSelectedSymptom] = useState(0);
   const [heroSlide, setHeroSlide] = useState(0);
   const [slideshowPaused, setSlideshowPaused] = useState(false);
@@ -68,37 +67,6 @@ export default function Home() {
     elements.forEach(element => observer.observe(element));
     return () => observer.disconnect();
   }, []);
-
-  async function submitQuote(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    try {
-      const w = window as typeof window & { Forminit?: new () => { submit: (formId: string, data: FormData) => Promise<{ error?: { message?: string } }> } };
-      if (!w.Forminit) {
-        await new Promise<void>((resolve, reject) => {
-          const script = document.createElement("script");
-          script.src = "https://forminit.com/sdk/v1/forminit.js";
-          script.onload = () => resolve();
-          script.onerror = () => reject(new Error("Forminit SDK did not load"));
-          document.body.appendChild(script);
-        });
-      }
-      if (!w.Forminit) throw new Error("Forminit SDK did not load");
-      const formData = new FormData(form);
-      const phoneValue = String(formData.get("fi-phone-phoneNumber") || "");
-      const digits = phoneValue.replace(/\D/g, "");
-      if (digits.length === 10) formData.set("fi-phone-phoneNumber", `+1${digits}`);
-      else if (digits.length === 11 && digits.startsWith("1")) formData.set("fi-phone-phoneNumber", `+${digits}`);
-      const forminit = new w.Forminit();
-      const result = await forminit.submit("pojgp0vhkve", formData);
-      if (result?.error) throw new Error(result.error.message || "Submission failed");
-      setSent(true);
-      form.reset();
-    } catch (error) {
-      console.error("Form submission failed:", error);
-      window.alert("Sorry, something went wrong. Please call Jeff Electric at (346) 398-4485.");
-    }
-  }
 
   return (
     <main>
@@ -274,19 +242,10 @@ export default function Home() {
           <a className="contact-phone" href="tel:+13463984485"><small>Prefer to talk now?</small><strong>☎ (346) 398-4485</strong></a>
           <p className="privacy">Your information is used only to respond to your service request.</p>
         </div>
-        {sent ? (
-          <div className="success" role="status" aria-live="polite"><span>✓</span><h3>Request received.</h3><p>Thanks. Jeff Electric received your estimate request and will use the contact information you provided to follow up. Prefer to talk now? Call <a href="tel:+13463984485">(346) 398-4485</a>.</p><button onClick={() => setSent(false)}>Send another request</button></div>
-        ) : (
-          <form onSubmit={submitQuote} method="POST" action="https://forminit.com/f/pojgp0vhkve" aria-label="Request an estimate form">
-            <input type="hidden" name="_subject" value="New estimate request from jeffelectric.online" />
-            <div className="form-row"><label>Full name<input required name="fi-sender-firstName" autoComplete="name" placeholder="Your name" /></label><label>Phone number<input required name="fi-phone-phoneNumber" type="tel" autoComplete="tel" placeholder="(000) 000-0000" /></label></div>
-            <div className="form-row"><label>ZIP code<input required name="fi-text-zipCode" inputMode="numeric" autoComplete="postal-code" placeholder="77502" /></label><label>Preferred contact<select name="fi-select-preferredContact"><option>Phone call</option><option>Text message</option><option>Email</option></select></label></div>
-            <label>Residential service needed<select required name="fi-select-serviceType" defaultValue=""><option value="" disabled>Select a service</option>{services.map(service => <option key={service.title}>{service.title}</option>)}<option>Something else</option></select></label>
-            <label>What do you need help with?<textarea required name="fi-text-message" rows={4} placeholder="Tell us what you noticed, what you want installed, or what you would like us to evaluate." /></label>
-            <label>Photo of the issue (optional)<input type="file" name="fi-file-photo" accept="image/*" /></label>
-            <button className="button button-gold button-large" type="submit">Request an Estimate <span>→</span></button>
-          </form>
-        )}
+        <div className="enquiry-panel">
+          <a className="enquiry-link" href="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab">Open the full-page enquiry form</a>
+          <iframe src="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab" title="Jeff Electric service enquiry" width="100%" height="1250" loading="lazy"></iframe>
+        </div>
       </section>
 
       <footer>

@@ -23,7 +23,7 @@ gtag('config', 'AW-18475284552');
     <link rel="alternate" hreflang="es" href="https://jeffelectric.online/es/" />
     <link rel="alternate" hreflang="x-default" href="https://jeffelectric.online/" />
     <link rel="stylesheet" href="/language-switch.css?v=1" />
-    <script src="/language-switch.js?v=1" defer></script>
+    <script src="/language-switch.js?v=2" defer></script>
     <meta property="og:title" content="Electricista residencial en el sureste de Houston | Jeff Electric" />
     <meta property="og:description" content="Servicios eléctricos residenciales en el sureste de Houston. Cuéntenos en qué necesita ayuda." />
     <meta property="og:url" content="https://jeffelectric.online/es/" />
@@ -1647,6 +1647,9 @@ gtag('config', 'AW-18475284552');
         line-height: 1.7;
         max-width: 520px;
       }
+      .enquiry-panel { min-width: 0; width: 100%; }
+      .enquiry-panel iframe { display: block; width: 100%; border: 0; background: #fff; }
+      .enquiry-link { display: inline-block; padding: 12px 0; color: #f2b21a; text-decoration: underline; }
       .contact-phone {
         display: block;
         margin-top: 35px;
@@ -2303,7 +2306,7 @@ gtag('config', 'AW-18475284552');
   <script src="/website-call-tracking.js?v=1" defer></script>
 </head>
   <body>
-    <noscript><style>.reveal,.motion-ready{opacity:1!important;transform:none!important}.contact>form{display:block!important}</style><p class="language-note">Active JavaScript para enviar una solicitud en línea o llame al <a href="tel:+13463984485">(346) 398-4485</a>.</p></noscript>
+    <noscript><style>.reveal,.motion-ready{opacity:1!important;transform:none!important}</style><p class="language-note">Active JavaScript para enviar una solicitud en línea o llame al <a href="tel:+13463984485">(346) 398-4485</a>.</p></noscript>
     <main>
       <header class="site-header">
         <a class="brand" href="#top" aria-label="Inicio de Jeff Electric"
@@ -2704,6 +2707,11 @@ gtag('config', 'AW-18475284552');
             <a href="/generator-interlock-installation.html" aria-label="Más información sobre conexiones para generadores (página en inglés)"
                hreflang="en" data-english-target="true" title="Página en inglés">→</a>
           </article>
+          <article class="service-standby" style="grid-column:1 / -1">
+            <span>07</span>
+            <div><h3><a href="/standby-generator-installation.html" hreflang="en" data-english-target="true" title="Página en inglés">Instalación de generadores de respaldo <span class="english-link-note">(en inglés)</span></a></h3><p>Planifique la instalación de un generador de respaldo para su hogar con una evaluación del sistema eléctrico, un interruptor de transferencia automática y un alcance de trabajo definido.</p></div>
+            <a href="/standby-generator-installation.html" aria-label="Más información sobre la instalación de generadores de respaldo (página en inglés)" hreflang="en" data-english-target="true" title="Página en inglés">→</a>
+          </article>
         </div>
         <div class="service-assist">
           <span>¿NO ESTÁ SEGURO?</span>
@@ -2840,75 +2848,10 @@ gtag('config', 'AW-18475284552');
             Su información se utiliza únicamente para responder a su solicitud de servicio.
           </p>
         </div>
-        <form
-          class="reveal"
-          method="POST"
-          action="https://forminit.com/f/pojgp0vhkve"
-        >
-          <input
-            type="hidden"
-            name="_subject"
-            value="New estimate request from jeffelectric.online"
-          />
-          <div class="form-row">
-            <label
-              >Nombre completo<input
-                required=""
-                autocomplete="name"
-                placeholder="Su nombre"
-                name="fi-sender-firstName" /></label><label
-              >Número de teléfono<input
-                required=""
-                type="tel"
-                autocomplete="tel"
-                placeholder="(000) 000-0000"
-                name="fi-phone-phoneNumber"
-            /></label>
-          </div>
-          <div class="form-row">
-            <label
-              >Código postal<input
-                required=""
-                inputmode="numeric"
-                autocomplete="postal-code"
-                placeholder="77502"
-                name="fi-text-zipCode" /></label><label
-              >Cómo prefiere que le contactemos<select name="fi-select-preferredContact">
-                <option value="Phone call">Llamada telefónica</option>
-                <option value="Text message">Mensaje de texto</option>
-                <option value="Email">Correo electrónico</option>
-              </select></label>
-          </div>
-          <input type="hidden" name="fi-text-pageLanguage" value="es" />
-          <label>Idioma que prefiere para el seguimiento (opcional)<select name="fi-select-preferredLanguage"><option value="" selected>Sin preferencia</option><option value="English">English</option><option value="Spanish" lang="es">Español</option></select></label>
-          <label>Correo electrónico (obligatorio para recibir respuesta por correo)<input type="email" name="fi-sender-email" autocomplete="email" placeholder="you@example.com" /></label>
-          <label
-            >Servicio residencial que necesita<select
-              required=""
-              name="fi-select-serviceType"
-            >
-              <option value="" disabled="" selected="">Seleccione un servicio</option>
-              <option value="Troubleshooting &amp; Repairs">Diagnóstico y reparaciones</option>
-              <option value="Panel Repair &amp; Replacement">Reparación y reemplazo de paneles</option>
-              <option value="Outlets, Switches &amp; Lighting">Contactos, apagadores e iluminación</option>
-              <option value="EV-Charger Installation">Instalación de cargadores para vehículos eléctricos</option>
-              <option value="Whole-Home Surge Protection">Protección contra sobretensiones para toda la casa</option>
-              <option value="Generator Connections">Conexiones para generadores</option>
-              <option value="Something else">Otro servicio</option>
-            </select></label><label
-            >¿En qué necesita ayuda?<textarea
-              required=""
-              name="fi-text-message"
-              rows="4"
-              placeholder="Cuéntenos lo que notó, cuándo empezó y cualquier otro detalle que pueda ayudar."
-            ></textarea></label><label
-            >Foto del problema (opcional; JPG, PNG o WebP, hasta 8 MB)<input
-              type="file"
-              name="fi-file-photo"
-              accept="image/jpeg,image/png,image/webp" /></label><button class="button button-gold button-large" type="submit">
-            Solicitar cotización <span>→</span>
-          </button>
-        </form>
+        <div class="enquiry-panel">
+          <a class="enquiry-link" href="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab">Abrir el formulario completo (en inglés)</a>
+          <iframe src="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab" title="Formulario de servicio de Jeff Electric (en inglés)" width="100%" height="1250" loading="lazy"></iframe>
+        </div>
       </section>
       <footer>
         <a
@@ -2938,6 +2881,7 @@ gtag('config', 'AW-18475284552');
           <a href="/ev-charger-installation.html" hreflang="en" data-english-target="true" title="Página en inglés">Instalación de cargadores para vehículos eléctricos <span class="english-link-note">(en inglés)</span></a>
           <a href="/surge-protection.html" hreflang="en" data-english-target="true" title="Página en inglés">Protección contra sobretensiones <span class="english-link-note">(en inglés)</span></a>
           <a href="/generator-interlock-installation.html" hreflang="en" data-english-target="true" title="Página en inglés">Conexiones para generadores <span class="english-link-note">(en inglés)</span></a>
+          <a href="/standby-generator-installation.html" hreflang="en" data-english-target="true" title="Página en inglés">Instalación de generadores de respaldo <span class="english-link-note">(en inglés)</span></a>
           <a href="#contact">Solicitar cotización</a>
         </div>
         <p>© 2026 Jeff Electric. Todos los derechos reservados. TECL 39762.</p>
@@ -2946,7 +2890,6 @@ gtag('config', 'AW-18475284552');
         <a href="tel:+13463984485">☎ Llame ahora</a><a href="#contact">Solicitar cotización</a>
       </div>
     </main>
-    <script src="https://forminit.com/sdk/v1/forminit.js"></script><script src="/intake-submit.js?v=1"></script>
     <script>
       const symptomData = [
         [
@@ -3037,57 +2980,7 @@ gtag('config', 'AW-18475284552');
         );
         targets.forEach((el) => observer.observe(el));
       } else targets.forEach((el) => el.classList.add("is-visible"));
-      const form = document.querySelector(".contact form");
-      if (form) {
-        const preferred = form.querySelector('[name="fi-select-preferredContact"]');
-        const email = form.querySelector('[name="fi-sender-email"]');
-        const updateEmailRequirement = () => { email.required = preferred.value === 'Email'; };
-        preferred.addEventListener('change', updateEmailRequirement);
-        updateEmailRequirement();
-      }
-      if (form)
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const btn = form.querySelector("button[type=submit]");
-          if (btn && btn.disabled) return;
-          const data = new FormData(form);
-          const phoneValue = String(data.get("fi-phone-phoneNumber") || "");
-          const digits = phoneValue.replace(/\D/g, "");
-          if (digits.length === 10)
-            data.set("fi-phone-phoneNumber", "+1" + digits);
-          else if (digits.length === 11 && digits.startsWith("1"))
-            data.set("fi-phone-phoneNumber", "+" + digits);
-          if (btn) btn.disabled = true;
-          try {
-            if (!window.JeffElectricIntake) throw new Error("Intake service did not load");
-            const result = await window.JeffElectricIntake.submit(data, form);
-            if (result && result.data && result.data.hashId && !result.error) {
-              // Record only confirmed submissions, even if the helper script is blocked.
-              try {
-                if (typeof window.gtag === "function") {
-                  window.gtag("event", "generate_lead", {
-                    page_path: location.pathname,
-                  });
-                }
-              } catch (_) { /* Tracking must not interrupt the enquiry. */ }
-              form.outerHTML =
-                '<div class="success" role="status" aria-live="polite"><span>✓</span><h3>Solicitud recibida.</h3><p>Gracias. Jeff Electric recibió su solicitud de cotización y le contactará con los datos que proporcionó. ¿Prefiere hablar ahora? Llame al <a href="tel:+13463984485">(346) 398-4485</a>.</p></div>';
-            } else {
-              throw new Error(
-                result && result.error
-                  ? result.error.message
-                  : "Submission failed",
-              );
-            }
-          } catch (err) {
-            console.error("Form submission failed:", err);
-            if (btn) btn.disabled = false;
-            alert(
-              "Lo sentimos, no se pudo enviar su solicitud. Llame a Jeff Electric al (346) 398-4485.",
-            );
-          }
-        });
     </script>
-    <script src="/es/mobile-motion.js?v=1" defer></script>
+    <script src="/es/mobile-motion.js?v=2" defer></script>
 </body>
 </html>
