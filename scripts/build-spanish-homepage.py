@@ -11,6 +11,7 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 TEXT = {
+'☎ Call (346) 398-4485': '☎ Llame al (346) 398-4485',
 'Standby Generator Installation': 'Instalación de generadores de respaldo',
 'Learn about Standby Generator Installation': 'Más información sobre la instalación de generadores de respaldo',
 'Plan residential standby power with an electrical-system assessment, automatic transfer switch work and a defined installation scope.': 'Planifique la instalación de un generador de respaldo para su hogar con una evaluación del sistema eléctrico, un interruptor de transferencia automática y un alcance de trabajo definido.',

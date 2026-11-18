@@ -59,7 +59,6 @@ gtag('config', 'G-4BK4Q6NXD6');
 gtag('config', 'AW-18475284552');`,
           }}
         />
-        <script src="/website-call-tracking.js?v=1" defer />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
