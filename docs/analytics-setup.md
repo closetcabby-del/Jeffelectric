@@ -34,10 +34,20 @@ Analytics data.
 
 ## Website calls
 
-Customer-facing phone numbers and call buttons use **(346) 398-4485**. The
-website no longer requests a Google forwarding number. Google Ads cannot
-measure completed website calls through that forwarding number. Click reporting
-continues through the existing lead-tracking script. The retired script URL
-remains available to browsers that have cached older pages.
+The permanent business number remains **(346) 398-4485** in source HTML and
+ordinary visits. For eligible Google Ads visitors, the versioned script requests
+a Google forwarding number using the existing 60-second conversion action.
+It replaces matching visible numbers and tel links only on a valid callback.
+Without a callback the permanent number remains. Phone clicks remain secondary.
 
-Run `node --test tests/website-call-tracking.test.mjs` to check call links.
+Run `node --test tests/website-call-tracking.test.mjs` before deployment.
+Verify the production site in Tag Assistant and reconcile a received call of
+at least 60 seconds with Google Ads call details.
+
+## ServiceM8 enquiries
+
+Preserve the hosted enquiry and photo forms. Do not count opening the form as
+a lead. Verify native advertising tracking in ServiceM8 administration and
+GA4 attribution on a confirmed submission before importing a conversion.
+If the hosted form does not support confirmed-submit tracking, use a supported
+CRM offline conversion import instead. No ServiceM8 admin setting is changed here.
