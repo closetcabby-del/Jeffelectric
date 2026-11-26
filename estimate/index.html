@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Request an Estimate | Jeff Electric</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BK4Q6NXD6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4BK4Q6NXD6');
+    gtag('config', 'AW-18475284552');
+  </script>
+  <script src="/website-call-tracking.js?v=2" defer></script>
+  <style>
+    body { margin: 0; background: #11120f; color: #faf9f4; font: 16px/1.5 system-ui, sans-serif; }
+    main { max-width: 36rem; margin: auto; padding: 2rem 1rem; }
+    a { color: #ffcf62; }
+    form, label { display: grid; gap: .4rem; }
+    form { gap: 1rem; }
+    input, textarea, button { box-sizing: border-box; width: 100%; padding: .7rem; font: inherit; }
+    input, textarea { background: #22231f; color: inherit; border: 1px solid #888981; border-radius: .25rem; }
+    button { background: #ffcf62; color: #191a15; border: 0; border-radius: .25rem; font-weight: 700; }
+    button:disabled { opacity: .65; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="/">Jeff Electric</a>
+    <h1>Request an estimate</h1>
+    <p>Describe the electrical work you need and include a photo if it helps. Prefer to talk? Call <a href="tel:+13463984485">(346) 398-4485</a>.</p>
+    <form id="estimate" data-submit-url="https://script.google.com/macros/s/AKfycbzU3Cw1ju0thczyNcllHOo-BqI8IM0fRQKUsedeMXQ70SuFTeiWw-oifnXSz7X1cCY/exec" method="post" enctype="multipart/form-data">
+      <label>Your name<input name="name" autocomplete="name" required maxlength="100"></label>
+      <label>Phone<input name="phone" type="tel" autocomplete="tel" required maxlength="30"></label>
+      <label>Email (optional)<input name="email" type="email" autocomplete="email" maxlength="254"></label>
+      <label>Service address<input name="address" autocomplete="street-address" required maxlength="250"></label>
+      <label>How can we help?<textarea name="description" rows="5" required maxlength="2000"></textarea></label>
+      <label>Photo (optional, up to 5 MB)<input name="photo" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif"></label>
+      <label hidden style="display:none">Leave blank<input name="company_site" tabindex="-1" autocomplete="off"></label>
+      <button type="submit" disabled>Send request</button>
+    </form>
+    <p id="status" role="status" aria-live="polite">If the form doesn’t load, please call (346) 398-4485.</p>
+  </main>
+  <script>
+    const form = document.querySelector('#estimate');
+    const submit = form.querySelector('button');
+    const status = document.querySelector('#status');
+    const endpoint = form.dataset.submitUrl;
+    const qa = new URL(location.href).searchParams.get('qa') === 'website-intake';
+    const maxPhotoBytes = 5 * 1024 * 1024;
+    let sending = false;
+    let complete = false;
+    let requestId;
+
+    form.addEventListener('input', () => {
+      if (!sending) requestId = undefined;
+    });
+
+    const encodePhoto = (file) => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!endpoint || sending || complete) return;
+
+      const fields = Object.fromEntries(new FormData(form));
+      if (fields.photo.size > maxPhotoBytes) {
+        status.textContent = 'Choose a photo smaller than 5 MB and try again.';
+        return;
+      }
+
+      sending = true;
+      submit.disabled = true;
+      status.textContent = 'Sending your request…';
+
+      try {
+        requestId ||= crypto.randomUUID();
+        const photo = fields.photo.size ? await encodePhoto(fields.photo) : '';
+        const body = JSON.stringify({ ...fields, id: requestId, photo });
+        const response = await fetch(endpoint, { method: 'POST', credentials: 'omit', body });
+        const receipt = await response.json();
+        if (!response.ok || receipt.accepted !== true || typeof receipt.has_photo !== 'boolean') {
+          throw new Error('The intake did not confirm the request.');
+        }
+
+        complete = true;
+        form.reset();
+        status.textContent = 'Thanks. We received your request.';
+
+        try {
+          window.gtag?.('event', qa ? 'estimate_qa_success' : 'generate_lead', {
+            send_to: 'G-4BK4Q6NXD6',
+            has_photo: receipt.has_photo ? 'yes' : 'no',
+          });
+        } catch {
+          // Analytics does not affect the accepted request.
+        }
+      } catch {
+        status.textContent = 'We couldn’t confirm receipt. Try again or call (346) 398-4485.';
+      } finally {
+        sending = false;
+        submit.disabled = complete;
+      }
+    });
+
+    if (endpoint) {
+      submit.disabled = false;
+      status.textContent = '';
+    }
+  </script>
+</body>
+</html>
