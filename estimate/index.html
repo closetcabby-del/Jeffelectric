@@ -24,6 +24,7 @@
     input, textarea { background: #22231f; color: inherit; border: 1px solid #888981; border-radius: .25rem; }
     button { background: #ffcf62; color: #191a15; border: 0; border-radius: .25rem; font-weight: 700; }
     button:disabled { opacity: .65; }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
@@ -42,12 +43,14 @@
       <button type="submit" disabled>Send request</button>
     </form>
     <p id="status" role="status" aria-live="polite">If the form doesn’t load, please call (346) 398-4485.</p>
+    <button id="another-request" type="button" hidden>Send another request</button>
     <p>We use your information to respond to your request. If you have trouble submitting, <a href="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab">use our alternate enquiry form</a>.</p>
   </main>
   <script>
     const form = document.querySelector('#estimate');
     const submit = form.querySelector('button');
     const status = document.querySelector('#status');
+    const anotherRequest = document.querySelector('#another-request');
     const endpoint = form.dataset.submitUrl;
     const qa = new URL(location.href).searchParams.get('qa') === 'website-intake';
     const maxPhotoBytes = 5 * 1024 * 1024;
@@ -57,6 +60,17 @@
 
     form.addEventListener('input', () => {
       if (!sending) requestId = undefined;
+    });
+
+    anotherRequest.addEventListener('click', () => {
+      if (!complete) return;
+      complete = false;
+      requestId = undefined;
+      anotherRequest.hidden = true;
+      status.textContent = '';
+      form.hidden = false;
+      submit.disabled = false;
+      form.elements.namedItem('name').focus();
     });
 
     const encodePhoto = (file) => new Promise((resolve, reject) => {
@@ -93,6 +107,9 @@
         complete = true;
         form.reset();
         status.textContent = 'Thanks. We received your request.';
+        form.hidden = true;
+        anotherRequest.hidden = false;
+        anotherRequest.focus();
 
         try {
           window.gtag?.('event', qa ? 'estimate_qa_success' : 'generate_lead', {
