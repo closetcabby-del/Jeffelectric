@@ -94,7 +94,8 @@ TEXT = {
 'Your information is used only to respond to your service request.': 'Su información se utiliza únicamente para responder a su solicitud de servicio.',
 'Full name': 'Nombre completo', 'Phone number': 'Número de teléfono', 'ZIP code': 'Código postal', 'Preferred contact': 'Cómo prefiere que le contactemos', 'Phone call': 'Llamada telefónica', 'Text message': 'Mensaje de texto', 'Email': 'Correo electrónico',
 'Email address (required for email replies)': 'Correo electrónico (obligatorio para recibir respuesta por correo)', 'Residential service needed': 'Servicio residencial que necesita', 'Select a service': 'Seleccione un servicio', 'Something else': 'Otro servicio', 'What do you need help with?': '¿En qué necesita ayuda?',
-'Photo of the issue (optional; JPG, PNG or WebP, up to 8 MB)': 'Foto del problema (opcional; JPG, PNG o WebP, hasta 8 MB)',
+'Photos (optional, JPG, PNG or WebP, up to 8 MB total)': 'Fotos (opcional, JPG, PNG o WebP, hasta 8 MB en total)',
+'Service address (optional)': 'Dirección del servicio (opcional)',
 'Quick Links': 'Enlaces rápidos', 'All Residential Services': 'Todos los servicios residenciales', 'Surge Protection': 'Protección contra sobretensiones', '© 2026 Jeff Electric. All rights reserved. TECL 39762.': '© 2026 Jeff Electric. Todos los derechos reservados. TECL 39762.',
 'Jeff Electric home': 'Inicio de Jeff Electric', 'Jeff Electric — Wiring Tomorrow, Today': 'Jeff Electric', 'Toggle menu': 'Abrir o cerrar el menú', 'Main navigation': 'Navegación principal', 'Jeff Electric credentials': 'Credenciales de Jeff Electric',
 'Two Jeff Electric team members on a residential electrical project': 'Dos miembros del equipo de Jeff Electric en un proyecto eléctrico residencial', 'Google customer reviews': 'Reseñas de clientes en Google', '5 out of 5 stars': '5 de 5 estrellas', 'What homeowners can expect': 'Qué pueden esperar los propietarios', 'Electrical symptoms': 'Señales de problemas eléctricos',
@@ -211,6 +212,8 @@ class SpanishHTML(HTMLParser):
             value = attrs.get(key)
             if value in TEXT:
                 raw = re.sub(r'(\b' + key + r'\s*=\s*)([\"\x27])(.*?)\2', lambda m: m[1] + m[2] + escape(TEXT[value], quote=True) + m[2], raw, flags=re.S)
+        if tag == 'input' and attrs.get('name') == 'fi-text-pageLanguage':
+            raw = raw.replace('value="en"', 'value="es"')
         if tag == 'html': raw = raw.replace('lang="en"', 'lang="es"')
         raw = re.sub(r'(\b(?:src|href)\s*=\s*[\"\x27])\./', r'\1/', raw)
         if tag == 'a' and (attrs.get('href') or '').endswith('.html'):
