@@ -30,6 +30,7 @@ gtag('config', 'AW-18475284552');
     <meta property="og:type" content="website" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://jeffelectric.online/#organization","name":"Jeff Electric","url":"https://jeffelectric.online/","telephone":"+1-346-398-4485","areaServed":["Pasadena TX","Pearland TX","Friendswood TX","Webster TX","Clear Lake TX","Southeast Houston TX"],"description":"Jeff Electric provides residential electrical troubleshooting and repairs, panel and service replacements, EV charger installation, whole-home surge protection, generator connections and standby generator electrical installation across Southeast Houston, Pasadena, Pearland, Friendswood, Webster and Clear Lake, Texas.","logo":"https://jeffelectric.online/public/brand/jeff-electric-logo.png","contactPoint":{"@type":"ContactPoint","telephone":"+1-346-398-4485","contactType":"customer service","url":"https://jeffelectric.online/#contact","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"19:00"}},"hasCredential":{"@type":"EducationalOccupationalCredential","credentialCategory":"Texas Electrical Contractor License","identifier":"TECL-39762"}}</script>
     <script src="/lead-tracking.js" defer></script>
+    <script src="/forminit-enquiry.js" defer></script>
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -2849,8 +2850,74 @@ gtag('config', 'AW-18475284552');
           </p>
         </div>
         <div class="enquiry-panel">
-          <a class="enquiry-link" href="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab">Abrir el formulario completo (en inglés)</a>
-          <iframe src="https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab" title="Formulario de servicio de Jeff Electric (en inglés)" width="100%" height="1250" loading="lazy"></iframe>
+          <form
+          data-forminit="estimate"
+          enctype="multipart/form-data"
+          method="POST"
+          action="https://forminit.com/f/pojgp0vhkve"
+        >
+          <div class="form-row">
+            <label
+              >Nombre completo<input
+                required=""
+                autocomplete="name"
+                placeholder="Su nombre"
+                name="fi-sender-fullName" /></label><label
+              >Número de teléfono<input
+                required=""
+                type="tel"
+                autocomplete="tel"
+                placeholder="(000) 000-0000"
+                name="fi-phone-phoneNumber"
+            /></label>
+          </div>
+          <div class="form-row">
+            <label
+              >Código postal<input
+                required=""
+                inputmode="numeric"
+                autocomplete="postal-code"
+                placeholder="77502"
+                name="fi-text-zipCode" /></label><label
+              >Cómo prefiere que le contactemos<select name="fi-select-preferredContact">
+                <option value="Phone call">Llamada telefónica</option>
+                <option value="Text message">Mensaje de texto</option>
+                <option value="Email">Correo electrónico</option>
+              </select></label>
+          </div>
+          <label>Dirección del servicio (opcional)<input name="fi-text-serviceAddress" autocomplete="street-address" /></label>
+          <input type="hidden" name="fi-text-pageLanguage" value="es" />
+          <label>Idioma que prefiere para el seguimiento (opcional)<select name="fi-select-preferredLanguage"><option value="" selected>Sin preferencia</option><option value="English">English</option><option value="Spanish" lang="es">Español</option></select></label>
+          <label>Correo electrónico (obligatorio para recibir respuesta por correo)<input type="email" name="fi-sender-email" autocomplete="email" placeholder="you@example.com" /></label>
+          <label
+            >Servicio residencial que necesita<select
+              required=""
+              name="fi-select-serviceType"
+            >
+              <option value="" disabled="" selected="">Seleccione un servicio</option>
+              <option value="Troubleshooting &amp; Repairs">Diagnóstico y reparaciones</option>
+              <option value="Panel Repair &amp; Replacement">Reparación y reemplazo de paneles</option>
+              <option value="Outlets, Switches &amp; Lighting">Contactos, apagadores e iluminación</option>
+              <option value="EV-Charger Installation">Instalación de cargadores para vehículos eléctricos</option>
+              <option value="Whole-Home Surge Protection">Protección contra sobretensiones para toda la casa</option>
+              <option value="Generator Connections">Conexiones para generadores</option>
+              <option value="Standby Generator Installation">Instalación de generadores de respaldo</option>
+              <option value="Something else">Otro servicio</option>
+            </select></label><label
+            >¿En qué necesita ayuda?<textarea
+              required=""
+              name="fi-text-message"
+              rows="4"
+              placeholder="Cuéntenos lo que notó, cuándo empezó y cualquier otro detalle que pueda ayudar."
+            ></textarea></label><label
+            >Fotos (opcional, JPG, PNG o WebP, hasta 8 MB en total)<input
+              type="file"
+              name="fi-file-photo[]" multiple
+              accept="image/jpeg,image/png,image/webp" /></label><button class="button button-gold button-large" type="submit">
+            Solicitar cotización <span>→</span>
+          </button>
+          <p role="status" aria-live="polite" data-form-status></p>
+        </form>
         </div>
       </section>
       <footer>

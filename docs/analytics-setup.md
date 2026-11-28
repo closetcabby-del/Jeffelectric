@@ -44,10 +44,10 @@ Run `node --test tests/website-call-tracking.test.mjs` before deployment.
 Verify the production site in Tag Assistant and reconcile a received call of
 at least 60 seconds with Google Ads call details.
 
-## ServiceM8 enquiries
+## Forminit enquiries
 
-Preserve the hosted enquiry and photo forms. Do not count opening the form as
-a lead. Verify native advertising tracking in ServiceM8 administration and
-GA4 attribution on a confirmed submission before importing a conversion.
-If the hosted form does not support confirmed-submit tracking, use a supported
-CRM offline conversion import instead. No ServiceM8 admin setting is changed here.
+The English and Spanish homepages send the existing GA4 `generate_lead` event
+only after Forminit returns a submission receipt. The photo page uses its
+existing Ads conversion destination and the receipt as its transaction ID.
+Validate success, rejection and repeated clicks with Google traffic blocked
+for fictional submissions. Staff review the forwarded enquiry in ServiceM8.

@@ -113,17 +113,18 @@ test('favicon files are valid, square and declared at stable root URLs', () => {
 });
 
 
-test('estimate and photo pages embed the verified enquiry form and offer a direct link', () => {
-  const url = 'https://book.servicem8.com/request_booking?uuid=01a17f48-6612-7618-bbff-1d63edbeb8ab';
+test('all customer enquiry pages post directly to Forminit and accept photos', () => {
+  const url = 'https://forminit.com/f/pojgp0vhkve';
   for (const page of ['index.html', 'es/index.html', 'send-photo/index.html']) {
     const source = readFileSync(new URL(page, root), 'utf8');
-    assert.equal(source.split('<iframe src="' + url + '"').length - 1, 1, page);
-    assert.ok(source.includes('href="' + url + '"'), page);
-    assert.doesNotMatch(source, /forminit|intake-submit|JeffElectricIntake|generate_lead/i);
+    assert.equal(source.split('action="' + url + '"').length - 1, 1, page);
+    assert.ok(source.includes('src="/forminit-enquiry.js"'), page);
+    assert.ok(source.includes('name="fi-file-photo[]" multiple'), page);
+    assert.doesNotMatch(source, /book\.servicem8|src="[^"]*intake-submit/);
   }
   for (const page of ['power-up', 'bolt-flight', 'surge-slice']) {
     const source = readFileSync(new URL(page + '/index.html', root), 'utf8');
-    assert.ok(source.includes('href="' + url + '"'), page);
+    assert.ok(source.includes('href="/#contact"'), page);
     assert.match(source, /complimentary inspection/i);
     assert.doesNotMatch(source, /forminit|<form\b/i);
     for (const [, script] of source.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)) new vm.Script(script);

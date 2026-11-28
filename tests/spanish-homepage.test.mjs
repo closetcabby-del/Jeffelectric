@@ -24,8 +24,8 @@ test('English headline and metadata stay English; Spanish is present in static H
   assert.match(en, /<title>Residential Electrician in Southeast Houston \| Jeff Electric<\/title>/);
   assert.match(en, /Residential electrician<br\s*\/><em>in Southeast Houston\./);
   assert.match(es, /Electricista residencial en el sureste de Houston/);
-  assert.match(es, /Abrir el formulario completo \(en inglés\)/);
-  assert.match(es, /title="Formulario de servicio de Jeff Electric \(en inglés\)"/);
+  assert.match(es, /Dirección del servicio \(opcional\)/);
+  assert.match(es, /name="fi-text-pageLanguage" value="es"/);
   assert.doesNotMatch(es, /<title>Residential Electrician/);
 });
 
